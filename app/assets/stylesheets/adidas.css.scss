@@ -142,7 +142,7 @@ body {
 		@media all and (max-width:1250px) { top: 165px; right: 0; }
 		
 		a {
-			&[data-target="#intro .copy1"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
+			&[data-target="#loading"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
 			&[data-target="#section_global"] { @include sprite_replace_text_anchor($sprite, "menu02"); }
 			&[data-target="#section2"] { @include sprite_replace_text_anchor($sprite, "menu03"); }
 			&[data-target="#section3"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
@@ -251,6 +251,7 @@ body {
 			.copy1 { 
 				@include ab_center("top", "loading/text01.png");
 				@include ab_center("left", "loading/text01.png");
+				display: block;
 			}
 			.copy2 {
 				@include ab_center("top", "loading/text02.png");
