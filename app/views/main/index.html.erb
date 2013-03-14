@@ -42,6 +42,8 @@ var completeLoading = function() {
 	if params[:section].present?
 		if params[:section] == "global"
 			concat "ss.scrollToSection('#section_global');".html_safe
+		elsif params[:section] == "4"
+			concat "ss.scrollToSection('#section3');".html_safe
 		else
 			concat "ss.scrollToSection('#section#{params[:section]}', 'start');".html_safe
 		end
@@ -195,7 +197,7 @@ $(document).ready(function() {
 			<div class="popup" data-partial="popup">
 				<%= image_tag "section5/scene/0.png", usemap: "#section5_popup" %>
 				<map name="section5_popup" id="section5_popup">
-					<area data-type="shop" shape="rect" coords="0,0,0,0" href="http://shop.adidas.co.kr/PF020401.action?PROD_CD=Q23423&SRCH_NM=팬텀">
+					<area data-type="shop" shape="rect" coords="0,0,0,0" href="http://shop.adidas.co.kr/PF020401.action?PROD_CD=Q23423&SRCH_NM=팬텀" target="_blank">
 				</map>
 			</div>
 		</div>

@@ -1,0 +1,85 @@
+@import "compass";
+@import "compass/reset";
+@import "compass/css3/user-interface";
+
+#container {	
+	// width: 320px;
+	height: 480px;
+	background: url(asset-path("mobile/000/bg.jpg", image)) no-repeat;
+	background-size: 100%;
+	// background-size: 320px 480px;
+
+	#h {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+
+		.logo {
+			@include hide-text;
+			float: left;
+			display: block;
+			width: 44px;
+			height: 46px;
+			margin-top: 6px;
+			background: url(asset-path("mobile/000/gnb_logo.png", image)) no-repeat;
+			background-size: 44px 46px;
+		}
+		.shop {
+			@include hide-text;
+			float: right;
+			display: block;
+			width: 44px;
+			height: 46px;
+			margin-top: 6px;
+			background: url(asset-path("mobile/000/gnb_shop.png", image)) no-repeat;
+			background-size: 44px 46px;
+		}
+		.title {
+			width: 267px;
+			height: 50px;
+			margin: 0 auto;
+			background: url(asset-path("mobile/000/titlebg.png", image)) no-repeat;
+			background-size: 100px 50px;
+			background-position: center top;
+			padding-top: 14px;
+			.text {
+				@include hide-text;
+				position: relative;
+				width: 217px;
+				height: 37px;
+				margin: 0 auto;
+				background: url(asset-path("mobile/000/title.png", image)) no-repeat;
+				background-size: 217px 37px;
+			}
+		}
+	}
+
+	#c {
+		position: relative;
+		top: 150px;
+		.text {
+			@include hide-text;
+			width: 140px;
+			height: 117px;
+			background: url(asset-path("mobile/000/text01.png", image)) no-repeat;
+			background-size: 140px 117px;
+			margin: 0 auto;
+		}
+		.loading_bg {
+			width: 66px;
+			height: 66px;
+			background: url(asset-path("mobile/000/loadingbg.png", image)) no-repeat;
+			background-size: 66px 66px;
+			margin: 0 auto;
+			margin-top: 40px;
+			.comming_soon {
+				@include hide-text;
+				width: 66px;
+				height: 66px;
+				background: url(asset-path("mobile/000/comingsoon.png", image)) no-repeat;
+				background-size: 66px 66px;
+			}
+		}		
+	}
+}

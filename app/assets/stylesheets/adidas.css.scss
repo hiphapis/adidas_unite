@@ -123,6 +123,14 @@ body {
 				@include sprite_replace_text($sprite, "shop");
 			}
 		}
+		
+		.adidas {
+			position: absolute;
+			background-color:#000;
+			left: 0;
+			@include sprite_replace_text($sprite, "logo");
+		}
+		
 	}
 
 	#lnb {
@@ -134,7 +142,7 @@ body {
 		@media all and (max-width:1250px) { top: 165px; right: 0; }
 		
 		a {
-			&[data-target="#loading"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
+			&[data-target="#intro .copy1"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
 			&[data-target="#section_global"] { @include sprite_replace_text_anchor($sprite, "menu02"); }
 			&[data-target="#section2"] { @include sprite_replace_text_anchor($sprite, "menu03"); }
 			&[data-target="#section3"] { @include sprite_replace_text_anchor($sprite, "menu04"); }

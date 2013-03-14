@@ -1,3 +1,13 @@
+var selectPage = function(ele) {
+	// console.log("start");
+	$(ele).addClass("selected");
+}
+
+var unselectPage = function(ele) {
+	// console.log("end");
+	$(ele).removeClass("selected");
+}
+
 var partialMovement = {
 	currentScene: function(last_scene, progress) {
 		return parseInt((last_scene * progress) / 100);
@@ -100,14 +110,6 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { opacity: 0 }
-				},
-				{
-					position: 0.35,
-					properties: { opacity: 1 }
-				},
-				{
-					position: 0.65,
 					properties: { opacity: 1 }
 				},
 				{
@@ -219,7 +221,15 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'bottom_outside'
+					layout: 'bottom_outside',
+					onProgressValue: function(progress, key, value, viewport, element) {
+            var duration = viewport.height + element.height();
+						if (viewport.height*0.50 <= duration*progress && duration*(1 - progress) >= viewport.height*0.50) {
+							selectPage(element);
+						} else {
+							unselectPage(element);
+						}
+					}
 				},
 				{
 					position: 1,
