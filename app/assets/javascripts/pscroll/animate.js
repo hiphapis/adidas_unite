@@ -1,6 +1,7 @@
 // Author: @9ruvie
 // Editor: @hiphapis
 //    - assignCanvasPosition
+//    - scrollToSection
 //    - no_hide => after_no_hide
 //    - before_no_hide
 //    - only_element_height
@@ -363,15 +364,17 @@ var AnimationPlayer = function(options) {
 		});
 	}
 	
-	this.scrollToSection = function(section, offset) {
+	this.scrollToSection = function(section, landing_position, offset) {
 		var animation = _.find(_animations, function(e) { return e.id == section });
 		if (animation) {
-			var offset = offset || "end"
+			var landing_position = landing_position || "end";
+			var offset = parseInt(offset) || 0;
 			var tickInterval = 1000/60;
 			var duration = 700;
 			var startTime = new Date();
 			var r0 = _position;
-			var r1 = (offset == "end")? animation.startPoint + _viewport.height : animation.startPoint;
+			var r1 = (landing_position == "end")? animation.startPoint + _viewport.height : animation.startPoint;
+			r1 = r1 + offset;
 			
 			// set current position
 			setTimelinePosition(r0);

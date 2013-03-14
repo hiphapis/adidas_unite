@@ -66,7 +66,7 @@ var ss;
 function createScrollAnimation() {	
 	$("*[data-target]").click(function(e) {
 		e.preventDefault();
-		ss.scrollToSection($(this).attr("data-target"), $(this).attr("data-target-offset"));
+		ss.scrollToSection($(this).attr("data-target"), $(this).attr("data-target-landing-position"), $(this).attr("data-target-offset"));
 	});
 
 	$("#top").click(function(e) {
@@ -90,13 +90,13 @@ function createScrollAnimation() {
 		{
 			element: '#loading',
 			startPoint: 0,
-			endPoint: 1000,
+			endPoint: 100,
 			keyframes: [
 				{
 					position: 0,
 					properties: { opacity: 1 },
 					onProgress: function(progress, viewport, element) {
-						selectPage("#loading");
+						selectPage("#intro .copy1");
 					}
 				},
 				{
@@ -207,10 +207,10 @@ function createScrollAnimation() {
 					layout: 'top_inside',
 					onProgress: function(progress, viewport, element) {
 						if (progress <= 0.5) {
-							selectPage("#loading");
+							selectPage("#intro .copy1");
 						}
 						else {
-							deselectPage("#loading");
+							deselectPage("#intro .copy1");
 						}
 					}
 				},
