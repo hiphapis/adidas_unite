@@ -1,0 +1,717 @@
+@import "compass";
+@import "compass/reset";
+@import "compass/css3/user-interface";
+
+$sprite:sprite-map('s/*.png');
+
+///////////////////////////////////////////////////////////////////////
+// MIXINS
+
+@mixin cover_bg($img-name) {
+	background: image-url($img-name) no-repeat center center;
+	background-size: cover;
+
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{url($img-name)}',sizingMethod='scale');
+	-ms-filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{url($img-name)}',sizingMethod='scale')';
+}
+
+@mixin ab_center($type, $img) {
+	position: absolute;
+	
+	@if $type == "left" {
+		left: 50%;
+		margin-left: (-1 * image_width($img) / 2);
+	}
+	@if $type == "top" {
+		top: 50%;
+		margin-top: (-1 * image_height($img) / 2);
+	}
+	
+}
+
+@mixin animation_viewport {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	@include float(left);
+}
+
+@mixin animation_canvas {
+	position: relative;
+}
+
+@mixin animation_particle {
+	position: absolute;
+}
+
+@mixin sprite_replace_text($sprite, $img-name){
+	display: block;
+	@include hide_text;
+	background: sprite($sprite, $img-name) no-repeat;
+	width: image_width(sprite_file($sprite, $img-name));
+	height: image_height(sprite_file($sprite, $img-name));
+}
+
+@mixin sprite_replace_text_anchor($sprite, $img-name){
+	@include sprite_replace_text($sprite, $img-name);
+	&:hover, &.selected, &[data-selected="true"] {
+		background: sprite($sprite, $img-name + "_h") no-repeat;
+	}
+}
+
+
+html {
+	overflow: hidden;
+	height: 100%;
+}
+body {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background-color:#000;
+}
+
+#container {
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	
+	#header {
+		z-index: 100;
+		position: absolute;
+		top: 0;
+		width: 100%;
+
+		.title {
+			margin: 0 auto;
+			text-align: center;
+			@include sprite_replace_text($sprite, "topbg");
+
+			h1 {
+				text-indent: -10000000em;
+				@include sprite_replace_text($sprite, "copy");
+				@include ab_center("left", sprite_file($sprite, "copy"));
+				top: 50px;
+				@include transition-property(opacity);
+				@include transition-duration(0.2s);
+				&.hide_when_smallsize {
+					@media all and (max-height: 950px) { opacity: 0; }
+				}
+			}
+		}
+		
+		.external {
+			a {
+				position: absolute;
+				background-color:#000;
+				top: 57px;
+
+				&.adidas {
+					left: 0;
+					@include sprite_replace_text($sprite, "logo");
+				}
+				&.shop {
+					right: 0;
+					@include sprite_replace_text($sprite, "shop");
+				}
+			}
+		}
+
+	}
+
+	#lnb {
+		z-index: 120;
+		position: absolute;
+		right: 167px;
+		top: 63px;
+		
+		@media all and (max-width:1250px) { top: 165px; right: 0; }
+		
+		
+		a {
+			&[data-target="#loading"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
+			&[data-target="#section_global"] { @include sprite_replace_text_anchor($sprite, "menu02"); }
+			&[data-target="#section2"] { @include sprite_replace_text_anchor($sprite, "menu03"); }
+			&[data-target="#section3"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
+		}
+	}
+
+	#loading {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 110;
+		
+		.intro {
+			width: 653px;
+			height: 316px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -1 * 316 / 2 + px;
+			margin-left: -1 * 653 / 2 + px;
+
+			.loading {
+				display: none;
+			}
+			.copy1 { 
+				@include ab_center("top", "loading/text01.png");
+				@include ab_center("left", "loading/text01.png");
+				display:block; 
+			}
+			.copy2 {
+				@include ab_center("top", "loading/text02.png");
+				@include ab_center("left", "loading/text02.png");
+			}
+			.copy3 {
+				@include ab_center("top", "loading/text03.png");
+				@include ab_center("left", "loading/text03.png");
+			}
+		}
+
+		#indicator {
+			position: absolute;
+			top: 50%;
+			margin-top: 171px;
+			z-index: 10;
+			@include ab_center("left", "loading/loadingbg.png");
+			background: image-url("loading/loadingbg.png") no-repeat;
+			width: image-width("loading/loadingbg.png");
+			height: image-height("loading/loadingbg.png");
+			img {
+				position: absolute;
+			}
+		}
+
+		#progress {
+		}
+
+		#scroll_guide {
+			display: none;
+		}
+	}
+
+	#content {
+		@include animation_viewport;
+		@include user-select(none);
+		width: 100%;
+		height: 100%;
+
+		.partial {
+			@include animation_particle;
+		}
+		.scene1, .scene2 {
+			z-index: 100;
+		}
+		img.product {
+			position: absolute;
+			z-index: 100;
+		}
+		.intro, .intro1, .intro2, div.popup {
+			z-index: 110;
+		}
+		
+		#section1, .artist, .product {
+//			overflow: hidden;
+		}
+
+		#section1 {
+			@include animation_particle;
+			@include cover_bg("section1/bg.jpg");
+			width: 100%;
+			height: 100%;
+
+			.wrapper {
+				display: none;
+				z-index: 1000;
+				@include animation_canvas;
+				@include ab_center("left", sprite-file($sprite, "movie_bg"));
+				top: 50%;
+				margin-top: -1 * (image_height(sprite-file($sprite, "movie_bg")) + image_height("section1/btn_tw.png") + 12) / 2;
+
+
+				.movie {
+					@include sprite_replace_text($sprite, "movie_bg");
+					text-indent: 0;
+					text-align: center;
+					padding-top: 21px;
+					height: image_height(sprite_file($sprite, "movie_bg")) - 21;
+				}
+
+				.sns {
+					margin-top: 12px;
+					text-align: center;
+					
+					a { margin: 0 8px; }
+				}
+			}
+
+
+			div[data-partial="popup"] {
+				z-index: 10;
+				position: absolute;
+				top: 50%;
+				margin-top: -350px;
+				left: 50%;
+				margin-left: -1 * 886 / 2 + px;
+			}
+		}
+
+
+		#section_global {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section10/bg.jpg");
+			width: 100%;
+			height: 100%;
+
+			.intro {
+				height: image_height("section10/intro1.png");
+				.intro1 {
+					@include ab_center("left", "section10/intro1.png");
+					@include ab_center("top", "section10/intro1.png");
+					height: image_height("section10/intro1.png");
+				}
+				.intro2 {
+					@include ab_center("left", "section10/intro2.png");
+					@include ab_center("top", "section10/intro2.png");
+					height: image_height("section10/intro2.png");
+				}
+			}
+			
+
+			.scene1 {
+				display: block;
+				@include ab_center("top", "section10/scene/0.png");
+				@include ab_center("left", "section10/scene/0.png");
+			}
+		}
+
+
+		#section2 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section2/bg.jpg");
+			width: 100%;
+			height: 100%;
+
+			.intro {
+				height: image_height("section2/intro.png");
+				@include ab_center("top", "section2/intro.png");
+				@include ab_center("left", "section2/intro.png");
+			}
+
+			.wrapper {
+				position: absolute;
+				z-index: 1000;
+				left: 50%;
+				width: 618px;
+				margin-left: -1 * 618 / 2 + px;
+				top: 50%;
+				height: 748px;
+				margin-top: -1 * 741 / 2 + px;
+				text-align: center;
+				
+				.top {
+					position: absolute;
+					top: 0;
+					@include ab_center("left", "section2/top.png");
+				}
+				.bottom {
+					position: absolute;
+					bottom: 0;
+					@include ab_center("left", "section2/bottom.png");
+				}
+				.left {
+					left: 0;
+					@include ab_center("top", "section2/left.png");
+				}
+				.right {
+					right: 0;
+					@include ab_center("top", "section2/right.png");
+				}
+				
+				.scene2 {
+					overflow: hidden;
+					position: absolute;
+					height: 845px;
+					top: 50%;
+					margin-top: -178px;
+					width: 578px;
+					left: 50%;
+					margin-left: -1 * 578 / 2 + px;
+
+					div[data-partial="masking"] {
+						z-index: 100;
+						@include ab_center("left", "section2/scene/1.png");
+					}
+					.movie {
+						position: absolute;
+						z-index: 100;
+						top: 16px;
+						left: 23px;
+					}
+					.text2 {
+						position: absolute;
+						z-index: 10;
+						top: 58px;
+						margin-top: -174px;
+						left: 0;
+					}
+				}
+			}
+		}
+
+
+		#section3 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section3/bg.jpg");
+			width: 100%;
+			height: 100%;
+			
+			.wrapper {
+				@include ab_center("top", "section3/product.png");
+				@include ab_center("left", "section3/product.png");
+				width: image-width("section3/product.png");
+				height: 724px;
+				top: 50%;
+				margin-top: -395px;
+				div[data-partial="popup"] {
+					position: absolute;
+					right: 4px;
+					top: 120px;
+				}
+			}
+		}
+
+
+		#section4 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section4/bg.jpg");
+			width: 100%;
+			height: 100%;
+
+			.intro {
+				height: image_height("section4/intro.png");
+				@include ab_center("top", "section4/intro.png");
+				@include ab_center("left", "section4/intro.png");
+			}
+
+			.wrapper {
+				position: absolute;
+				z-index: 1000;
+				left: 50%;
+				width: 707px;
+				margin-left: -1 * 707 / 2 + px;
+				top: 50%;
+				height: 705px;
+				margin-top: -1 * 705 / 2 + px;
+				text-align: center;
+				
+				.top {
+					position: absolute;
+					top: 0;
+					@include ab_center("left", "section4/top.png");
+				}
+				.bottom {
+					position: absolute;
+					bottom: 0;
+					@include ab_center("left", "section4/bottom.png");
+				}
+				.left {
+					left: 0;
+					@include ab_center("top", "section4/left.png");
+				}
+				.right {
+					right: 0;
+					@include ab_center("top", "section4/right.png");
+				}
+				
+				.scene2 {
+					position: absolute;
+					height: 660px;
+					top: 50%;
+					margin-top: -330px;
+					width: 705px;
+					left: 50%;
+					margin-left: -1 * 705 / 2 + px;
+
+					div[data-partial="masking"] {
+						z-index: 100;
+						@include ab_center("top", "section4/scene/1.png");
+						width: 705px;
+						height: 421px;
+					}
+					
+					.movie {
+						position: absolute;
+						top: 138px;
+						z-index: 100;
+						left: 18px;
+						height: 386px;
+					}
+					
+					
+					.texts {
+						width: 100%;
+						height: 660px;
+						
+						.left2 {
+							position: absolute;
+							z-index: 10;
+							top: 0;
+							left: 5px;
+							height: 109px;
+						}
+						.right2 {
+							position: absolute;
+							z-index: 10;
+							bottom: 0;
+							right: 5px;
+							height: 109px;
+						}
+					}
+				}
+			}
+		}
+
+
+		#section5 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section5/bg.jpg");
+			width: 100%;
+			height: 100%;
+			
+			.wrapper {
+				@include ab_center("top", "section5/product.png");
+				@include ab_center("left", "section5/product.png");
+				width: image-width("section5/product.png");
+				height: 724px;
+				top: 50%;
+				margin-top: -395px;
+				div[data-partial="popup"] {
+					position: absolute;
+					right: 2px;
+					top: 120px;
+				}
+			}
+		}
+
+
+		#section6 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section6/bg.jpg");
+			width: 100%;
+			height: 100%;
+
+			.intro {
+				height: image_height("section6/intro.png");
+				@include ab_center("top", "section6/intro.png");
+				@include ab_center("left", "section6/intro.png");
+			}
+
+			.wrapper {
+				position: absolute;
+				z-index: 1000;
+				left: 50%;
+				width: 618px;
+				margin-left: -1 * 618 / 2 + px;
+				top: 50%;
+				height: 748px;
+				margin-top: -1 * 741 / 2 + px;
+				text-align: center;
+				
+				.top {
+					position: absolute;
+					top: 0;
+					@include ab_center("left", "section6/top.png");
+				}
+				.bottom {
+					position: absolute;
+					bottom: 0;
+					@include ab_center("left", "section6/bottom.png");
+				}
+				.left {
+					left: 0;
+					@include ab_center("top", "section6/left.png");
+				}
+				.right {
+					right: 0;
+					@include ab_center("top", "section6/right.png");
+				}
+				
+				.scene2 {
+					overflow: hidden;
+					position: absolute;
+					height: 845px;
+					top: 50%;
+					margin-top: -178px;
+					width: 578px;
+					left: 50%;
+					margin-left: -1 * 578 / 2 + px;
+
+					div[data-partial="masking"] {
+						z-index: 100;
+						@include ab_center("left", "section2/scene/1.png");
+					}
+					.movie {
+						position: absolute;
+						z-index: 100;
+						top: 16px;
+						left: 23px;
+					}
+					.text2 {
+						position: absolute;
+						z-index: 10;
+						top: 58px;
+						margin-top: -174px;
+						left: 0;
+					}
+				}
+			}
+		}
+
+
+		#section7 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section7/bg.jpg");
+			width: 100%;
+			height: 100%;
+			
+			.wrapper {
+				@include ab_center("top", "section7/product.png");
+				@include ab_center("left", "section7/product.png");
+				width: image-width("section7/product.png");
+				height: 724px;
+				top: 50%;
+				margin-top: -395px;
+				div[data-partial="popup"] {
+					position: absolute;
+					left: 2px;
+					top: 120px;
+				}
+			}
+		}
+
+
+		#section8 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section8/bg.jpg");
+			width: 100%;
+			height: 100%;
+
+			.intro {
+				height: image_height("section8/intro.png");
+				@include ab_center("top", "section8/intro.png");
+				@include ab_center("left", "section8/intro.png");
+			}
+
+			.wrapper {
+				position: absolute;
+				z-index: 1000;
+				left: 50%;
+				width: 707px;
+				margin-left: -1 * 707 / 2 + px;
+				top: 50%;
+				height: 705px;
+				margin-top: -1 * 705 / 2 + px;
+				text-align: center;
+				
+				.top {
+					position: absolute;
+					top: 0;
+					@include ab_center("left", "section8/top.png");
+				}
+				.bottom {
+					position: absolute;
+					bottom: 0;
+					@include ab_center("left", "section8/bottom.png");
+				}
+				.left {
+					left: 0;
+					@include ab_center("top", "section8/left.png");
+				}
+				.right {
+					right: 0;
+					@include ab_center("top", "section8/right.png");
+				}
+				
+				.scene2 {
+					position: absolute;
+					height: 660px;
+					top: 50%;
+					margin-top: -330px;
+					width: 705px;
+					left: 50%;
+					margin-left: -1 * 705 / 2 + px;
+
+					div[data-partial="masking"] {
+						z-index: 100;
+						@include ab_center("top", "section4/scene/1.png");
+						width: 705px;
+						height: 421px;
+					}
+					
+					.movie {
+						position: absolute;
+						top: 138px;
+						z-index: 100;
+						left: 18px;
+						height: 386px;
+					}
+					
+					
+					.texts {
+						width: 100%;
+						height: 660px;
+						
+						.left2 {
+							position: absolute;
+							z-index: 10;
+							top: 0;
+							left: 5px;
+							height: 109px;
+						}
+						.right2 {
+							position: absolute;
+							z-index: 10;
+							bottom: 0;
+							right: 5px;
+							height: 109px;
+						}
+					}
+				}
+			}
+		}
+
+
+		#section9 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section9/bg.jpg");
+			width: 100%;
+			height: 100%;
+			
+			.wrapper {
+				@include ab_center("left", "section9/product.png");
+				width: image-width("section9/product.png");
+				height: 724px;
+				top: 50%;
+				margin-top: -395px;
+				div[data-partial="popup"] {
+					position: absolute;
+					right: 2px;
+					top: 120px;
+				}
+			}
+		}
+
+
+	}
+}

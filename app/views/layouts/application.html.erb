@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adidas</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=1280, initial-scale=0.25" />
+</head>
+<body>
+
+<div id="container">
+	<%= yield %>
+</div>
+
+<!--NSmart Track Tag Script-->
+<script type='text/javascript'>
+var nasJsHost = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+var NSmart_CAMP = '6646';
+var NSmart_Page = '15962';
+var NSmart_TURL = nasJsHost + 'n46.nsmartad.com';
+document.write(unescape("%3Cscript src='" + nasJsHost + "n00.nsmartad.com/etc?id=9' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!--NSmart Track Tag  Script End..-->
+</body>
+</html>

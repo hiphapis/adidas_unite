@@ -1,0 +1,282 @@
+<% 
+images = []
+(1..10).each do |i|
+	Dir.glob("app/assets/images/section#{i}/**/*").each do |img| 
+		images << image_path(img.split("/")[3..-1].join("/")) if File.file?(img)
+	end
+end
+%>
+<script type="text/javascript" charset="utf-8">
+var timer;
+var preloadImages = ['<%= images.compact.join("','").html_safe %>'];
+var getLoading = function(loaded, total) {
+  if (!_.isNumber(loaded) || !_.isNumber(total)) {
+    return false
+  }
+  
+  var progress = parseInt(loaded / total * 100);
+// console.log(progress);
+	var dom;
+	if (progress < 50) {
+		dom = "copy1";
+	}
+	else {
+		dom = "copy2";
+	}
+
+	$("#loading img.loading").hide();
+	$("#loading ." + dom).show();
+
+  if (progress >= 100) {
+		completeLoading();
+  }
+}
+
+var completeLoading = function() {
+	$("#indicator .text, #scroll_guide").fadeToggle();
+	$("#loading img.loading").hide();
+	$("#loading .copy3").show();
+
+	var timer;
+	var guide_scene = 1;
+	var guide_animate = function() {
+		guide_scene = (guide_scene == 5)? 1 : guide_scene + 1;
+		$("#scroll_guide").attr("src", "/assets/loading/scroll0" + guide_scene + ".png");
+		timer = setTimeout(guide_animate, 200);
+	};
+	
+	guide_animate();
+	createScrollAnimation();
+}
+
+$(document).ready(function() {
+	$("a.facebook").click(function(e) {
+		e.preventDefault();
+		window.open('http://www.facebook.com/sharer.php?u=http://adidas.com','sharer','toolbar=0,status=0,width=580,height=325');
+	});
+	$("a.twitter").click(function(e) {
+		e.preventDefault();
+		window.open('https://twitter.com/intent/tweet?text=평범함에 당신을 가두어 놓지 마세요.당신이 살고 있는 도시, 그리고 친구들과 걷는 거리에서 영감을 얻어 보세요.그리고 친구들과 새로운 길로 나아가 보세요.&url=https://alladidas.com/unite','sharer','toolbar=0,status=0,width=580,height=325');
+	});
+	
+	imagePreloader(preloadImages, getLoading, true);
+});
+
+</script>
+
+<%= render :partial => 'header' %>
+
+<div id="content">
+	<div id="loading">
+		<div class="intro">
+			<%= image_tag "loading/text01.png", class: "loading copy1" %>
+			<%= image_tag "loading/text02.png", class: "loading copy2" %>
+			<%= image_tag "loading/text03.png", class: "loading copy3" %>
+		</div>
+		
+		<div id="indicator">
+			<%= image_tag "loading/loading.png", class: "text" %>
+			<%= image_tag "", id: "scroll_guide", alt: "scroll to control" %>
+		</div>
+	</div>
+
+	<div id="section1">
+		<div class="wrapper">
+			<div class="movie">
+				<iframe width="640" height="390" src="http://www.youtube.com/embed/mB0-HDRVuPk" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+			<div class="sns">
+				<a href="#" class="twitter" target="_blank"><%= image_tag "section1/btn_tw.png", alt: "follow originals" %></a>
+				<a href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fadidas.com" class="facebook" target="_blank"><%= image_tag "section1/btn_fb.png", alt: "originals facebook" %></a>
+			</div>
+		</div>
+	</div>
+
+	<div id="section_global" class="artist">
+		<div class="wrapper">
+			<div class="intro">
+				<%= image_tag "section10/intro1.png", class: "intro1" %>
+				<%= image_tag "section10/intro2.png", class: "intro2" %>
+			</div>
+			
+			<div class="scene1">
+				<%= image_tag "section10/scene/1.png", class: "scene", usemap: "#section_global_map" %>
+				<map name="section_global_map" id="section_global_map">
+					<area shape="rect" coords="0,0,0,0" href="http://unite.adidas.com/kr/" target="_blank">
+				</map>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="section2" class="artist">
+		<div class="intro">
+			<%= image_tag "section2/intro.png" %>
+		</div>
+
+		<div class="wrapper">
+			<div class="scene1">
+				<%= image_tag "section2/top.png", class: "top" %>
+				<%= image_tag "section2/bottom.png", class: "bottom" %>
+				<%= image_tag "section2/left.png", class: "left" %>
+				<%= image_tag "section2/right.png", class: "right" %>
+			</div>
+			
+			<div class="scene2">
+				<div data-partial="masking">
+					<%= image_tag "section2/scene/0.png" %>
+				</div>
+				<div class="movie">
+					<%= image_tag "section2/movie.png" %>
+				</div>
+				<%= image_tag "section2/text2.png", class: "text2" %>
+			</div>
+		</div>
+	</div>
+	
+	<div id="section3" class="product">
+		<div class="wrapper">
+			<%= image_tag "section3/product.png", class: "product" %>
+			
+			<div class="popup" data-partial="popup">
+				<%= image_tag "section3/scene/0.png", usemap: "#section3_popup" %>
+				<map name="section3_popup" id="section3_popup">
+					<area data-type="shop" shape="rect" coords="0,0,0,0" href="http://shop.adidas.co.kr/PF020401.action?PROD_CD=Q23422&SRCH_NM=팬텀" target="_blank">
+				</map>
+			</div>
+		</div>
+	</div>
+	
+	<div id="section4" class="artist">
+		<div class="intro">
+			<%= image_tag "section4/intro.png" %>
+		</div>
+
+		<div class="wrapper">
+			<div class="scene1">
+				<%= image_tag "section4/top.png", class: "top" %>
+				<%= image_tag "section4/bottom.png", class: "bottom" %>
+				<%= image_tag "section4/left.png", class: "left" %>
+				<%= image_tag "section4/right.png", class: "right" %>
+			</div>
+			
+			<div class="scene2">
+				<div data-partial="masking">
+					<%= image_tag "section4/scene/0.png" %>
+				</div>
+				<div class="movie">
+					<%= image_tag "section4/movie.png" %>
+				</div>
+				
+				<div class="texts">
+					<%= image_tag "section4/left2.png", class: "left2" %>
+					<%= image_tag "section4/right2.png", class: "right2" %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="section5" class="product">
+		<div class="wrapper">
+			<%= image_tag "section5/product.png", class: "product" %>
+			
+			<div class="popup" data-partial="popup">
+				<%= image_tag "section5/scene/0.png" %>
+				<map name="section5_popup" id="section5_popup">
+					<area data-type="shop" shape="rect" coords="0,0,0,0" href="http://shop.adidas.co.kr/PF020401.action?PROD_CD=Q23423&SRCH_NM=팬텀">
+				</map>
+			</div>
+		</div>
+	</div>
+	
+	<div id="section6" class="artist">
+		<div class="intro">
+			<%= image_tag "section6/intro.png" %>
+		</div>
+
+		<div class="wrapper">
+			<div class="scene1">
+				<%= image_tag "section6/top.png", class: "top" %>
+				<%= image_tag "section6/bottom.png", class: "bottom" %>
+				<%= image_tag "section6/left.png", class: "left" %>
+				<%= image_tag "section6/right.png", class: "right" %>
+			</div>
+			
+			<div class="scene2">
+				<div data-partial="masking">
+					<%= image_tag "section4/scene/0.png" %>
+				</div>
+				<div class="movie">
+					<%= image_tag "section2/movie.png" %>
+				</div>
+				<%= image_tag "section6/text2.png", class: "text2" %>
+			</div>
+		</div>
+	</div>
+	
+	<div id="section7" class="product">
+		<div class="wrapper">
+			<%= image_tag "section7/product.png", class: "product" %>
+			
+			<div class="popup" data-partial="popup">
+				<%= image_tag "section7/scene/0.png", usemap: "#section7_popup" %>
+				<map name="section7_popup" id="section7_popup">
+					<area data-type="shop" shape="rect" coords="0,0,0,0" href="#" onclick="alert('입고 예정입니다.'); return false">
+				</map>
+			</div>
+		</div>
+	</div>
+
+	<div id="section8" class="artist">
+		<div class="intro">
+			<%= image_tag "section8/intro.png" %>
+		</div>
+
+		<div class="wrapper">
+			<div class="scene1">
+				<%= image_tag "section8/top.png", class: "top" %>
+				<%= image_tag "section8/bottom.png", class: "bottom" %>
+				<%= image_tag "section8/left.png", class: "left" %>
+				<%= image_tag "section8/right.png", class: "right" %>
+			</div>
+			
+			<div class="scene2">
+				<div data-partial="masking">
+					<%= image_tag "section4/scene/0.png" %>
+				</div>
+				<div class="movie">
+					<%= image_tag "section4/movie.png" %>
+				</div>
+				
+				<div class="texts">
+					<%= image_tag "section8/left2.png", class: "left2" %>
+					<%= image_tag "section8/right2.png", class: "right2" %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="section9" class="product">
+		<div class="wrapper">
+			<%= image_tag "section9/product.png", class: "product" %>
+			
+			<div class="popup" data-partial="popup">
+				<%= image_tag "section9/scene/0.png", usemap: "#section9_popup" %>
+				<map name="section9_popup" id="section9_popup">
+					<area data-type="shop" shape="rect" coords="0,0,0,0" href="http://www.shop.adidas.co.kr/PF020401.action?PROD_CD=Q23425" target="_blank">
+				</map>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+var scene_image_path = "/assets/section";
+</script>
+<%= javascript_include_tag "scene" %>
