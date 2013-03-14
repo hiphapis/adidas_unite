@@ -1,3 +1,7 @@
+/**
+ * Copyright 2013
+ */
+
 // Author: @9ruvie
 // Editor: @hiphapis
 //    - assignCanvasPosition
@@ -44,6 +48,7 @@ var AnimationPlayer = function(options) {
 	});
 	var _viewport = {};
 	var _position = 0;
+	var _positionTweened = 0;
 	var _maxPosition = 0;
 	var _status = false;
 	var _animations = [];
@@ -81,6 +86,12 @@ var AnimationPlayer = function(options) {
 	
 	function updateTimeline() {
 		var c = _position;
+		
+		if (Math.ceil(_position) !== Math.ceil(_positionTweened)) {
+			var d = _position - _positionTweened;
+			c = _positionTweened + d * 0.12;
+			_positionTweened = c;
+		}
 
 		_.each(_animations, function(ani) {
 			var start = ani.startPoint;
