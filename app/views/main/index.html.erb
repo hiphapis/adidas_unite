@@ -42,7 +42,7 @@ var completeLoading = function() {
 	if params[:section].present?
 		if params[:section] == "global"
 			concat "ss.scrollToSection('#section_global');".html_safe
-		elsif params[:section] == "4"
+		elsif params[:section] == "3"
 			concat "ss.scrollToSection('#section3');".html_safe
 		else
 			concat "ss.scrollToSection('#section#{params[:section]}', 'start');".html_safe
