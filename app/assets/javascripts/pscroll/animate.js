@@ -5,6 +5,7 @@
 //    - before_no_hide
 //    - only_element_height
 //    - resizeCallback
+//    - for Fucking IE
 
 function PRINT(key, value) {
 	key = key.replace(/[#\W\.]/g, 'X');
@@ -722,9 +723,11 @@ var Animation = function(options) {
 	}
 	
 	this.addParticle = function(particle) {
-		this.particles.push(particle);
-		//
-		particle._element = $(options.element + ' ' + particle.element);
+		if (particle && particle.element) {
+			this.particles.push(particle);
+			//
+			particle._element = $(options.element + ' ' + particle.element);
+		}
 	}
 
 

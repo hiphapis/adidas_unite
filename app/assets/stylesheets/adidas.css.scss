@@ -11,8 +11,8 @@ $sprite:sprite-map('s/*.png');
 	background: image-url($img-name) no-repeat center center;
 	background-size: cover;
 
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{url($img-name)}',sizingMethod='scale');
-	-ms-filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{url($img-name)}',sizingMethod='scale')';
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="#{image-path($img-name)}",sizingMethod='scale');
+	-ms-filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="#{image-path($img-name)}",sizingMethod='scale')';
 }
 
 @mixin ab_center($type, $img) {
@@ -79,8 +79,10 @@ body {
 	#header {
 		z-index: 100;
 		position: absolute;
+		left: 0;
 		top: 0;
 		width: 100%;
+		height: image-height(sprite_file($sprite, "topbg"));
 
 		.title {
 			margin: 0 auto;
@@ -92,31 +94,35 @@ body {
 				@include sprite_replace_text($sprite, "copy");
 				@include ab_center("left", sprite_file($sprite, "copy"));
 				top: 50px;
-				@include transition-property(opacity);
+				@include transition-property(opacity, top);
 				@include transition-duration(0.2s);
 				&.hide_when_smallsize {
-					@media all and (max-height: 950px) { opacity: 0; }
+					@media all and (max-height: 950px) { opacity: 0; top: -50px; }
 				}
 			}
 		}
+	}
+
+	#external {
+		z-index: 100000;
+		position: absolute;
+		left: 0;
+		top: 57px;
+		width: 100%;
 		
-		.external {
-			a {
-				position: absolute;
-				background-color:#000;
-				top: 57px;
+		a {
+			position: absolute;
+			background-color:#000;
 
-				&.adidas {
-					left: 0;
-					@include sprite_replace_text($sprite, "logo");
-				}
-				&.shop {
-					right: 0;
-					@include sprite_replace_text($sprite, "shop");
-				}
+			&.adidas {
+				left: 0;
+				@include sprite_replace_text($sprite, "logo");
+			}
+			&.shop {
+				right: 0;
+				@include sprite_replace_text($sprite, "shop");
 			}
 		}
-
 	}
 
 	#lnb {

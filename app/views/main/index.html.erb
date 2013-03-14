@@ -14,10 +14,10 @@ var getLoading = function(loaded, total) {
     return false
   }
   
-  var progress = parseInt(loaded / total * 100);
+  var progress = parseInt(loaded / total * 10);
 // console.log(progress);
 	var dom;
-	if (progress < 50) {
+	if (progress < 5) {
 		dom = "copy1";
 	}
 	else {
@@ -27,7 +27,23 @@ var getLoading = function(loaded, total) {
 	$("#loading img.loading").hide();
 	$("#loading ." + dom).show();
 
-  if (progress >= 100) {
+	var progressImages = {
+		0: "<%= image_path("loading/loading1.png") %>",
+		1: "<%= image_path("loading/loading1.png") %>",
+		2: "<%= image_path("loading/loading1.png") %>",
+		3: "<%= image_path("loading/loading1.png") %>",
+		4: "<%= image_path("loading/loading1.png") %>",
+		5: "<%= image_path("loading/loading1.png") %>",
+		6: "<%= image_path("loading/loading1.png") %>",
+		7: "<%= image_path("loading/loading1.png") %>",
+		8: "<%= image_path("loading/loading1.png") %>",
+		9: "<%= image_path("loading/loading1.png") %>",
+		10: "<%= image_path("loading/loading1.png") %>"
+	}
+
+	$("#indicator .text").attr("src", progressImages[progress]);
+
+  if (progress >= 10) {
 		completeLoading();
   }
 }
@@ -52,7 +68,7 @@ var completeLoading = function() {
 $(document).ready(function() {
 	$("a.facebook").click(function(e) {
 		e.preventDefault();
-		window.open('http://www.facebook.com/sharer.php?u=http://adidas.com','sharer','toolbar=0,status=0,width=580,height=325');
+		window.open('http://www.facebook.com/sharer.php?u=https://alladidas.com/unite','sharer','toolbar=0,status=0,width=580,height=325');
 	});
 	$("a.twitter").click(function(e) {
 		e.preventDefault();
@@ -75,7 +91,7 @@ $(document).ready(function() {
 		</div>
 		
 		<div id="indicator">
-			<%= image_tag "loading/loading.png", class: "text" %>
+			<%= image_tag "loading/loading0.png", class: "text" %>
 			<%= image_tag "", id: "scroll_guide", alt: "scroll to control" %>
 		</div>
 	</div>
@@ -83,7 +99,7 @@ $(document).ready(function() {
 	<div id="section1">
 		<div class="wrapper">
 			<div class="movie">
-				<iframe width="640" height="390" src="http://www.youtube.com/embed/mB0-HDRVuPk" frameborder="0" allowfullscreen></iframe>
+				<iframe width="640" height="390" src="http://www.youtube.com/embed/Yk0gjUGt5_k" frameborder="0" allowfullscreen></iframe>
 			</div>
 
 			<div class="sns">
@@ -128,7 +144,7 @@ $(document).ready(function() {
 					<%= image_tag "section2/scene/0.png" %>
 				</div>
 				<div class="movie">
-					<%= image_tag "section2/movie.png" %>
+					<%= image_tag "section2/movie.jpg" %>
 				</div>
 				<%= image_tag "section2/text2.png", class: "text2" %>
 			</div>
@@ -166,7 +182,7 @@ $(document).ready(function() {
 					<%= image_tag "section4/scene/0.png" %>
 				</div>
 				<div class="movie">
-					<%= image_tag "section4/movie.png" %>
+					<%= image_tag "section4/movie.jpg" %>
 				</div>
 				
 				<div class="texts">
@@ -182,7 +198,7 @@ $(document).ready(function() {
 			<%= image_tag "section5/product.png", class: "product" %>
 			
 			<div class="popup" data-partial="popup">
-				<%= image_tag "section5/scene/0.png" %>
+				<%= image_tag "section5/scene/0.png", usemap: "#section5_popup" %>
 				<map name="section5_popup" id="section5_popup">
 					<area data-type="shop" shape="rect" coords="0,0,0,0" href="http://shop.adidas.co.kr/PF020401.action?PROD_CD=Q23423&SRCH_NM=팬텀">
 				</map>
@@ -208,7 +224,7 @@ $(document).ready(function() {
 					<%= image_tag "section4/scene/0.png" %>
 				</div>
 				<div class="movie">
-					<%= image_tag "section2/movie.png" %>
+					<%= image_tag "section2/movie.jpg" %>
 				</div>
 				<%= image_tag "section6/text2.png", class: "text2" %>
 			</div>
@@ -278,5 +294,6 @@ $(document).ready(function() {
 
 <script type="text/javascript" charset="utf-8">
 var scene_image_path = "/assets/section";
+<%=  %>
 </script>
 <%= javascript_include_tag "scene" %>
