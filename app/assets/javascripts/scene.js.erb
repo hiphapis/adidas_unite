@@ -67,6 +67,7 @@ function createScrollAnimation() {
 	$("*[data-target]").click(function(e) {
 		e.preventDefault();
 		ss.scrollToSection($(this).attr("data-target"), $(this).attr("data-target-landing-position"), $(this).attr("data-target-offset"));
+		$(this).blur();
 	});
 
 	$("#top").click(function(e) {
@@ -81,7 +82,7 @@ function createScrollAnimation() {
 		element: '#content',
 		scroller: '#scrollbar',
 		// debug: true,
-		scrollSpeed: (os.isWin)? 60 : 30
+		scrollSpeed: (os.isWin)? 120 : 30
 	});
 	ss.addAnimationHashArray([
 
