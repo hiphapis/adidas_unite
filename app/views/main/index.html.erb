@@ -17,7 +17,7 @@ var getLoading = function(loaded, total) {
   var progress = parseInt(loaded / total * 100);
 	$("#progress div").css("width", progress + "%");
 
-  if (progress >= 99) {
+  if (progress >= 100) {
 		completeLoading();
   }
 }
@@ -26,18 +26,6 @@ var timer;
 var completeLoading = function() {
 	ss.enableWindowScrollEvents(true);
 
-	$("#indicator .progress_wrapper").fadeOut();
-	$("#scroll_guide").fadeIn();
-
-	var timer;
-	var guide_scene = 1;
-	var guide_animate = function() {
-		guide_scene = (guide_scene == 5)? 1 : guide_scene + 1;
-		$("#scroll_guide").attr("data-scene", guide_scene);
-		timer = setTimeout(guide_animate, 200);
-	};
-	
-	guide_animate();	
 	<%
 	if params[:section].present?
 		if params[:section] == "global"
@@ -47,8 +35,33 @@ var completeLoading = function() {
 		else
 			concat "ss.scrollToSection('#section#{params[:section]}', 'start');".html_safe
 		end
+	%>
+		
+		var fixed_scroll_guide = $("#loading").clone();
+		fixed_scroll_guide.css({ position: "fixed", opacity: 1 });
+		fixed_scroll_guide.attr("id", "loading_clone");
+		fixed_scroll_guide.show();
+		$("#container").append(fixed_scroll_guide);
+		setTimeout(function() {
+			$("#loading_clone").fadeOut();
+		}, 2000);
+	<%
 	end
 	%>
+
+
+	$(".indicator .progress_wrapper").fadeOut();
+	$(".scroll_guide").fadeIn();
+
+	var timer;
+	var guide_scene = 1;
+	var guide_animate = function() {
+		guide_scene = (guide_scene == 5)? 1 : guide_scene + 1;
+		$(".scroll_guide").attr("data-scene", guide_scene);
+		timer = setTimeout(guide_animate, 200);
+	};
+	
+	guide_animate();	
 }
 
 $(document).ready(function() {
@@ -74,7 +87,7 @@ $(document).ready(function() {
 	<div id="loading">
 		<div class="bg"></div>
 		
-		<div id="indicator">
+		<div id="indicator" class="indicator">
 			<div class="progress_wrapper">
 				<%= image_tag "loading/loading.png", class: "text" %>
 				<div id="progress">
@@ -82,7 +95,7 @@ $(document).ready(function() {
 				</div>
 			</div>
 			
-			<div id="scroll_guide"></div>
+			<div id="scroll_guide" class="scroll_guide"></div>
 		</div>
 		
 	</div>
