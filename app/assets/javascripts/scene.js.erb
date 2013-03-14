@@ -1,12 +1,11 @@
 var selectPage = function(ele) {
-	// console.log("start");
-	$(ele).addClass("selected");
+	$("#lnb a[data-target='" + ele + "']").addClass("selected");
 }
 
-var unselectPage = function(ele) {
-	// console.log("end");
-	$(ele).removeClass("selected");
+var deselectPage = function(ele) {
+	$("#lnb a[data-target='" + ele + "']").removeClass("selected");
 }
+
 
 var partialMovement = {
 	currentScene: function(last_scene, progress) {
@@ -95,7 +94,10 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { opacity: 1 }
+					properties: { opacity: 1 },
+					onProgress: function(progress, viewport, element) {
+						selectPage("#intro .copy1");
+					}
 				},
 				{
 					position: 1,
@@ -201,7 +203,15 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'top_inside'
+					layout: 'top_inside',
+					onProgress: function(progress, viewport, element) {
+						if (progress <= 0.5) {
+							selectPage("#intro .copy1");
+						}
+						else {
+							deselectPage("#intro .copy1");
+						}
+					}
 				},
 				{
 					position: 1,
@@ -222,12 +232,12 @@ function createScrollAnimation() {
 				{
 					position: 0,
 					layout: 'bottom_outside',
-					onProgressValue: function(progress, key, value, viewport, element) {
-            var duration = viewport.height + element.height();
-						if (viewport.height*0.50 <= duration*progress && duration*(1 - progress) >= viewport.height*0.50) {
-							selectPage(element);
-						} else {
-							unselectPage(element);
+					onProgress: function(progress, viewport, element) {
+						if (progress <= 0.5) {
+							deselectPage("#section_global");
+						}
+						else {
+							selectPage("#section_global");
 						}
 					}
 				},
@@ -336,7 +346,16 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'top_inside'
+					layout: 'top_inside',
+					onProgress: function(progress, viewport, element) {
+						if (progress == 0) {}
+						else if (progress <= 0.5) {
+							selectPage("#section_global");
+						}
+						else {
+							deselectPage("#section_global");
+						}
+					}
 				},
 				{
 					position: 1,
@@ -357,7 +376,15 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'bottom_outside'
+					layout: 'bottom_outside',
+					onProgress: function(progress, viewport, element) {
+						if (progress <= 0.5) {
+							deselectPage("#section2");
+						}
+						else {
+							selectPage("#section2");
+						}
+					}
 				},
 				{
 					position: 1,
@@ -596,7 +623,16 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'top_inside'
+					layout: 'top_inside',
+					onProgress: function(progress, viewport, element) {
+						if (progress == 0) {}
+						else if (progress <= 0.5) {
+							selectPage("#section2");
+						}
+						else {
+							deselectPage("#section2");
+						}
+					}
 				},
 				{
 					position: 1,
@@ -635,7 +671,15 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'bottom_outside'
+					layout: 'bottom_outside',
+					onProgress: function(progress, viewport, element) {
+						if (progress <= 0.5) {
+							deselectPage("#section3");
+						}
+						else {
+							selectPage("#section3");
+						}
+					}
 				},
 				{
 					position: 1,
