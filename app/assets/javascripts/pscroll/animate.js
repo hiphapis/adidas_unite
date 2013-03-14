@@ -1,7 +1,3 @@
-/**
- * Copyright 2013
- */
-
 // Author: @9ruvie
 // Editor: @hiphapis
 //    - assignCanvasPosition

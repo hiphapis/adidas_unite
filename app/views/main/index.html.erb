@@ -1,7 +1,7 @@
 <% 
 images = []
 (1..10).each do |i|
-	Dir.glob("app/assets/images/section#{i}/**/*").each do |img| 
+	Dir.glob("app/assets/images/section#{i}/scene/*").each do |img| 
 		images << image_path(img.split("/")[3..-1].join("/")) if File.file?(img)
 	end
 end
@@ -13,7 +13,7 @@ var getLoading = function(loaded, total) {
   if (!_.isNumber(loaded) || !_.isNumber(total)) {
     return false
   }
-  
+
   var progress = parseInt(loaded / total * 100);
 	$("#progress div").css("width", progress + "%");
 
