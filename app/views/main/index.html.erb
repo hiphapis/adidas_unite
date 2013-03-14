@@ -7,7 +7,6 @@ images = []
 end
 %>
 <script type="text/javascript" charset="utf-8">
-var timer;
 var preloadImages = <%= images.compact.to_json.html_safe %>;
 
 var getLoading = function(loaded, total) {
@@ -15,45 +14,37 @@ var getLoading = function(loaded, total) {
     return false
   }
   
-  var progress = parseInt(loaded / total * 10);
-// console.log(progress);
-	var dom;
-	if (progress < 5) {
-		dom = "copy1";
-	}
-	else {
-		dom = "copy2";
-	}
+  var progress = parseInt(loaded / total * 100);
+	$("#progress div").css("width", progress + "%");
 
-	$("#loading img.loading").hide();
-	$("#loading ." + dom).show();
-
-	$("#indicator .text").attr("src", imageTable.progress[progress]);
-
-  if (progress >= 10) {
+  if (progress >= 99) {
 		completeLoading();
   }
 }
 
+var timer;
 var completeLoading = function() {
-	$("#indicator .text, #scroll_guide").fadeToggle();
-	$("#loading img.loading").hide();
-	$("#loading .copy3").show();
+	ss.enableWindowScrollEvents(true);
+
+	$("#indicator .progress_wrapper").fadeOut();
+	$("#scroll_guide").fadeIn();
 
 	var timer;
 	var guide_scene = 1;
 	var guide_animate = function() {
 		guide_scene = (guide_scene == 5)? 1 : guide_scene + 1;
-		$("#scroll_guide").attr("src", "/assets/loading/scroll0" + guide_scene + ".png");
+		$("#scroll_guide").attr("data-scene", guide_scene);
 		timer = setTimeout(guide_animate, 200);
 	};
 	
-	guide_animate();
-	createScrollAnimation();
-	
+	guide_animate();	
 	<%
 	if params[:section].present?
-		concat "ss.scrollToSection('#section#{params[:section]}', 'start');".html_safe
+		if params[:section] == "global"
+			concat "ss.scrollToSection('#section_global');".html_safe
+		else
+			concat "ss.scrollToSection('#section#{params[:section]}', 'start');".html_safe
+		end
 	end
 	%>
 }
@@ -69,6 +60,8 @@ $(document).ready(function() {
 	});
 	
 	imagePreloader(preloadImages, getLoading, true);
+	createScrollAnimation();
+	ss.enableWindowScrollEvents(false);
 });
 
 </script>
@@ -77,16 +70,25 @@ $(document).ready(function() {
 
 <div id="content">
 	<div id="loading">
-		<div class="intro">
-			<%= image_tag "loading/text01.png", class: "loading copy1" %>
-			<%= image_tag "loading/text02.png", class: "loading copy2" %>
-			<%= image_tag "loading/text03.png", class: "loading copy3" %>
-		</div>
+		<div class="bg"></div>
 		
 		<div id="indicator">
-			<%= image_tag "loading/loading0.png", class: "text" %>
-			<%= image_tag "", id: "scroll_guide", alt: "scroll to control" %>
+			<div class="progress_wrapper">
+				<%= image_tag "loading/loading.png", class: "text" %>
+				<div id="progress">
+					<div></div>
+				</div>
+			</div>
+			
+			<div id="scroll_guide"></div>
 		</div>
+		
+	</div>
+
+	<div id="intro">
+		<div class="copy1"><%= image_tag "loading/text01.png" %></div>
+		<div class="copy2"><%= image_tag "loading/text02.png" %></div>
+		<div class="copy3"><%= image_tag "loading/text03.png" %></div>
 	</div>
 
 	<div id="section1">
@@ -286,7 +288,6 @@ $(document).ready(function() {
 
 <%
 imageTable = {
-	progress: {},
 	section2: {},
 	section3: {},
 	section4: {},
@@ -295,8 +296,6 @@ imageTable = {
 	section9: {},
 	section10: {},
 }
-(0..10).each { |i| imageTable[:progress][i] = image_path("loading/loading#{i}.png") }
-(0..23).each { |i| imageTable[:section2][i] = image_path("section2/scene/#{i}.png") }
 (0..20).each { |i| imageTable[:section3][i] = image_path("section3/scene/#{i}.png") }
 (0..17).each { |i| imageTable[:section4][i] = image_path("section4/scene/#{i}.png") }
 (0..21).each do |i| 

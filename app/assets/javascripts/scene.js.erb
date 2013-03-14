@@ -77,7 +77,7 @@ function createScrollAnimation() {
 	ss.addAnimationHashArray([
 
 		/////////////////////////////////////////
-		// LOADING
+		// LOADING & INTRO
 		{
 			element: '#loading',
 			startPoint: 0,
@@ -93,12 +93,83 @@ function createScrollAnimation() {
 				}
 			]
 		},
+		{
+			element: '#intro .copy1',
+			startPoint: "end",
+			duration: "viewport_height",
+			keyframes: [
+				{
+					position: 0,
+					properties: { opacity: 0 }
+				},
+				{
+					position: 0.35,
+					properties: { opacity: 1 }
+				},
+				{
+					position: 0.65,
+					properties: { opacity: 1 }
+				},
+				{
+					position: 1,
+					properties: { opacity: 0 }
+				}
+			]
+		},
+		{
+			element: '#intro .copy2',
+			startPoint: "end",
+			duration: "viewport_height",
+			offset: -100,
+			keyframes: [
+				{
+					position: 0,
+					properties: { opacity: 0 }
+				},
+				{
+					position: 0.35,
+					properties: { opacity: 1 }
+				},
+				{
+					position: 0.65,
+					properties: { opacity: 1 }
+				},
+				{
+					position: 1,
+					properties: { opacity: 0 }
+				}
+			]
+		},
+		{
+			element: '#intro .copy3',
+			startPoint: "end",
+			duration: "viewport_height",
+			offset: -100,
+			keyframes: [
+				{
+					position: 0,
+					properties: { opacity: 0 }
+				},
+				{
+					position: 0.35,
+					properties: { opacity: 1 }
+				},
+				{
+					position: 0.65,
+					properties: { opacity: 1 }
+				},
+				{
+					position: 1,
+					properties: { opacity: 0 }
+				}
+			]
+		},
 		/////////////////////////////////////////
 		// SECTION 1
 		{
 			element: '#section1 .wrapper',
 			after_no_hide: true,
-			startPoint: 1000,
+			startPoint: "end",
 			duration: "viewport_height",
 			keyframes: [
 				{
@@ -122,8 +193,9 @@ function createScrollAnimation() {
 		{
 			element: '#section1',
 			before_no_hide: true,
-			startPoint: 2700,
+			startPoint: "end",
 			duration: "viewport_height",
+			offset: 400,
 			keyframes: [
 				{
 					position: 0,
