@@ -8,7 +8,8 @@ end
 %>
 <script type="text/javascript" charset="utf-8">
 var timer;
-var preloadImages = ['<%= images.compact.join("','").html_safe %>'];
+var preloadImages = <%= images.compact.to_json.html_safe %>;
+
 var getLoading = function(loaded, total) {
   if (!_.isNumber(loaded) || !_.isNumber(total)) {
     return false
@@ -27,21 +28,7 @@ var getLoading = function(loaded, total) {
 	$("#loading img.loading").hide();
 	$("#loading ." + dom).show();
 
-	var progressImages = {
-		0: "<%= image_path("loading/loading1.png") %>",
-		1: "<%= image_path("loading/loading1.png") %>",
-		2: "<%= image_path("loading/loading1.png") %>",
-		3: "<%= image_path("loading/loading1.png") %>",
-		4: "<%= image_path("loading/loading1.png") %>",
-		5: "<%= image_path("loading/loading1.png") %>",
-		6: "<%= image_path("loading/loading1.png") %>",
-		7: "<%= image_path("loading/loading1.png") %>",
-		8: "<%= image_path("loading/loading1.png") %>",
-		9: "<%= image_path("loading/loading1.png") %>",
-		10: "<%= image_path("loading/loading1.png") %>"
-	}
-
-	$("#indicator .text").attr("src", progressImages[progress]);
+	$("#indicator .text").attr("src", imageTable.progress[progress]);
 
   if (progress >= 10) {
 		completeLoading();
@@ -63,6 +50,12 @@ var completeLoading = function() {
 	
 	guide_animate();
 	createScrollAnimation();
+	
+	<%
+	if params[:section].present?
+		concat "ss.scrollToSection('#section#{params[:section]}', 'start');".html_safe
+	end
+	%>
 }
 
 $(document).ready(function() {
@@ -262,7 +255,7 @@ $(document).ready(function() {
 					<%= image_tag "section4/scene/0.png" %>
 				</div>
 				<div class="movie">
-					<%= image_tag "section4/movie.png" %>
+					<%= image_tag "section4/movie.jpg" %>
 				</div>
 				
 				<div class="texts">
@@ -291,9 +284,29 @@ $(document).ready(function() {
 
 
 
-
+<%
+imageTable = {
+	progress: {},
+	section2: {},
+	section3: {},
+	section4: {},
+	section5: {},
+	section7: {},
+	section9: {},
+	section10: {},
+}
+(0..10).each { |i| imageTable[:progress][i] = image_path("loading/loading#{i}.png") }
+(0..23).each { |i| imageTable[:section2][i] = image_path("section2/scene/#{i}.png") }
+(0..20).each { |i| imageTable[:section3][i] = image_path("section3/scene/#{i}.png") }
+(0..17).each { |i| imageTable[:section4][i] = image_path("section4/scene/#{i}.png") }
+(0..21).each do |i| 
+	imageTable[:section5][i] = image_path("section5/scene/#{i}.png")
+	imageTable[:section7][i] = image_path("section7/scene/#{i}.png")
+	imageTable[:section9][i] = image_path("section9/scene/#{i}.png")
+end
+(0..31).each { |i| imageTable[:section10][i] = image_path("section10/scene/#{i}.png") }
+%>
 <script type="text/javascript" charset="utf-8">
-var scene_image_path = "/assets/section";
-<%=  %>
+var imageTable = <%= imageTable.to_json.html_safe %>;
 </script>
 <%= javascript_include_tag "scene" %>
