@@ -96,7 +96,7 @@ function createScrollAnimation() {
 					position: 0,
 					properties: { opacity: 1 },
 					onProgress: function(progress, viewport, element) {
-						selectPage("#intro .copy1");
+						selectPage("#loading");
 					}
 				},
 				{
@@ -207,10 +207,10 @@ function createScrollAnimation() {
 					layout: 'top_inside',
 					onProgress: function(progress, viewport, element) {
 						if (progress <= 0.5) {
-							selectPage("#intro .copy1");
+							selectPage("#loading");
 						}
 						else {
-							deselectPage("#intro .copy1");
+							deselectPage("#loading");
 						}
 					}
 				},
