@@ -1,6 +1,7 @@
 // author: hiphapis@gmail.com
 var imagePreloader = function(images, callback, cache) {
 	var loadImage = function(url) {
+		console.log("start: " + url);
 		var img = new Image();
 	  img.onload = function() { processLoadResponse(url) }
 	  img.onerror = function() { processUnloadResponse(url) }
@@ -9,7 +10,7 @@ var imagePreloader = function(images, callback, cache) {
 	
 	var loaded = 0;	
 	var processLoadResponse = function(url) {
-		// console.log("ok: " + url);
+		console.log("ok: " + url);
 		callback(loaded += 1, images.length);
 	}
 
@@ -18,12 +19,12 @@ var imagePreloader = function(images, callback, cache) {
 	var processUnloadResponse = function(url) {
 		unloadedImages[url] = unloadedImages[url] + 1 || 1;
 		if (unloadedImages[url] >= retryCount) {
-			// console.log("failed-fail: " + url);
+			console.log("failed-fail: " + url);
 			processLoadResponse(url);
 			return
 		}
 		else {
-			// console.log("failed-retry(" + unloadedImages[url] + "): " + url);
+			console.log("failed-retry(" + unloadedImages[url] + "): " + url);
 			loadImage(url);
 		}
 	}
