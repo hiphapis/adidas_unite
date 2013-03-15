@@ -20,7 +20,7 @@ Copyright reserved. OxygenComputingInc. 2013
 http://www.alladidas.com/unite/
 
 - Author: @9ruvie
-- Editor: @hiphapis
+- Developer: @hiphapis
 - PM: @nahee
 - IC: @yoora
 
