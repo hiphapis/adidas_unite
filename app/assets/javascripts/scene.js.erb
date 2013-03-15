@@ -79,12 +79,12 @@ function createScrollAnimation() {
 
 	//
 	ss = new AnimationPlayer({
-		element: '#content',
+		element: '#container',
 		scroller: '#scrollbar',
 		// debug: true,
 		scrollSpeed: (os.isWin)? 120 : 30,
 		resizeCallback: function() {
-			if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $(document).width() <= 1250) {
+			if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").width() <= 1250) {
 				$("#lnb").css({
 					top: "165px",
 					right: 0
@@ -192,13 +192,13 @@ function createScrollAnimation() {
 					onProgress: function(progress, viewport, element) {
 						if (progress >= 0.7) {
 							$("#header h1").addClass("hide_when_smallsize");
-							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $(document).height() <= 950) {
+							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").height() <= 950) {
 								$("#header h1").fadeOut();
 							}
 						}
 						else {
 							$("#header h1").removeClass("hide_when_smallsize");
-							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $(document).height() > 950) {
+							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").height() <= 950) {
 								$("#header h1").fadeIn();
 							}
 						}

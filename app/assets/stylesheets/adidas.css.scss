@@ -778,7 +778,22 @@ body {
 				}
 			}
 		}
+	}
+}
 
 
+
+
+.ie7 {
+	#container {
+		#header {
+			height: image-height(sprite_file($sprite, "topbg_ie7"));
+
+			.title {
+				margin: 0 auto;
+				text-align: center;
+				@include sprite_replace_text($sprite, "topbg_ie7");
+			}
+		}
 	}
 }
