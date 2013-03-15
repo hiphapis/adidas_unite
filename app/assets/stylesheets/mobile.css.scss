@@ -64,28 +64,40 @@ html, body {
 
 	#c {
 		position: relative;
-		top: 150px;
+		top: 130px;
 		.text {
 			@include hide-text;
-			width: 140px;
-			height: 117px;
-			background: url(asset-path("mobile/000/text01.png", image)) no-repeat;
-			background-size: 140px 117px;
+			width: image-width("mobile/000/text.png") / 2;
+			height: image-height("mobile/000/text.png") / 2;
+			background: url(asset-path("mobile/000/text.png", image)) no-repeat;
+			background-size: 258px 147px;
 			margin: 0 auto;
 		}
-		.loading_bg {
-			width: 66px;
-			height: 66px;
-			background: url(asset-path("mobile/000/loadingbg.png", image)) no-repeat;
-			background-size: 66px 66px;
-			margin: 0 auto;
-			margin-top: 40px;
+		
+		.buttons {
+			position: absolute;
+			top: 50%;
+			margin-top: 90px;
+			left: 50%;
+			width: 165px;
+			margin-left: -1 * 165 / 2 + px;
+
 			.comming_soon {
-				@include hide-text;
 				width: 66px;
 				height: 66px;
-				background: url(asset-path("mobile/000/comingsoon.png", image)) no-repeat;
-				background-size: 66px 66px;
+				position: absolute;
+				left: 50%;
+				margin-left: -33px;
+			}
+
+			a img {
+				position: absolute;
+				margin-top: 33px;
+				width: 74px;
+				height: 74px;
+				&.plan {
+					right: 0;
+				}
 			}
 		}		
 	}
