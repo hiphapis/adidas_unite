@@ -37,7 +37,9 @@ var imagePreloader = function(images, callback, cache) {
 
 	$.each(images, function(idx, url) {
 		imageResult[url] = {};
-		loadImage(url);
+		setTimeout(function() {
+			loadImage(url);	
+		}, 5);
 	});
 	
 }
