@@ -98,7 +98,10 @@ body {
 				@include transition-property(opacity, top);
 				@include transition-duration(0.2s);
 				&.hide_when_smallsize {
-					@media all and (max-height: 950px) { opacity: 0; top: -50px; }
+					@media all and (max-height: 950px) { 
+						@include opacity(0);
+						top: -50px;
+					}
 				}
 			}
 		}
