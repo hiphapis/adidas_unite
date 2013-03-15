@@ -17,7 +17,7 @@ var getLoading = function(loaded, total) {
   var progress = parseInt(loaded / total * 100);
 	$("#progress div").css("width", progress + "%");
 
-  if (progress >= 90) {
+  if (progress >= 95) {
 		completeLoading();
   }
 }
