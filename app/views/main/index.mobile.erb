@@ -2,22 +2,28 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-  <meta name="google" value="notranslate" />
+	<meta name="google" value="notranslate" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-  <title>Adidas</title>
-  <%= stylesheet_link_tag    "mobile" %>
-  <%= javascript_include_tag "application" %>
+	<title>Adidas</title>
+	<%= stylesheet_link_tag		 "mobile" %>
+	<%= javascript_include_tag "application" %>
 
 	<script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-      $("#container").height($(window).height());
-      
-      $(window).bind('resize', function() {
-        $("#container").height($(window).height());
-      });
-    });
-  </script>
+	console.log("bb")
+		// $(document).ready(function() {
+		//	 $("#container").height($(window).height());
+		//	 
+			$(window).bind('resize', function() {
+	console.log("aa");
+				 $("#container").height($(window).height());
+			});
+			$(window).bind("orientationchange", function() {
+				console.log("cc")
+			});
+			
+		// });
+	</script>
 
 </head>
 <body>
@@ -48,15 +54,15 @@ document.write(unescape("%3Cscript src='" + nasJsHost + "n00.nsmartad.com/etc?id
 </script>
 <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39290664-1']);
-  _gaq.push(['_trackPageview']);
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-39290664-1']);
+	_gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
 
 </script>
 </body>
