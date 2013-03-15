@@ -9,7 +9,18 @@
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
+/config/database.yml
+
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/public/uploads
+/public/upload
+/public/assets
+
+# Ignore sprite image
+s-*.png
+
+.DS_Store
+/**/.DS_Store
