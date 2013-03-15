@@ -184,15 +184,15 @@ function createScrollAnimation() {
 					onProgress: function(progress, viewport, element) {
 						if (progress >= 0.7) {
 							$("#header h1").addClass("hide_when_smallsize");
-							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10) {
-								$("#header h1").fadeOut();
-							}
+							// if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10) {
+							// 	$("#header h1").fadeOut();
+							// }
 						}
 						else {
 							$("#header h1").removeClass("hide_when_smallsize");
-							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10) {
-								$("#header h1").fadeIn();
-							}
+							// if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10) {
+							// 	$("#header h1").fadeIn();
+							// }
 						}
 					}
 				},
