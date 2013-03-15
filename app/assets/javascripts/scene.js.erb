@@ -89,7 +89,13 @@ function createScrollAnimation() {
 					top: "165px",
 					right: 0
 				})
-			};
+			}
+			else if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").width() > 1250) {
+				$("#lnb").css({
+					top: "63px",
+					right: "167px"
+				})
+			}
 		}
 	});
 	ss.addAnimationHashArray([
