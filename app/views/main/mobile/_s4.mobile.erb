@@ -1,0 +1,30 @@
+<div id="section4" class="artist">
+	<%= image_tag("mobile/section4/bg.jpg", class: "fucking_ie_bg", alt: "") if fucking_ie? %>
+	
+	<div class="intro">
+		<%= image_tag "mobile/section4/intro.png" %>
+	</div>
+
+	<div class="wrapper">
+		<div class="scene1">
+			<%= image_tag "mobile/section4/top.png", class: "top" %>
+			<%= image_tag "mobile/section4/bottom.png", class: "bottom" %>
+			<%= image_tag "mobile/section4/left.png", class: "left" %>
+			<%= image_tag "mobile/section4/right.png", class: "right" %>
+		</div>
+		
+		<div class="scene2">
+			<div data-partial="masking">
+				<%= image_tag "mobile/section4/scene/0.png" %>
+			</div>
+			<div class="movie">
+				<%= image_tag "mobile/section4/movie.jpg" %>
+			</div>
+			
+			<div class="texts">
+				<%= image_tag "mobile/section4/left2.png", class: "left2" %>
+				<%= image_tag "mobile/section4/right2.png", class: "right2" %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div id="section3" class="product">
+	<%= image_tag("mobile/section3/bg.jpg", class: "fucking_ie_bg", alt: "") if fucking_ie? %>
+
+	<div class="wrapper">
+		<%= image_tag "mobile/section3/product.png", class: "product" %>
+		
+		<div class="popup" data-partial="popup">
+			<%= image_tag "mobile/section3/scene/0.png", usemap: "#section3_popup" %>
+			<map name="section3_popup" id="section3_popup">
+				<area data-type="shop" shape="rect" coords="0,0,0,0" href="http://shop.adidas.co.kr/PF020401.action?PROD_CD=Q23423&SRCH_NM=팬텀" target="_blank">
+			</map>
+		</div>
+	</div>
+</div>
