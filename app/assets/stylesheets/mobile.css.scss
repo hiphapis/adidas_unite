@@ -144,24 +144,24 @@ body {
 			z-index: 10;
 			top: 50%;
 			left: 50%;
-			margin-top: -1 * 483 / 2 + px;
-			margin-left: -1 * 235 / 2 + px;
+			margin-top: -1 * 235 / 2 + px;
+			margin-left: -1 * 483 / 2 + px;
 
 			div {
 				display: none;
 			}
 			.copy1 { 
-				@include ab_center("top", "loading/text01.png");
-				@include ab_center("left", "loading/text01.png");
+				@include ab_center("top", "mobile/loading/text01.png");
+				@include ab_center("left", "mobile/loading/text01.png");
 				display: block;
 			}
 			.copy2 {
-				@include ab_center("top", "loading/text02.png");
-				@include ab_center("left", "loading/text02.png");
+				@include ab_center("top", "mobile/loading/text02.png");
+				@include ab_center("left", "mobile/loading/text02.png");
 			}
 			.copy3 {
-				@include ab_center("top", "loading/text03.png");
-				@include ab_center("left", "loading/text03.png");
+				@include ab_center("top", "mobile/loading/text03.png");
+				@include ab_center("left", "mobile/loading/text03.png");
 			}
 		}
 
