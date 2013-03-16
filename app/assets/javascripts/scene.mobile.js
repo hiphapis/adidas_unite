@@ -82,7 +82,7 @@ function createScrollAnimation() {
 		element: '#container',
 		scroller: '#scrollbar',
 		// debug: true,
-		scrollSpeed: (os.isWin)? 120 : 30,
+		mobileScrollSpeed: 0.3,
 		resizeCallback: function() {
 			if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").width() <= 1250) {
 				$("#lnb").css({

@@ -7,6 +7,7 @@
 //    - only_element_height
 //    - resizeCallback
 //    - for Fucking IE
+//    - mobileScrollSpeed
 
 function PRINT(key, value) {
 	key = key.replace(/[#\W\.]/g, 'X');
@@ -40,7 +41,8 @@ var AnimationPlayer = function(options) {
 	var _setting = _.defaults(options, {
 		triggerAtCenter: false,
 		debug: false,
-		scrollSpeed: 20
+		scrollSpeed: 20,
+		mobileScrollSpeed: 0.1
 	});
 	var _viewport = {};
 	var _position = 0;
@@ -235,7 +237,7 @@ var AnimationPlayer = function(options) {
 				var offsetX = touchStart.x - ev.touches[0].pageX;
 				var offsetY = touchStart.y - ev.touches[0].pageY;	
 
-				var newPos = _position + offsetY * 0.1;
+				var newPos = _position + offsetY * _setting.mobileScrollSpeed;
 				setTimelinePosition(newPos);
 			}
 
