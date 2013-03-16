@@ -83,6 +83,7 @@ function createScrollAnimation() {
 		scroller: '#scrollbar',
 		// debug: true,
 		mobileScrollSpeed: 0.3,
+		// acceleration: false,
 		resizeCallback: function() {
 			if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").width() <= 1250) {
 				$("#lnb").css({
@@ -201,22 +202,16 @@ function createScrollAnimation() {
 					properties: { opacity: 0, top: "100%" },
 					onProgress: function(progress, viewport, element) {
 						if (progress >= 0.7) {
-							$("#header h1").addClass("hide_when_smallsize");
-							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").height() <= 950) {
-								$("#header h1").fadeOut();
-							}
+							$("#h h1").addClass("hide_when_smallsize");
 						}
 						else {
-							$("#header h1").removeClass("hide_when_smallsize");
-							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").height() <= 950) {
-								$("#header h1").fadeIn();
-							}
+							$("#h h1").removeClass("hide_when_smallsize");
 						}
 					}
 				},
 				{
 					position: 1,
-					properties: { opacity: 1, top: "55%" }
+					properties: { opacity: 1, top: "48%" }
 				}
 			]
 		},
@@ -289,7 +284,7 @@ function createScrollAnimation() {
 				},
 				{
 					position: 1,
-					properties: { opacity: 0, top: "-100%" }
+					properties: { opacity: 0, top: "0%" }
 				},
 			]
 		},
@@ -314,7 +309,7 @@ function createScrollAnimation() {
 				},
 				{
 					position: 1,
-					properties: { opacity: 0, top: "-100%" }
+					properties: { opacity: 0, top: "0%" }
 				}
 			]
 		},
@@ -323,7 +318,7 @@ function createScrollAnimation() {
 			after_no_hide: true,
 			startPoint: "end",
 			offset: -200,
-			duration: 300,
+			duration: 600,
 			keyframes: [
 				{
 					position: 0,
@@ -357,7 +352,7 @@ function createScrollAnimation() {
 						var $img = element.find("img");
 						if ($img.attr("src") != image_path) {
 							$img.attr("src", image_path);
-							$("#section_global_map").find("area").attr("coords", imageMapPositions["global"][current_scene]["site"]);
+							$("#section_global_map").find("area").attr("coords", imageMapPositions["mobile_global"][current_scene]["site"]);
 						}
 					}
 				},
@@ -623,7 +618,7 @@ function createScrollAnimation() {
 				},
 				{
 					position: 1,
-					properties: { marginTop: (-845 / 2) + 50 }
+					properties: { marginTop: (-845 / 2) + 80 }
 				}
 			],
 			particles: [
@@ -736,7 +731,7 @@ function createScrollAnimation() {
 			element: '#section3',
 			before_no_hide: true,
 			startPoint: "end",
-			offset: 400,
+			offset: 600,
 			duration: "viewport_height",
 			keyframes: [
 				{
@@ -1033,7 +1028,7 @@ function createScrollAnimation() {
 			element: '#section5',
 			before_no_hide: true,
 			startPoint: "end",
-			offset: 400,
+			offset: 600,
 			duration: "viewport_height",
 			keyframes: [
 				{
@@ -1263,7 +1258,7 @@ function createScrollAnimation() {
 				},
 				{
 					position: 1,
-					properties: { marginTop: (-845 / 2) + 50 }
+					properties: { marginTop: (-845 / 2) + 80 }
 				}
 			],
 			particles: [
@@ -1293,9 +1288,8 @@ function createScrollAnimation() {
 						},
 						{
 							position: 1,
-							properties: { opacity: 1, marginTop: 208 }
+							properties: { opacity: 1, marginTop: 115 }
 						}
-
 					]
 				}
 			]
@@ -1360,7 +1354,7 @@ function createScrollAnimation() {
 			element: '#section7',
 			before_no_hide: true,
 			startPoint: "end",
-			offset: 400,
+			offset: 600,
 			duration: "viewport_height",
 			keyframes: [
 				{

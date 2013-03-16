@@ -8,6 +8,7 @@
 //    - resizeCallback
 //    - for Fucking IE
 //    - mobileScrollSpeed
+//    - acceleration
 
 function PRINT(key, value) {
 	key = key.replace(/[#\W\.]/g, 'X');
@@ -42,7 +43,8 @@ var AnimationPlayer = function(options) {
 		triggerAtCenter: false,
 		debug: false,
 		scrollSpeed: 20,
-		mobileScrollSpeed: 0.1
+		mobileScrollSpeed: 0.1,
+		acceleration: true
 	});
 	var _viewport = {};
 	var _position = 0;
@@ -85,10 +87,12 @@ var AnimationPlayer = function(options) {
 	function updateTimeline() {
 		var c = _position;
 		
-		if (Math.ceil(_position) !== Math.ceil(_positionTweened)) {
-			var d = _position - _positionTweened;
-			c = _positionTweened + d * 0.12;
-			_positionTweened = c;
+		if (_setting.acceleration) {
+			if (Math.ceil(_position) !== Math.ceil(_positionTweened)) {
+				var d = _position - _positionTweened;
+				c = _positionTweened + d * 0.12;
+				_positionTweened = c;
+			}
 		}
 
 		_.each(_animations, function(ani) {

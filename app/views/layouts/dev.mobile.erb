@@ -20,7 +20,7 @@
 		<% 
 		images = []
 		(1..10).each do |i|
-			Dir.glob("app/assets/images/section#{i}/scene/*").each do |img| 
+			Dir.glob("app/assets/images/mobile/section#{i}/scene/*").each do |img| 
 				images << image_path(img.split("/")[3..-1].join("/")) if File.file?(img)
 			end
 		end
@@ -76,25 +76,25 @@
 			});
 
 
-			var progress = 1;
-			var demo_loading = function() {
-				$("#progress div").css("width", progress + "%");
-			  if (progress >= 100) {
-					clearTimeout(timer);
-					completeLoading();
-					return;
-			  }
-				progress++;
-			
-				timer = setTimeout(function() {
-					demo_loading();
-				}, 10)
-			}
-			demo_loading();
+			// var progress = 1;
+			// var demo_loading = function() {
+			// 	$("#progress div").css("width", progress + "%");
+			//   if (progress >= 100) {
+			// 		clearTimeout(timer);
+			// 		completeLoading();
+			// 		return;
+			//   }
+			// 	progress++;
+			// 
+			// 	timer = setTimeout(function() {
+			// 		demo_loading();
+			// 	}, 10)
+			// }
+			// demo_loading();
 
-			// setTimeout(function() {
-			// 	imagePreloader(preloadImages, getLoading, true);
-			// }, 500);
+			setTimeout(function() {
+				imagePreloader(preloadImages, getLoading, true);
+			}, 500);
 			createScrollAnimation();
 			ss.enableWindowScrollEvents(false);
 		});
@@ -103,15 +103,7 @@
 </head>
 
 <body>
-	<div id="lnb">
-		<ul class="nav">
-			<li><a href="http://alladidas.com/unite" data-target="#intro .copy1" data-target-landing-position="start" data-target-offset="10">top</a></li>
-			<li><a href="http://alladidas.com/collider" data-target="#section_global">global</a></li>
-			<li><a href="http://alladidas.com/unite?section=2" data-target="#section2">더블K, 서효인</a></li>
-			<li><a href="http://alladidas.com/phantom" data-target="#section3">phantom</a></li>
-		</ul>
-	</div>
-	
+
 	<div id="container">
 		<%= yield %>
 	</div>

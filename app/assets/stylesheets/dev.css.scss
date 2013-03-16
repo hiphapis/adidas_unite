@@ -26,29 +26,6 @@ body {
 	background-color:#000;
 }
 
-#lnb {
-	position: fixed;
-	bottom: 30px;
-	z-index: 1100;
-	width: 100%;
-
-	ul {
-		width: 572px;
-		margin: 0 auto;
-		li {
-			float: left;
-			margin: 4px;
-			a {
-				width: 135px !important;
-				height: 135px !important;
-				&[data-target="#intro .copy1"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
-				&[data-target="#section_global"] { @include sprite_replace_text_anchor($sprite, "menu02"); }
-				&[data-target="#section2"] { @include sprite_replace_text_anchor($sprite, "menu03"); }
-				&[data-target="#section3"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
-			}
-		}
-	}
-}
 
 #container {
 	width: 100%;
@@ -86,14 +63,46 @@ body {
 			background: url(asset-path("mobile/loading/titlebg.png", image)) no-repeat;
 			background-position: center top;
 			padding-top: 14px;
-			.text {
+			h1 {
 				@include hide-text;
 				position: relative;
 				width: 434px;
 				height: 75px;
 				margin: 0 auto;
-		    	background: url(asset-path("mobile/loading/title.png", image)) no-repeat;
-		    	z-index: 1;
+				background: url(asset-path("mobile/loading/title.png", image)) no-repeat;
+				z-index: 1;
+				@include transition-property(opacity, top);
+				@include transition-duration(0.2s);
+				&.hide_when_smallsize {
+					@media all and (max-height: 950px) { 
+						@include opacity(0);
+						top: -50px;
+					}
+				}
+			}
+		}
+	}
+
+	#lnb {
+		position: fixed;
+		bottom: 0px;
+		z-index: 1100;
+		width: 100%;
+
+		ul {
+			width: 572px;
+			margin: 0 auto;
+			li {
+				float: left;
+				margin: 4px;
+				a {
+					width: 135px !important;
+					height: 135px !important;
+					&[data-target="#intro .copy1"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
+					&[data-target="#section_global"] { @include sprite_replace_text_anchor($sprite, "menu02"); }
+					&[data-target="#section2"] { @include sprite_replace_text_anchor($sprite, "menu03"); }
+					&[data-target="#section3"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
+				}
 			}
 		}
 	}
@@ -242,6 +251,7 @@ body {
 			@include cover_bg("mobile/section10/bg.jpg");
 			width: 100%;
 			height: 100%;
+			z-index: 10;
 
 			.intro {
 				height: image_height("mobile/section10/intro1.png");
@@ -309,7 +319,7 @@ body {
 				margin-left: -1 * 618 / 2 + px;
 				top: 50%;
 				height: 748px;
-				margin-top: -1 * 741 / 2 + px;
+				margin-top: -1 * 741 / 2 - 40 + px;
 				text-align: center;
 
 				.scene1 {
@@ -346,6 +356,7 @@ body {
 					margin-left: -1 * 618 / 2 + px;
 
 					div[data-partial="masking"] {
+						z-index: 100;
 						@include ab_center("left", "mobile/section2/scene/1.png");
 					}
 					.movie {
@@ -559,12 +570,7 @@ body {
 				width: image-width("mobile/section5/product.png");
 				height: 637px;
 				top: 50%;
-				margin-top: -318px;
-				div[data-partial="popup"] {
-					position: absolute;
-					right: 2px;
-					top: 120px;
-				}
+				margin-top: -352px;
 			}
 		}
 
@@ -611,7 +617,7 @@ body {
 				margin-left: -1 * 610 / 2 + px;
 				top: 50%;
 				height: 748px;
-				margin-top: -1 * 741 / 2 + px;
+				margin-top: -1 * 741 / 2 - 40 + px;
 				text-align: center;
 				
 				.top {
@@ -699,12 +705,7 @@ body {
 				width: image-width("mobile/section7/product.png");
 				height: 637px;
 				top: 50%;
-				margin-top: -318px;
-				div[data-partial="popup"] {
-					position: absolute;
-					right: 4px;
-					top: 120px;
-				}
+				margin-top: -352px;
 			}
 		}
 
@@ -835,12 +836,7 @@ body {
 				width: image-width("mobile/section9/product.png");
 				height: 637px;
 				top: 50%;
-				margin-top: -318px;
-				div[data-partial="popup"] {
-					position: absolute;
-					left: 2px;
-					top: 120px;
-				}
+				margin-top: -352px;
 			}
 		}
 	}
