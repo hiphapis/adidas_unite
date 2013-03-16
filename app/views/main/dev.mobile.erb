@@ -60,12 +60,12 @@ imageTable = {
 	var imageTable = <%= imageTable.to_json.html_safe %>;
 
 	$(".product .product").click(function(e){
-		$(".popups").show();
+		ss.enableWindowScrollEvents(false);
+		$(".product").parent().parent().children(".popups").show();
 	})
-	
-	$(".popups").bind('mousewheel', false);
 	
 	$(".close").click(function(e){
 		$(".popups").hide();
+		ss.enableWindowScrollEvents(true);
 	})
 </script>
