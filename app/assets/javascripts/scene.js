@@ -131,6 +131,10 @@ function createScrollAnimation() {
 					properties: { opacity: 1, top: "50%" }
 				},
 				{
+					position: 0.5,
+					properties: { opacity: 1, top: "50%" }
+				},
+				{
 					position: 1,
 					properties: { opacity: 0, top: "-100%" }
 				}

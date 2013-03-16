@@ -131,6 +131,10 @@ function createScrollAnimation() {
 					properties: { opacity: 1, top: "50%" }
 				},
 				{
+					position: 0.5,
+					properties: { opacity: 1, top: "50%" }
+				},
+				{
 					position: 1,
 					properties: { opacity: 0, top: "-100%" }
 				}
@@ -714,40 +718,6 @@ function createScrollAnimation() {
 			]
 		},
 		{
-			element: '#section3 div[data-partial="popup"]',
-			startPoint: "end",
-			offset: 100,
-			duration: "viewport_height",
-			keyframes: [
-				{
-					position: 0,
-					tween: TWEEN.Easing.Quadratic.In,
-					onProgress: function(progress, viewport, element) {
-						var pg = progress * 100;
-
-						if (pg <= 0) {
-							element.hide();
-							return;
-						}
-						element.show();
-		
-						var last_scene = 20;
-						var current_scene = parseInt((last_scene * pg) / 100);
-						
-						var image_path = imageTable.section3[current_scene];
-						var $img = element.find("img");
-						if (current_scene != 0 && $img.attr("src") != image_path) {
-							$img.attr("src", image_path);
-							$("#section3_popup").find("[data-type='shop']").attr("coords", imageMapPositions.popup_right_20[current_scene]["shop"]);
-						}
-					}
-				},
-				{
-					position: 1
-				}
-			]
-		},
-		{
 			element: '#section3',
 			before_no_hide: true,
 			startPoint: "end",
@@ -1041,40 +1011,6 @@ function createScrollAnimation() {
 				{
 					position: 1,
 					layout: 'top_inside'
-				}
-			]
-		},
-		{
-			element: '#section5 div[data-partial="popup"]',
-			startPoint: "end",
-			offset: 100,
-			duration: "viewport_height",
-			keyframes: [
-				{
-					position: 0,
-					tween: TWEEN.Easing.Quadratic.In,
-					onProgress: function(progress, viewport, element) {
-						var pg = progress * 100;
-
-						if (pg <= 0) {
-							element.hide();
-							return;
-						}
-						element.show();
-		
-						var last_scene = 21;
-						var current_scene = parseInt((last_scene * pg) / 100);
-						
-						var image_path = imageTable.section5[current_scene];
-						var $img = element.find("img");
-						if (current_scene != 0 && $img.attr("src") != image_path) {
-							$img.attr("src", image_path);
-							$("#section5_popup").find("[data-type='shop']").attr("coords", imageMapPositions.popup_right_21[current_scene]["shop"]);
-						}
-					}
-				},
-				{
-					position: 1
 				}
 			]
 		},
@@ -1398,40 +1334,6 @@ function createScrollAnimation() {
 			]
 		},
 		{
-			element: '#section7 div[data-partial="popup"]',
-			startPoint: "end",
-			offset: 100,
-			duration: "viewport_height",
-			keyframes: [
-				{
-					position: 0,
-					tween: TWEEN.Easing.Quadratic.In,
-					onProgress: function(progress, viewport, element) {
-						var pg = progress * 100;
-
-						if (pg <= 0) {
-							element.hide();
-							return;
-						}
-						element.show();
-		
-						var last_scene = 20;
-						var current_scene = parseInt((last_scene * pg) / 100);
-						
-						var image_path = imageTable.section7[current_scene];
-						var $img = element.find("img");
-						if (current_scene != 0 && $img.attr("src") != image_path) {
-							$img.attr("src", image_path);
-							$("#section7_popup").find("[data-type='shop']").attr("coords", imageMapPositions.popup_right_20[current_scene]["shop"]);
-						}
-					}
-				},
-				{
-					position: 1
-				}
-			]
-		},
-		{
 			element: '#section7',
 			before_no_hide: true,
 			startPoint: "end",
@@ -1729,42 +1631,6 @@ function createScrollAnimation() {
 				}
 			]
 		},
-		{
-			element: '#section9 div[data-partial="popup"]',
-			startPoint: "end",
-			offset: 100,
-			duration: "viewport_height",
-			keyframes: [
-				{
-					position: 0,
-					tween: TWEEN.Easing.Quadratic.In,
-					onProgress: function(progress, viewport, element) {
-						var pg = progress * 100;
-
-						if (pg <= 0) {
-							element.hide();
-							return;
-						}
-						element.show();
-		
-						var last_scene = 21;
-						var current_scene = parseInt((last_scene * pg) / 100);
-						
-						var image_path = imageTable.section9[current_scene];
-						var $img = element.find("img");
-						if (current_scene != 0 && $img.attr("src") != image_path) {
-							$img.attr("src", image_path);
-							$("#section9_popup").find("[data-type='shop']").attr("coords", imageMapPositions.popup_left[current_scene]["shop"]);
-						}
-					}
-				},
-				{
-					position: 1
-				}
-			]
-		}
-
-
 	]);
 	
 	ss.start();
