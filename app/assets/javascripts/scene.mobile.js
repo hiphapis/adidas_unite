@@ -731,7 +731,7 @@ function createScrollAnimation() {
 			element: '#section3',
 			before_no_hide: true,
 			startPoint: "end",
-			offset: 400,
+			offset: 600,
 			duration: "viewport_height",
 			keyframes: [
 				{
@@ -1028,7 +1028,7 @@ function createScrollAnimation() {
 			element: '#section5',
 			before_no_hide: true,
 			startPoint: "end",
-			offset: 400,
+			offset: 600,
 			duration: "viewport_height",
 			keyframes: [
 				{
@@ -1354,7 +1354,7 @@ function createScrollAnimation() {
 			element: '#section7',
 			before_no_hide: true,
 			startPoint: "end",
-			offset: 400,
+			offset: 600,
 			duration: "viewport_height",
 			keyframes: [
 				{
