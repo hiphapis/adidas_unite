@@ -535,6 +535,98 @@ body {
 				}
 			}
 		}
+
+		#section8 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("mobile/section8/bg.jpg");
+			width: 100%;
+			height: 100%;
+
+			.intro {
+				height: image_height("mobile/section8/intro.png");
+				@include ab_center("top", "mobile/section8/intro.png");
+				@include ab_center("left", "mobile/section8/intro.png");
+			}
+
+			.wrapper {
+				position: absolute;
+				z-index: 1000;
+				left: 50%;
+				width: 610px;
+				margin-left: -1 * 610 / 2 + px;
+				top: 50%;
+				height: 612px;
+				margin-top: -1 * 612 / 2 + px;
+				text-align: center;
+				
+				.top {
+					position: absolute;
+					top: 0;
+					@include ab_center("left", "mobile/section8/top.png");
+				}
+				.bottom {
+					position: absolute;
+					bottom: 0;
+					@include ab_center("left", "mobile/section8/bottom.png");
+				}
+				.left {
+					left: 0;
+					@include ab_center("top", "mobile/section8/left.png");
+				}
+				.right {
+					right: 0;
+					@include ab_center("top", "mobile/section8/right.png");
+				}
+				
+				.scene2 {
+					position: absolute;
+					height: 411px;
+					top: 50%;
+					margin-top: -205px;
+					width: 455px;
+					left: 50%;
+					margin-left: -1 * 455 / 2 + px;
+
+					div[data-partial="masking"] {
+						z-index: 100;
+						@include ab_center("top", "mobile/section4/scene/1.png");
+						left: 0;
+						width: 455px;
+						height: 272px;
+					}
+					
+					.movie {
+						position: absolute;
+						top: 82px;
+						z-index: 100;
+						left: 11px;
+						height: 386px;
+					}
+					
+					
+					.texts {
+						width: 100%;
+						height: 660px;
+						
+						.left2 {
+							position: absolute;
+							z-index: 10;
+							top: 0;
+							left: 0px;
+							height: 64px;
+						}
+						.right2 {
+							position: absolute;
+							z-index: 10;
+							bottom: 0;
+							right: 0px;
+							height: 64px;
+						}
+					}
+				}
+			}
+		}
 		
 	}
 }
