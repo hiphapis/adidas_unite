@@ -128,11 +128,11 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { opacity: 1 }
+					properties: { opacity: 1, top: "50%" }
 				},
 				{
 					position: 1,
-					properties: { opacity: 0 }
+					properties: { opacity: 0, top: "-100%" }
 				}
 			]
 		},
@@ -144,19 +144,19 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { opacity: 0 }
+					properties: { opacity: 0, top: "100%" }
 				},
 				{
-					position: 0.35,
-					properties: { opacity: 1 }
+					position: 0.3,
+					properties: { opacity: 1, top: "50%" }
 				},
 				{
-					position: 0.65,
-					properties: { opacity: 1 }
+					position: 0.7,
+					properties: { opacity: 1, top: "50%" }
 				},
 				{
 					position: 1,
-					properties: { opacity: 0 }
+					properties: { opacity: 0, top: "-100%" }
 				}
 			]
 		},
@@ -168,19 +168,19 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { opacity: 0 }
+					properties: { opacity: 0, top: "100%" }
 				},
 				{
-					position: 0.35,
-					properties: { opacity: 1 }
+					position: 0.30,
+					properties: { opacity: 1, top: "50%" }
 				},
 				{
-					position: 0.65,
-					properties: { opacity: 1 }
+					position: 0.7,
+					properties: { opacity: 1, top: "50%" }
 				},
 				{
 					position: 1,
-					properties: { opacity: 0 }
+					properties: { opacity: 0, top: "-100%" }
 				}
 			]
 		},
@@ -277,15 +277,15 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { opacity: 1 }
+					properties: { opacity: 1, top: "50%" }
 				},
 				{
 					position: 0.2,
-					properties: { opacity: 1 }
+					properties: { opacity: 1, top: "50%" }
 				},
 				{
 					position: 1,
-					properties: { opacity: 0 }
+					properties: { opacity: 0, top: "-100%" }
 				},
 			]
 		},
@@ -298,15 +298,19 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { opacity: 0 }
+					properties: { opacity: 0, top: "100%" }
 				},
 				{
-					position: 0.5,
-					properties: { opacity: 1 }
+					position: 0.30,
+					properties: { opacity: 1, top: "50%" }
+				},
+				{
+					position: 0.7,
+					properties: { opacity: 1, top: "50%" }
 				},
 				{
 					position: 1,
-					properties: { opacity: 0 }
+					properties: { opacity: 0, top: "-100%" }
 				}
 			]
 		},
@@ -1411,14 +1415,14 @@ function createScrollAnimation() {
 						}
 						element.show();
 		
-						var last_scene = 21;
+						var last_scene = 20;
 						var current_scene = parseInt((last_scene * pg) / 100);
 						
 						var image_path = imageTable.section7[current_scene];
 						var $img = element.find("img");
 						if (current_scene != 0 && $img.attr("src") != image_path) {
 							$img.attr("src", image_path);
-							$("#section7_popup").find("[data-type='shop']").attr("coords", imageMapPositions.popup_left[current_scene]["shop"]);
+							$("#section7_popup").find("[data-type='shop']").attr("coords", imageMapPositions.popup_right_20[current_scene]["shop"]);
 						}
 					}
 				},
@@ -1750,7 +1754,7 @@ function createScrollAnimation() {
 						var $img = element.find("img");
 						if (current_scene != 0 && $img.attr("src") != image_path) {
 							$img.attr("src", image_path);
-							$("#section9_popup").find("[data-type='shop']").attr("coords", imageMapPositions.popup_right_21[current_scene]["shop"]);
+							$("#section9_popup").find("[data-type='shop']").attr("coords", imageMapPositions.popup_left[current_scene]["shop"]);
 						}
 					}
 				},
