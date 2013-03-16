@@ -10,16 +10,13 @@
 	<%= javascript_include_tag "application" %>
 
 	<script type="text/javascript" charset="utf-8">
-	console.log("bb")
 		// $(document).ready(function() {
 		//	 $("#container").height($(window).height());
 		//	 
 			$(window).bind('resize', function() {
-	console.log("aa");
 				 $("#container").height($(window).height());
 			});
 			$(window).bind("orientationchange", function() {
-				console.log("cc")
 			});
 			
 		// });

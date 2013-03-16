@@ -36,24 +36,13 @@
 <%
 imageTable = {
 	section2: {},
-	section3: {},
 	section4: {},
-	section5: {},
-	section7: {},
-	section9: {},
 	section10: {},
 }
 (0..23).each { |i| imageTable[:section2][i] = image_path("mobile/section2/scene/#{i}.png") }
-(0..20).each { |i| imageTable[:section3][i] = image_path("mobile/section3/scene/#{i}.png") }
 (0..17).each { |i| imageTable[:section4][i] = image_path("mobile/section4/scene/#{i}.png") }
-(0..21).each do |i| 
-	imageTable[:section5][i] = image_path("mobile/section5/scene/#{i}.png")
-	imageTable[:section7][i] = image_path("mobile/section7/scene/#{i}.png")
-	imageTable[:section9][i] = image_path("mobile/section9/scene/#{i}.png")
-end
 (0..31).each { |i| imageTable[:section10][i] = image_path("mobile/section10/scene/#{i}.png") }
 %>
 <script type="text/javascript" charset="utf-8">
 var imageTable = <%= imageTable.to_json.html_safe %>;
 </script>
-<%= javascript_include_tag "scene" %>
