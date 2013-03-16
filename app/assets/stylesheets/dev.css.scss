@@ -2,6 +2,18 @@
 
 $sprite:sprite-map('mobile/s/*.png');
 
+@mixin close_button {
+	.close {
+		background: sprite($sprite, btn_close) no-repeat;
+		position: absolute;
+		width: 113px;
+		left: 50%;
+		margin-left: -56px;
+		height: 132px;
+		bottom: 10px;
+	}
+}
+
 html {
 	overflow: hidden;
 	width: 100%;
@@ -286,6 +298,28 @@ body {
 				@include ab_center("left", "mobile/section2/intro.png");
 			}
 
+			.popups {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 1200;
+				background-color: rgba(0,0,0,0.75);
+				img {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					&.left {
+						margin-left: -188px;
+						margin-top: -109px;
+					}
+					&.right {
+						margin-left: -188px;
+						margin-top: -177px;
+					}
+				}
+				@include close_button;
+			}
+
 			.wrapper {
 				position: absolute;
 				z-index: 1000;
@@ -296,7 +330,7 @@ body {
 				height: 748px;
 				margin-top: -1 * 741 / 2 - 40 + px;
 				text-align: center;
-				
+
 				.scene1 {
 					.top {
 						position: absolute;
@@ -360,14 +394,37 @@ body {
 			@include cover_bg("mobile/section3/bg.jpg");
 			width: 100%;
 			height: 100%;
-			
+		
+			.popups {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 1200;
+				background-color: rgba(0,0,0,0.75);
+				img {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					&.photo {
+						margin-left: -197px;
+						margin-top: -418px;
+					}
+					&.shop {
+						margin-left: -74px;
+						margin-top: -20px;
+					}
+				}
+				@include close_button;
+			}
+
 			.wrapper {
 				@include ab_center("top", "mobile/section3/product.png");
 				@include ab_center("left", "mobile/section3/product.png");
 				width: image-width("mobile/section3/product.png");
 				height: 637px;
 				top: 50%;
-				margin-top: -352px;
+				margin-top: -318px;
+				z-index: 20;
 			}
 		}
 
@@ -382,6 +439,28 @@ body {
 				height: image_height("mobile/section4/intro.png");
 				@include ab_center("top", "mobile/section4/intro.png");
 				@include ab_center("left", "mobile/section4/intro.png");
+			}
+
+			.popups {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 1200;
+				background-color: rgba(0,0,0,0.75);
+				img {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					&.left {
+						margin-left: -258px;
+						margin-top: -177px;
+					}
+					&.right {
+						margin-left: -277px;
+						margin-top: -200px;
+					}
+				}
+				@include close_button;
 			}
 
 			.wrapper {
@@ -438,7 +517,7 @@ body {
 						z-index: 100;
 						left: 50%;
 						margin-left: -217px;
-						height: 386px;
+						height: 250px;
 					}
 					
 					
@@ -472,6 +551,28 @@ body {
 			width: 100%;
 			height: 100%;
 			
+			.popups {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 1200;
+				background-color: rgba(0,0,0,0.75);
+				img {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					&.photo {
+						margin-left: -197px;
+						margin-top: -392px;
+					}
+					&.shop {
+						margin-left: -74px;
+						margin-top: -20px;
+					}
+				}
+				@include close_button;
+			}
+
 			.wrapper {
 				@include ab_center("top", "mobile/section5/product.png");
 				@include ab_center("left", "mobile/section5/product.png");
@@ -493,6 +594,28 @@ body {
 				height: image_height("mobile/section6/intro.png");
 				@include ab_center("top", "mobile/section6/intro.png");
 				@include ab_center("left", "mobile/section6/intro.png");
+			}
+
+			.popups {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 1200;
+				background-color: rgba(0,0,0,0.75);
+				img {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					&.left {
+						margin-left: -183px;
+						margin-top: -177px;
+					}
+					&.right {
+						margin-left: -239px;
+						margin-top: -177px;
+					}
+				}
+				@include close_button;
 			}
 
 			.wrapper {
@@ -563,6 +686,28 @@ body {
 			width: 100%;
 			height: 100%;
 			
+			.popups {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 1200;
+				background-color: rgba(0,0,0,0.75);
+				img {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					&.photo {
+						margin-left: -197px;
+						margin-top: -416px;
+					}
+					&.shop {
+						margin-left: -74px;
+						margin-top: -20px;
+					}
+				}
+				@include close_button;
+			}
+
 			.wrapper {
 				@include ab_center("top", "mobile/section7/product.png");
 				@include ab_center("left", "mobile/section7/product.png");
@@ -584,6 +729,28 @@ body {
 				height: image_height("mobile/section8/intro.png");
 				@include ab_center("top", "mobile/section8/intro.png");
 				@include ab_center("left", "mobile/section8/intro.png");
+			}
+
+			.popups {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 1200;
+				background-color: rgba(0,0,0,0.75);
+				img {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					&.left {
+						margin-left: -238px;
+						margin-top: -132px;
+					}
+					&.right {
+						margin-left: -260px;
+						margin-top: -177px;
+					}
+				}
+				@include close_button;
 			}
 
 			.wrapper {
@@ -639,7 +806,7 @@ body {
 						top: 82px;
 						z-index: 100;
 						left: 11px;
-						height: 386px;
+						height: 250px;
 					}
 					
 					
