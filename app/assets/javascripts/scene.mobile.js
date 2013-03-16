@@ -832,11 +832,11 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.8,
-							properties: { marginTop: 177, opacity: 0.2}
+							properties: { marginTop: 155, opacity: 0.2}
 						},
 						{
 							position: 1,
-							properties: { marginTop: 177, opacity: 0 }
+							properties: { marginTop: 155, opacity: 0 }
 						}
 					]
 				},
@@ -849,11 +849,11 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.8,
-							properties: { marginBottom: 179, opacity: 0.2}
+							properties: { marginBottom: 155, opacity: 0.2}
 						},
 						{
 							position: 1,
-							properties: { marginBottom: 179, opacity: 0 }
+							properties: { marginBottom: 155, opacity: 0 }
 						}
 					]
 				},
@@ -866,11 +866,11 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.8,
-							properties: { marginLeft: 179, opacity: 0.2}
+							properties: { marginLeft: 155, opacity: 0.2}
 						},
 						{
 							position: 1,
-							properties: { marginLeft: 179, opacity: 0 }
+							properties: { marginLeft: 155, opacity: 0 }
 						}
 					]
 				},
@@ -883,11 +883,11 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.8,
-							properties: { marginRight: 179, opacity: 0.2}
+							properties: { marginRight: 156, opacity: 0.2}
 						},
 						{
 							position: 1,
-							properties: { marginRight: 179, opacity: 0 }
+							properties: { marginRight: 156, opacity: 0 }
 						}
 					]
 				}
@@ -1259,7 +1259,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { marginTop: -178 }
+					properties: { marginTop: -142 }
 				},
 				{
 					position: 1,
@@ -1456,11 +1456,11 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.8,
-							properties: { marginTop: 177, opacity: 0.2}
+							properties: { marginTop: 155, opacity: 0.2}
 						},
 						{
 							position: 1,
-							properties: { marginTop: 177, opacity: 0 }
+							properties: { marginTop: 155, opacity: 0 }
 						}
 					]
 				},
@@ -1473,11 +1473,11 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.8,
-							properties: { marginBottom: 179, opacity: 0.2}
+							properties: { marginBottom: 155, opacity: 0.2}
 						},
 						{
 							position: 1,
-							properties: { marginBottom: 179, opacity: 0 }
+							properties: { marginBottom: 155, opacity: 0 }
 						}
 					]
 				},
@@ -1490,11 +1490,11 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.8,
-							properties: { marginLeft: 179, opacity: 0.2}
+							properties: { marginLeft: 155, opacity: 0.2}
 						},
 						{
 							position: 1,
-							properties: { marginLeft: 179, opacity: 0 }
+							properties: { marginLeft: 155, opacity: 0 }
 						}
 					]
 				},
@@ -1507,11 +1507,11 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.8,
-							properties: { marginRight: 179, opacity: 0.2}
+							properties: { marginRight: 156, opacity: 0.2}
 						},
 						{
 							position: 1,
-							properties: { marginRight: 179, opacity: 0 }
+							properties: { marginRight: 156, opacity: 0 }
 						}
 					]
 				}

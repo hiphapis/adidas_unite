@@ -279,9 +279,6 @@ body {
 				text-align: center;
 				
 				.scene1 {
-					position: relative;
-					z-index: 101;
-					top: 50%;
 					.top {
 						position: absolute;
 						top: 0;
@@ -315,7 +312,6 @@ body {
 					margin-left: -1 * 618 / 2 + px;
 
 					div[data-partial="masking"] {
-						z-index: 102;
 						@include ab_center("left", "mobile/section2/scene/1.png");
 					}
 					.movie {
@@ -388,6 +384,7 @@ body {
 					position: absolute;
 					bottom: 0;
 					@include ab_center("left", "mobile/section4/bottom.png");
+					margin-left: -153px;
 				}
 				.left {
 					left: 0;
@@ -518,7 +515,7 @@ body {
 					position: absolute;
 					height: 845px;
 					top: 50%;
-					margin-top: -178px;
+					margin-top: -142px;
 					width: 610px;
 					left: 50%;
 					margin-left: -1 * 610 / 2 + px;
@@ -599,6 +596,7 @@ body {
 					position: absolute;
 					bottom: 0;
 					@include ab_center("left", "mobile/section8/bottom.png");
+					margin-bottom: -153px;
 				}
 				.left {
 					left: 0;
