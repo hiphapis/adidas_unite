@@ -203,9 +203,11 @@ function createScrollAnimation() {
 					onProgress: function(progress, viewport, element) {
 						if (progress >= 0.7) {
 							$("#header h1").addClass("hide_when_smallsize");
+							$("#intro").hide();
 						}
 						else {
 							$("#header h1").removeClass("hide_when_smallsize");
+							$("#intro").show();
 						}
 					}
 				},
@@ -900,10 +902,10 @@ function createScrollAnimation() {
 					onProgress: function(progress, viewport, element) {
 						var pg = progress * 100;
 						if (pg <= 0) {
-							element.hide();
+							$("#section4 .scene2").hide();
 							return;
 						}
-						element.show();
+						$("#section4 .scene2").show();
 		
 						var last_scene = 17;
 						var current_scene = parseInt((last_scene * pg) / 100);
@@ -947,8 +949,22 @@ function createScrollAnimation() {
 			duration: "only_element_height",
 			offset: -300,
 			keyframes: [
-				{ position: 0 },
-				{ position: 1 }
+				{
+					position: 0,
+					properties: { opacity: 0 },
+					onProgress: function(progress, viewport, element) {
+						if (progress >= 0.18) {
+							element.show();
+						}
+						else {
+							element.hide();
+						}
+					}
+				},
+				{
+					position: 1,
+					properties: { opacity: 1 }
+				}
 			],
 			particles: [
 				{
@@ -1224,10 +1240,10 @@ function createScrollAnimation() {
 								var pg = progress * 100;
 
 								if (pg <= 0) {
-									particle.hide();
+									$("#section6 .wrapper .scene2").hide();
 									return;
 								}
-								particle.show();
+								$("#section6 .wrapper .scene2").show();
 
 								var last_scene = 23;
 								var current_scene = parseInt((last_scene * pg) / 100);
@@ -1247,7 +1263,6 @@ function createScrollAnimation() {
 		},
 		{
 			element: '#section6 .wrapper .scene2',
-			before_no_hide: true,
 			after_no_hide: true,
 			startPoint: "end",
 			duration: "only_element_height",
@@ -1523,10 +1538,10 @@ function createScrollAnimation() {
 					onProgress: function(progress, viewport, element) {
 						var pg = progress * 100;
 						if (pg <= 0) {
-							element.hide();
+							$("#section8 .scene2").hide();
 							return;
 						}
-						element.show();
+						$("#section8 .scene2").show();
 		
 						var last_scene = 17;
 						var current_scene = parseInt((last_scene * pg) / 100);
