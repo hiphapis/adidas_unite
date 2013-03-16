@@ -357,7 +357,7 @@ function createScrollAnimation() {
 						var $img = element.find("img");
 						if ($img.attr("src") != image_path) {
 							$img.attr("src", image_path);
-							$("#section_global_map").find("area").attr("coords", imageMapPositions["global"][current_scene]["site"]);
+							$("#section_global_map").find("area").attr("coords", imageMapPositions["mobile_global"][current_scene]["site"]);
 						}
 					}
 				},
