@@ -87,14 +87,12 @@ body {
 				top: 0;
 				left: 0;
 				z-index: 10;
-				@include ab_center("left", "mobile/loading/bg.png");
-				@include ab_center("top", "mobile/loading/bg.png");
-				background: image-url("mobile/loading/bg.png") no-repeat;
-				width: image-width("mobile/loading/bg.png");
-				height: image-height("mobile/loading/bg.png");
+				@include ab_center("left", "loading/bg.png");
+				@include ab_center("top", "loading/bg.png");
+				background: image-url("loading/bg.png") no-repeat;
+				width: image-width("loading/bg.png");
+				height: image-height("loading/bg.png");
 				
-				background-size: 132px 133px;
-
 				.progress_wrapper {
 					width: 100%;
 					height: 100%;
@@ -102,10 +100,10 @@ body {
 
 					#progress {
 						position: absolute;
-						left: 37px;
-						top: 88px;
-						width: 60px;
-						height: 6px;
+						left: 92px;
+						top: 200px;
+						width: 170px;
+						height: 14px;
 						background-color:#000;
 						@include border-radius(10px);
 
@@ -130,7 +128,11 @@ body {
 				&[data-scene="2"] { background: image-url("mobile/loading/scroll02.png"); }
 				&[data-scene="3"] { background: image-url("mobile/loading/scroll03.png"); }
 				&[data-scene="4"] { background: image-url("mobile/loading/scroll04.png"); }
-				&[data-scene="5"] { background: image-url("mobile/oading/scroll05.png"); }
+				&[data-scene="5"] { background: image-url("mobile/loading/scroll05.png"); }
+				&[data-scene="6"] { background: image-url("mobile/loading/scroll04.png"); }
+				&[data-scene="7"] { background: image-url("mobile/loading/scroll03.png"); }
+				&[data-scene="8"] { background: image-url("mobile/loading/scroll02.png"); }
+				&[data-scene="9"] { background: image-url("mobile/loading/scroll01.png"); }
 			}
 		}
 
