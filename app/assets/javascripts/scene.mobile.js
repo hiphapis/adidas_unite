@@ -201,22 +201,16 @@ function createScrollAnimation() {
 					properties: { opacity: 0, top: "100%" },
 					onProgress: function(progress, viewport, element) {
 						if (progress >= 0.7) {
-							$("#header h1").addClass("hide_when_smallsize");
-							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").height() <= 950) {
-								$("#header h1").fadeOut();
-							}
+							$("#h h1").addClass("hide_when_smallsize");
 						}
 						else {
-							$("#header h1").removeClass("hide_when_smallsize");
-							if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").height() <= 950) {
-								$("#header h1").fadeIn();
-							}
+							$("#h h1").removeClass("hide_when_smallsize");
 						}
 					}
 				},
 				{
 					position: 1,
-					properties: { opacity: 1, top: "55%" }
+					properties: { opacity: 1, top: "48%" }
 				}
 			]
 		},
@@ -623,7 +617,7 @@ function createScrollAnimation() {
 				},
 				{
 					position: 1,
-					properties: { marginTop: (-845 / 2) + 50 }
+					properties: { marginTop: (-845 / 2) + 80 }
 				}
 			],
 			particles: [
@@ -1263,7 +1257,7 @@ function createScrollAnimation() {
 				},
 				{
 					position: 1,
-					properties: { marginTop: (-845 / 2) + 50 }
+					properties: { marginTop: (-845 / 2) + 80 }
 				}
 			],
 			particles: [
@@ -1293,9 +1287,8 @@ function createScrollAnimation() {
 						},
 						{
 							position: 1,
-							properties: { opacity: 1, marginTop: 208 }
+							properties: { opacity: 1, marginTop: 115 }
 						}
-
 					]
 				}
 			]
