@@ -1,0 +1,297 @@
+@import "mixin";
+
+$sprite:sprite-map('mobile/s/*.png');
+
+html {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+body {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background-color:#000;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+
+	#h {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		z-index: 100;
+
+		.logo {
+			@include hide-text;
+			float: left;
+			display: block;
+			width: 89px;
+			height: 93px;
+			margin-top: 6px;
+			background: url(asset-path("mobile/loading/gnb_logo.png", image)) no-repeat;
+		}
+		.shop {
+			@include hide-text;
+			float: right;
+			display: block;
+			width: 89px;
+			height: 93px;
+			margin-top: 6px;
+			background: url(asset-path("mobile/loading/gnb_shop.png", image)) no-repeat;
+		}
+		.title {
+			width: 434px;
+			height: 99px;
+			margin: 0 auto;
+			background: url(asset-path("mobile/loading/titlebg.png", image)) no-repeat;
+			background-position: center top;
+			padding-top: 14px;
+			.text {
+				@include hide-text;
+				position: relative;
+				width: 434px;
+				height: 75px;
+				margin: 0 auto;
+		    	background: url(asset-path("mobile/loading/title.png", image)) no-repeat;
+			}
+		}
+	}
+
+	#content {
+		@include animation_viewport;
+		@include user-select(none);
+		width: 100%;
+		height: 100%;
+
+
+		#loading {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 1000;
+
+			.bg {
+				width: 100%;
+				height: 100%;
+				opacity: 0.8;
+				@include opacity(0.8);
+				background-color: #000;
+			}
+
+			#indicator {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				@include ab_center("left", "loading/bg.png");
+				@include ab_center("top", "loading/bg.png");
+				background: image-url("loading/bg.png") no-repeat;
+				width: image-width("loading/bg.png");
+				height: image-height("loading/bg.png");
+				
+				.progress_wrapper {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+
+					#progress {
+						position: absolute;
+						left: 92px;
+						top: 200px;
+						width: 170px;
+						height: 14px;
+						background-color:#000;
+						@include border-radius(10px);
+
+						div {
+							@include border-radius(10px);
+							background-color:#38e1ff;
+							mix-width: 20px;
+							width: 0;
+							height: 100%;
+						}
+					}
+				}
+			}
+			
+			#scroll_guide {
+				display: none;
+				background: image-url("mobile/loading/scroll01.png") no-repeat;
+				width: image-width("mobile/loading/scroll01.png");
+				height: image-height("mobile/loading/scroll01.png");
+
+				&[data-scene="1"] { background: image-url("mobile/loading/scroll01.png"); }
+				&[data-scene="2"] { background: image-url("mobile/loading/scroll02.png"); }
+				&[data-scene="3"] { background: image-url("mobile/loading/scroll03.png"); }
+				&[data-scene="4"] { background: image-url("mobile/loading/scroll04.png"); }
+				&[data-scene="5"] { background: image-url("mobile/loading/scroll05.png"); }
+				&[data-scene="6"] { background: image-url("mobile/loading/scroll04.png"); }
+				&[data-scene="7"] { background: image-url("mobile/loading/scroll03.png"); }
+				&[data-scene="8"] { background: image-url("mobile/loading/scroll02.png"); }
+				&[data-scene="9"] { background: image-url("mobile/loading/scroll01.png"); }
+			}
+		}
+
+
+		#intro {
+			width: 483px;
+			height: 235px;
+			position: absolute;
+			z-index: 10;
+			top: 50%;
+			left: 50%;
+			margin-top: -1 * 235 / 2 + px;
+			margin-left: -1 * 483 / 2 + px;
+
+			div {
+				display: none;
+			}
+			.copy1 { 
+				@include ab_center("top", "mobile/loading/text01.png");
+				@include ab_center("left", "mobile/loading/text01.png");
+				display: block;
+			}
+			.copy2 {
+				@include ab_center("top", "mobile/loading/text02.png");
+				@include ab_center("left", "mobile/loading/text02.png");
+			}
+			.copy3 {
+				@include ab_center("top", "mobile/loading/text03.png");
+				@include ab_center("left", "mobile/loading/text03.png");
+			}
+		}
+
+
+
+		#section1 {
+			@include animation_particle;
+			@include cover_bg("mobile/section1/bg.jpg");
+			height: 100%;
+			width: 100%;
+
+			.wrapper {
+				display: none;
+				z-index: 1000;
+				@include animation_canvas;
+				@include ab_center("left", sprite-file($sprite, "movie_bg"));
+				top: 50%;
+				margin-top: -1 * (image-height(sprite-file($sprite, "movie_bg")) + image-height("mobile/section1/btn_tw.png") + 12) / 2;
+
+
+				.movie {
+					@include sprite_replace_text($sprite, "movie_bg");
+					text-indent: 0;
+					text-align: center;
+					padding-top: 21px;
+					height: image_height(sprite_file($sprite, "movie_bg")) - 21;
+				}
+
+				.sns {
+					margin-top: 12px;
+					text-align: center;
+					
+					a { margin: 0 8px; }
+				}
+			}
+		}
+
+		#section_global {
+			position: relative;
+			height: 100%;
+			background: url(asset-path("mobile/section10/bg.jpg", image)) no-repeat;
+			background-size: cover;
+			background-position: center;
+			.intro {
+				height: image_height("section10/intro1.png");
+				.intro1 {
+					width: 323px;
+					height: 173px;
+					position: absolute;
+					left: 50%;
+					margin-left: -161px;
+					top: 50%;
+					margin-top: -70px;
+				}
+			}
+			#section2 {
+				.wrapper {
+					// position: absolute;
+					// top: 50%;
+					// margin-top: -260px;
+					// left: 50%;
+					// margin-left: -287px;
+					.scene1 {
+						width: 618px;
+						height: 741px;
+						position: absolute;
+						left: 50%;
+						margin-left: -309px;
+						top: 50%;
+						margin-top: -392px;
+						.top {
+							width: 374px;
+							height: 375px;
+							position: absolute;
+							left: 50%;
+							margin-left: -187px;
+							top: 0;
+							z-index: 2;
+						}
+						.bottom {
+							width: 374px;
+							height: 375px;
+							position: absolute;
+							left: 50%;
+							margin-left: -187px;
+							bottom: 0;
+						}
+						.left {
+							width: 295px;
+							height: 295px;
+							position: absolute;
+							top: 50%;
+							margin-top: -147px;
+							left: 0;
+						}
+						.right {
+							width: 295px;
+							height: 295px;
+							position: absolute;
+							top: 50%;
+							margin-top: -147px;
+							right: 0;
+						}
+					}
+					.mask_left {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						background: url(asset-path("mobile/section2/btn_left_popup.png", image)) no-repeat;
+						background-size: cover;
+						background-position: center;
+						z-index: 999;
+					}
+					.mask_right {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						background: url(asset-path("mobile/section2/btn_right_popup.png", image)) no-repeat;
+						background-size: cover;
+						background-position: center;
+						z-index: 999;
+					}
+
+				}
+			}
+				
+
+		}
+
+
+		
+	}
+}

@@ -5,6 +5,10 @@ class MainController < ApplicationController
   def index
   end
 
+	def dev
+		render layout: "dev"
+	end
+
 	def iframe
 		render layout: false
 	end
