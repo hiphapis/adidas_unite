@@ -5,12 +5,22 @@
 		<%= image_tag "mobile/section4/intro.png" %>
 	</div>
 
+	<div class="s4lp popups" style="display:none">
+		<%= image_tag "mobile/section4/btn_left_popup.png", class: "left" %>
+		<div class="close"></div>
+	</div>
+	<div class="s4rp popups" style="display:none">
+		<%= image_tag "mobile/section4/btn_right_popup.png", class: "right" %>
+		<div class="close"></div>
+	</div>
+
+
 	<div class="wrapper">
 		<div class="scene1">
 			<%= image_tag "mobile/section4/top.png", class: "top" %>
 			<%= image_tag "mobile/section4/bottom.png", class: "bottom" %>
-			<%= image_tag "mobile/section4/left.png", class: "left" %>
-			<%= image_tag "mobile/section4/right.png", class: "right" %>
+			<%= image_tag "mobile/section4/left.png", class: "left s4l" %>
+			<%= image_tag "mobile/section4/right.png", class: "right s4r" %>
 		</div>
 		
 		<div class="scene2">
@@ -22,9 +32,18 @@
 			</div>
 			
 			<div class="texts">
-				<%= image_tag "mobile/section4/left2.png", class: "left2" %>
-				<%= image_tag "mobile/section4/right2.png", class: "right2" %>
+				<%= image_tag "mobile/section4/left2.png", class: "left2 s4l" %>
+				<%= image_tag "mobile/section4/right2.png", class: "right2 s4r" %>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+	$(".s4l").click(function(e){
+		$(".s4lp").show();
+	})
+	$(".s4r").click(function(e){
+		$(".s4rp").show();
+	})
+</script>

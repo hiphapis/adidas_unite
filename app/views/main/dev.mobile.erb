@@ -43,5 +43,15 @@ imageTable = {
 (0..31).each { |i| imageTable[:section10][i] = image_path("mobile/section10/scene/#{i}.png") }
 %>
 <script type="text/javascript" charset="utf-8">
-var imageTable = <%= imageTable.to_json.html_safe %>;
+	var imageTable = <%= imageTable.to_json.html_safe %>;
+
+	$(".product").click(function(e){
+		$(".popups").show();
+	})
+	
+	$(".popups").bind('mousewheel', false);
+	
+	$(".close").click(function(e){
+		$(".popups").hide();
+	})
 </script>
