@@ -513,6 +513,28 @@ body {
 				}
 			}
 		}
+
+		#section7 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("mobile/section7/bg.jpg");
+			width: 100%;
+			height: 100%;
+			
+			.wrapper {
+				@include ab_center("top", "mobile/section7/product.png");
+				@include ab_center("left", "mobile/section7/product.png");
+				width: image-width("mobile/section7/product.png");
+				height: 637px;
+				top: 50%;
+				margin-top: -318px;
+				div[data-partial="popup"] {
+					position: absolute;
+					right: 4px;
+					top: 120px;
+				}
+			}
+		}
 		
 	}
 }
