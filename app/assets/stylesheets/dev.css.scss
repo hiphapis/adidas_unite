@@ -260,7 +260,6 @@ body {
 			@include cover_bg("mobile/section10/bg.jpg");
 			width: 100%;
 			height: 100%;
-			z-index: 10;
 
 			.intro {
 				height: image_height("mobile/section10/intro1.png");
@@ -268,17 +267,20 @@ body {
 					@include ab_center("left", "mobile/section10/intro1.png");
 					@include ab_center("top", "mobile/section10/intro1.png");
 					height: image_height("mobile/section10/intro1.png");
+					z-index: 10;
 				}
 				.intro2 {
 					@include ab_center("left", "mobile/section10/intro2.png");
 					@include ab_center("top", "mobile/section10/intro2.png");
 					height: image_height("mobile/section10/intro2.png");
+					z-index: 10;
 				}
 			}
 			
 
 			.scene1 {
 				display: block;
+				z-index: 10;
 				@include ab_center("top", "mobile/section10/scene/0.png");
 				@include ab_center("left", "mobile/section10/scene/0.png");
 			}
@@ -580,6 +582,7 @@ body {
 				height: 637px;
 				top: 50%;
 				margin-top: -352px;
+				z-index: 10;
 			}
 		}
 
@@ -715,6 +718,7 @@ body {
 				height: 637px;
 				top: 50%;
 				margin-top: -352px;
+				z-index: 10;
 			}
 		}
 
