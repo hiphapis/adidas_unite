@@ -81,11 +81,12 @@
 			var demo_loading = function() {
 				$("#progress div").css("width", progress + "%");
 			  if (progress >= 100) {
+					clearTimeout(timer);
 					completeLoading();
 			  }
 				progress++;
 			
-				setTimeout(function() {
+				timer = setTimeout(function() {
 					demo_loading();
 				}, 10)
 			}

@@ -142,7 +142,7 @@ body {
 			z-index: 10;
 			top: 50%;
 			left: 50%;
-			margin-top: -1 * 316 / 2 + px;
+			margin-top: -1 * 483 / 2 + px;
 			margin-left: -1 * 235 / 2 + px;
 
 			div {
@@ -177,7 +177,7 @@ body {
 				@include animation_canvas;
 				@include ab_center("left", sprite-file($sprite, "movie_bg"));
 				top: 50%;
-				margin-top: -1 * (image_height(sprite-file($sprite, "movie_bg")) + image_height("mobile/section1/btn_tw.png") + 12) / 2;
+				margin-top: -1 * (image-height(sprite-file($sprite, "movie_bg")) + image-height("mobile/section1/btn_tw.png") + 12) / 2;
 
 
 				.movie {
