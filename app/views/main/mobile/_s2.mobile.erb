@@ -9,8 +9,13 @@
 		<div class="scene1">
 			<%= image_tag "mobile/section2/top.png", class: "top" %>
 			<%= image_tag "mobile/section2/bottom.png", class: "bottom" %>
-			<%= image_tag "mobile/section2/left.png", class: "left" %>
-			<%= image_tag "mobile/section2/right.png", class: "right" %>
+			<%= image_tag "mobile/section2/left.png", class: "left s2l" %>
+			<%= image_tag "mobile/section2/right.png", class: "right s2r" %>
+			<script type="text/javascript" charset="utf-8">
+			$(".s2l").click(function(e){
+				alert("wwww")
+			})
+			</script>
 		</div>
 		
 		<div class="scene2">

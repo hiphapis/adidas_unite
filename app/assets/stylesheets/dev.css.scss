@@ -186,7 +186,7 @@ body {
 					@include sprite_replace_text($sprite, "movie_bg");
 					text-indent: 0;
 					text-align: center;
-					padding-top: 21px;
+					padding-top: 18px;
 					height: image_height(sprite_file($sprite, "movie_bg")) - 21;
 				}
 
@@ -319,9 +319,9 @@ body {
 				@include ab_center("top", "mobile/section3/product.png");
 				@include ab_center("left", "mobile/section3/product.png");
 				width: image-width("mobile/section3/product.png");
-				height: 724px;
+				height: 637px;
 				top: 50%;
-				margin-top: -395px;
+				margin-top: -318px;
 			}
 		}
 
@@ -457,8 +457,8 @@ body {
 				position: absolute;
 				z-index: 1000;
 				left: 50%;
-				width: 536px;
-				margin-left: -1 * 536 / 2 + px;
+				width: 610px;
+				margin-left: -1 * 610 / 2 + px;
 				top: 50%;
 				height: 748px;
 				margin-top: -1 * 741 / 2 + px;
@@ -489,9 +489,9 @@ body {
 					height: 845px;
 					top: 50%;
 					margin-top: -178px;
-					width: 536px;
+					width: 610px;
 					left: 50%;
-					margin-left: -1 * 536 / 2 + px;
+					margin-left: -1 * 610 / 2 + px;
 
 					div[data-partial="masking"] {
 						z-index: 100;
@@ -501,14 +501,14 @@ body {
 						position: absolute;
 						z-index: 100;
 						top: 14px;
-						left: 57px;
+						left: 94px;
 					}
 					.text2 {
 						position: absolute;
 						z-index: 10;
 						top: 58px;
 						margin-top: -174px;
-						left: 0;
+						left: 38px;
 					}
 				}
 			}
