@@ -520,7 +520,7 @@ function createScrollAnimation() {
 					keyframes: [
 						{
 							position: 0,
-							properties: { left: 0 }
+							properties: { left: 0, opacity: 1 }
 						},
 						{
 							position: 0.2,
@@ -549,7 +549,7 @@ function createScrollAnimation() {
 					keyframes: [
 						{
 							position: 0,
-							properties: { right: 0 }
+							properties: { right: 0, opacity: 1 }
 						},
 						{
 							position: 0.2,
@@ -1167,7 +1167,7 @@ function createScrollAnimation() {
 					keyframes: [
 						{
 							position: 0,
-							properties: { left: 0 }
+							properties: { left: 0, opacity: 1 }
 						},
 						{
 							position: 0.2,
@@ -1196,7 +1196,7 @@ function createScrollAnimation() {
 					keyframes: [
 						{
 							position: 0,
-							properties: { right: 0 }
+							properties: { right: 0, opacity: 1 }
 						},
 						{
 							position: 0.2,
