@@ -60,7 +60,7 @@ imageTable = {
 	var imageTable = <%= imageTable.to_json.html_safe %>;
 
 	$(".product .product").click(function(e){
-		$(".popups").show();
+		$(".product").parent().parent().children(".popups").show();
 	})
 	
 	$(".popups").bind('mousewheel', false);
