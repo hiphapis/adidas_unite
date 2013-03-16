@@ -241,8 +241,8 @@ body {
 					@include sprite_replace_text($sprite, "movie_bg");
 					text-indent: 0;
 					text-align: center;
-					padding-top: 18px;
-					height: image_height(sprite_file($sprite, "movie_bg")) - 21;
+					padding-top: 15px;
+					height: 354px;
 				}
 
 				.sns {
