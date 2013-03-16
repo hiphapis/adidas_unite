@@ -524,7 +524,7 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.2,
-							properties: { left: -40 },
+							properties: { left: -40, opacity: 1 },
 							onProgress: function(progress, viewport, element, particle) {
 								if (progress <= 0.8) {
 									particle.show();
@@ -536,7 +536,7 @@ function createScrollAnimation() {
 						},
 						{
 							position: 1,
-							properties: { left: 200 }
+							properties: { left: 200, opacity: 0 }
 						}
 					]
 				},
@@ -549,7 +549,7 @@ function createScrollAnimation() {
 						},
 						{
 							position: 0.2,
-							properties: { right: -40 },
+							properties: { right: -40, opacity: 1 },
 							onProgress: function(progress, viewport, element, particle) {
 								if (progress <= 0.8) {
 									particle.show();
@@ -561,7 +561,7 @@ function createScrollAnimation() {
 						},
 						{
 							position: 1,
-							properties: { right : 200 }
+							properties: { right : 200, opacity: 0 }
 						}
 					]
 				},
@@ -586,6 +586,13 @@ function createScrollAnimation() {
 								if ($img.attr("src") != image_path) {
 									$img.attr("src", image_path);
 								}
+								
+								if (current_scene <= 11) {
+									$("#section2 .scene1 img").css("zIndex", 1000);
+								}
+								else {
+									$("#section2 .scene1 img").css("zIndex", 0);
+								}
 							}
 						},
 						{
@@ -604,7 +611,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { marginTop: -178 }
+					properties: { marginTop: -142 }
 				},
 				{
 					position: 1,
@@ -638,7 +645,7 @@ function createScrollAnimation() {
 						},
 						{
 							position: 1,
-							properties: { opacity: 1, marginTop: 208 }
+							properties: { opacity: 1, marginTop: 115 }
 						}
 					]
 				}
@@ -901,6 +908,14 @@ function createScrollAnimation() {
 						var $img = element.find("img");
 						if ($img.attr("src") != image_path) {
 							$img.attr("src", image_path);
+						}
+						
+						// TODO: miriya
+						if (current_scene <= 11) {
+							$("#section2 .scene1 img").css("zIndex", 1000);
+						}
+						else {
+							$("#section2 .scene1 img").css("zIndex", 0);
 						}
 					}
 				},
