@@ -20,7 +20,7 @@
 		<% 
 		images = []
 		(1..10).each do |i|
-			Dir.glob("app/assets/images/section#{i}/scene/*").each do |img| 
+			Dir.glob("app/assets/images/mobile/section#{i}/scene/*").each do |img| 
 				images << image_path(img.split("/")[3..-1].join("/")) if File.file?(img)
 			end
 		end
@@ -76,25 +76,25 @@
 			});
 
 
-			var progress = 1;
-			var demo_loading = function() {
-				$("#progress div").css("width", progress + "%");
-			  if (progress >= 100) {
-					clearTimeout(timer);
-					completeLoading();
-					return;
-			  }
-				progress++;
-			
-				timer = setTimeout(function() {
-					demo_loading();
-				}, 10)
-			}
-			demo_loading();
+			// var progress = 1;
+			// var demo_loading = function() {
+			// 	$("#progress div").css("width", progress + "%");
+			//   if (progress >= 100) {
+			// 		clearTimeout(timer);
+			// 		completeLoading();
+			// 		return;
+			//   }
+			// 	progress++;
+			// 
+			// 	timer = setTimeout(function() {
+			// 		demo_loading();
+			// 	}, 10)
+			// }
+			// demo_loading();
 
-			// setTimeout(function() {
-			// 	imagePreloader(preloadImages, getLoading, true);
-			// }, 500);
+			setTimeout(function() {
+				imagePreloader(preloadImages, getLoading, true);
+			}, 500);
 			createScrollAnimation();
 			ss.enableWindowScrollEvents(false);
 		});
