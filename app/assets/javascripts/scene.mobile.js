@@ -83,7 +83,7 @@ function createScrollAnimation() {
 		scroller: '#scrollbar',
 		// debug: true,
 		mobileScrollSpeed: 0.3,
-		acceleration: false,
+		// acceleration: false,
 		resizeCallback: function() {
 			if (BrowserDetect.browser == "Explorer" && BrowserDetect.version < 10 && $("body").width() <= 1250) {
 				$("#lnb").css({
@@ -284,7 +284,7 @@ function createScrollAnimation() {
 				},
 				{
 					position: 1,
-					properties: { opacity: 0, top: "-100%" }
+					properties: { opacity: 0, top: "0%" }
 				},
 			]
 		},
@@ -309,7 +309,7 @@ function createScrollAnimation() {
 				},
 				{
 					position: 1,
-					properties: { opacity: 0, top: "-100%" }
+					properties: { opacity: 0, top: "0%" }
 				}
 			]
 		},
@@ -318,7 +318,7 @@ function createScrollAnimation() {
 			after_no_hide: true,
 			startPoint: "end",
 			offset: -200,
-			duration: 300,
+			duration: 600,
 			keyframes: [
 				{
 					position: 0,
