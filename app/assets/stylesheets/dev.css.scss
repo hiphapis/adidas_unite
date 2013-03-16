@@ -267,10 +267,12 @@ body {
 					.left {
 						left: 0;
 						@include ab_center("top", "mobile/section2/left.png");
+						z-index: 1000;
 					}
 					.right {
 						right: 0;
 						@include ab_center("top", "mobile/section2/right.png");
+						z-index: 1000;
 					}
 				}
 				
@@ -279,7 +281,7 @@ body {
 					position: absolute;
 					height: 845px;
 					top: 50%;
-					margin-top: -178px;
+					margin-top: -142px;
 					width: 618px;
 					left: 50%;
 					margin-left: -1 * 618 / 2 + px;
