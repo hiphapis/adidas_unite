@@ -62,6 +62,7 @@ imageTable = {
 	$(".popups").bind('mousewheel', false);
 	
 	$(".close").click(function(e){
+		console.log($(this).parent().attr('class'))
 		$(".popups").hide();
 	})
 </script>
