@@ -731,7 +731,7 @@ function createScrollAnimation() {
 						}
 						element.show();
 		
-						var last_scene = 20;
+						var last_scene = 21;
 						var current_scene = parseInt((last_scene * pg) / 100);
 						
 						var image_path = imageTable.section3[current_scene];
@@ -1415,7 +1415,7 @@ function createScrollAnimation() {
 						}
 						element.show();
 		
-						var last_scene = 21;
+						var last_scene = 20;
 						var current_scene = parseInt((last_scene * pg) / 100);
 						
 						var image_path = imageTable.section7[current_scene];
