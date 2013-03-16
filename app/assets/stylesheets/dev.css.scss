@@ -254,6 +254,9 @@ body {
 				text-align: center;
 				
 				.scene1 {
+					position: relative;
+					z-index: 101;
+					top: 50%;
 					.top {
 						position: absolute;
 						top: 0;
@@ -285,7 +288,7 @@ body {
 					margin-left: -1 * 618 / 2 + px;
 
 					div[data-partial="masking"] {
-						z-index: 100;
+						z-index: 102;
 						@include ab_center("left", "mobile/section2/scene/1.png");
 					}
 					.movie {
