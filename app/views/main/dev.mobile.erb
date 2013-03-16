@@ -59,14 +59,13 @@ imageTable = {
 <script type="text/javascript" charset="utf-8">
 	var imageTable = <%= imageTable.to_json.html_safe %>;
 
-	$(".product").click(function(e){
+	$(".product .product").click(function(e){
 		$(".popups").show();
 	})
 	
 	$(".popups").bind('mousewheel', false);
 	
 	$(".close").click(function(e){
-		console.log($(this).parent().attr('class'))
-		$(this).parent().hide();
+		$(".popups").hide();
 	})
 </script>
