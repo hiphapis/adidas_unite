@@ -202,10 +202,10 @@ function createScrollAnimation() {
 					properties: { opacity: 0, top: "100%" },
 					onProgress: function(progress, viewport, element) {
 						if (progress >= 0.7) {
-							$("#h h1").addClass("hide_when_smallsize");
+							$("#header h1").addClass("hide_when_smallsize");
 						}
 						else {
-							$("#h h1").removeClass("hide_when_smallsize");
+							$("#header h1").removeClass("hide_when_smallsize");
 						}
 					}
 				},

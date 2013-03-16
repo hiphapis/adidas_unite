@@ -31,46 +31,24 @@ body {
 	width: 100%;
 	height: 100%;
 
-	#h {
+	#header {
+		z-index: 10;
 		position: absolute;
-		top: 0px;
-		left: 0px;
+		left: 0;
+		top: 0;
 		width: 100%;
-		z-index: 100;
+		height: image-height(sprite_file($sprite, "titlebg"));
 
-		.logo {
-			@include hide-text;
-			float: left;
-			display: block;
-			width: 89px;
-			height: 93px;
-			margin-top: 6px;
-			background: url(asset-path("mobile/loading/gnb_logo.png", image)) no-repeat;
-		}
-		.shop {
-			@include hide-text;
-			float: right;
-			display: block;
-			width: 89px;
-			height: 93px;
-			margin-top: 6px;
-			background: url(asset-path("mobile/loading/gnb_shop.png", image)) no-repeat;
-		}
 		.title {
-			width: 434px;
-			height: 99px;
 			margin: 0 auto;
-			background: url(asset-path("mobile/loading/titlebg.png", image)) no-repeat;
-			background-position: center top;
-			padding-top: 14px;
+			text-align: center;
+			@include sprite_replace_text($sprite, "titlebg");
+
 			h1 {
-				@include hide-text;
-				position: relative;
-				width: 434px;
-				height: 75px;
-				margin: 0 auto;
-				background: url(asset-path("mobile/loading/title.png", image)) no-repeat;
-				z-index: 1;
+				text-indent: -10000000em;
+				@include sprite_replace_text($sprite, "title");
+				@include ab_center("left", sprite_file($sprite, "title"));
+				top: 50px;
 				@include transition-property(opacity, top);
 				@include transition-duration(0.2s);
 				&.hide_when_smallsize {
@@ -82,6 +60,37 @@ body {
 			}
 		}
 	}
+
+	#external {
+		z-index: 100000;
+		position: absolute;
+		left: 0;
+		top: 57px;
+		width: 100%;
+		
+		a {
+			position: absolute;
+			background-color:#000;
+
+			&.adidas {
+				left: 0;
+				@include sprite_replace_text($sprite, "gnb_logo");
+			}
+			&.shop {
+				right: 0;
+				@include sprite_replace_text($sprite, "gnb_shop");
+			}
+		}
+		
+		.adidas {
+			position: absolute;
+			background-color:#000;
+			left: 0;
+			@include sprite_replace_text($sprite, "gnb_logo");
+		}
+		
+	}
+
 
 	#lnb {
 		position: fixed;
@@ -251,7 +260,6 @@ body {
 			@include cover_bg("mobile/section10/bg.jpg");
 			width: 100%;
 			height: 100%;
-			z-index: 10;
 
 			.intro {
 				height: image_height("mobile/section10/intro1.png");
@@ -259,17 +267,20 @@ body {
 					@include ab_center("left", "mobile/section10/intro1.png");
 					@include ab_center("top", "mobile/section10/intro1.png");
 					height: image_height("mobile/section10/intro1.png");
+					z-index: 10;
 				}
 				.intro2 {
 					@include ab_center("left", "mobile/section10/intro2.png");
 					@include ab_center("top", "mobile/section10/intro2.png");
 					height: image_height("mobile/section10/intro2.png");
+					z-index: 10;
 				}
 			}
 			
 
 			.scene1 {
 				display: block;
+				z-index: 10;
 				@include ab_center("top", "mobile/section10/scene/0.png");
 				@include ab_center("left", "mobile/section10/scene/0.png");
 			}
@@ -571,6 +582,7 @@ body {
 				height: 637px;
 				top: 50%;
 				margin-top: -352px;
+				z-index: 10;
 			}
 		}
 
@@ -706,6 +718,7 @@ body {
 				height: 637px;
 				top: 50%;
 				margin-top: -352px;
+				z-index: 10;
 			}
 		}
 
