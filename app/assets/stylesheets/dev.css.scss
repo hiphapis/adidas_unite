@@ -213,11 +213,11 @@ body {
 					@include ab_center("top", "mobile/section10/intro1.png");
 					height: image_height("mobile/section10/intro1.png");
 				}
-				// .intro2 {
-				// 	@include ab_center("left", "mobile/section10/intro2.png");
-				// 	@include ab_center("top", "mobile/section10/intro2.png");
-				// 	height: image_height("mobile/section10/intro2.png");
-				// }
+				.intro2 {
+					@include ab_center("left", "mobile/section10/intro2.png");
+					@include ab_center("top", "mobile/section10/intro2.png");
+					height: image_height("mobile/section10/intro2.png");
+				}
 			}
 			
 
@@ -325,97 +325,97 @@ body {
 			}
 		}
 
-		// #section4 {
-		// 	display: none;
-		// 	@include animation_particle;
-		// 	@include cover_bg("mobile/section4/bg.jpg");
-		// 	width: 100%;
-		// 	height: 100%;
+		#section4 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("mobile/section4/bg.jpg");
+			width: 100%;
+			height: 100%;
 
-		// 	.intro {
-		// 		height: image_height("mobile/section4/intro.png");
-		// 		@include ab_center("top", "mobile/section4/intro.png");
-		// 		@include ab_center("left", "mobile/section4/intro.png");
-		// 	}
+			.intro {
+				height: image_height("mobile/section4/intro.png");
+				@include ab_center("top", "mobile/section4/intro.png");
+				@include ab_center("left", "mobile/section4/intro.png");
+			}
 
-		// 	.wrapper {
-		// 		position: absolute;
-		// 		z-index: 1000;
-		// 		left: 50%;
-		// 		width: 707px;
-		// 		margin-left: -1 * 707 / 2 + px;
-		// 		top: 50%;
-		// 		height: 705px;
-		// 		margin-top: -1 * 705 / 2 + px;
-		// 		text-align: center;
+			.wrapper {
+				position: absolute;
+				z-index: 1000;
+				left: 50%;
+				width: 616px;
+				margin-left: -1 * 616 / 2 + px;
+				top: 50%;
+				height: 614px;
+				margin-top: -1 * 614 / 2 + px;
+				text-align: center;
 				
-		// 		.top {
-		// 			position: absolute;
-		// 			top: 0;
-		// 			@include ab_center("left", "mobile/section4/top.png");
-		// 		}
-		// 		.bottom {
-		// 			position: absolute;
-		// 			bottom: 0;
-		// 			@include ab_center("left", "mobile/section4/bottom.png");
-		// 		}
-		// 		.left {
-		// 			left: 0;
-		// 			@include ab_center("top", "mobile/section4/left.png");
-		// 		}
-		// 		.right {
-		// 			right: 0;
-		// 			@include ab_center("top", "mobile/section4/right.png");
-		// 		}
+				.top {
+					position: absolute;
+					top: 0;
+					@include ab_center("left", "mobile/section4/top.png");
+				}
+				.bottom {
+					position: absolute;
+					bottom: 0;
+					@include ab_center("left", "mobile/section4/bottom.png");
+				}
+				.left {
+					left: 0;
+					@include ab_center("top", "mobile/section4/left.png");
+				}
+				.right {
+					right: 0;
+					@include ab_center("top", "mobile/section4/right.png");
+				}
 				
-		// 		.scene2 {
-		// 			position: absolute;
-		// 			height: 660px;
-		// 			top: 50%;
-		// 			margin-top: -330px;
-		// 			width: 705px;
-		// 			left: 50%;
-		// 			margin-left: -1 * 705 / 2 + px;
+				// .scene2 {
+				// 	position: absolute;
+				// 	height: 660px;
+				// 	top: 50%;
+				// 	margin-top: -330px;
+				// 	width: 705px;
+				// 	left: 50%;
+				// 	margin-left: -1 * 705 / 2 + px;
 
-		// 			div[data-partial="masking"] {
-		// 				z-index: 100;
-		// 				@include ab_center("top", "mobile/section4/scene/1.png");
-		// 				left: 0;
-		// 				width: 705px;
-		// 				height: 421px;
-		// 			}
+				// 	div[data-partial="masking"] {
+				// 		z-index: 100;
+				// 		@include ab_center("top", "mobile/section4/scene/1.png");
+				// 		left: 0;
+				// 		width: 705px;
+				// 		height: 421px;
+				// 	}
 					
-		// 			.movie {
-		// 				position: absolute;
-		// 				top: 138px;
-		// 				z-index: 100;
-		// 				left: 18px;
-		// 				height: 386px;
-		// 			}
+				// 	.movie {
+				// 		position: absolute;
+				// 		top: 138px;
+				// 		z-index: 100;
+				// 		left: 18px;
+				// 		height: 386px;
+				// 	}
 					
 					
-		// 			.texts {
-		// 				width: 100%;
-		// 				height: 660px;
+				// 	.texts {
+				// 		width: 100%;
+				// 		height: 660px;
 						
-		// 				.left2 {
-		// 					position: absolute;
-		// 					z-index: 10;
-		// 					top: 0;
-		// 					left: 5px;
-		// 					height: 109px;
-		// 				}
-		// 				.right2 {
-		// 					position: absolute;
-		// 					z-index: 10;
-		// 					bottom: 0;
-		// 					right: 5px;
-		// 					height: 109px;
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// }
+				// 		.left2 {
+				// 			position: absolute;
+				// 			z-index: 10;
+				// 			top: 0;
+				// 			left: 5px;
+				// 			height: 109px;
+				// 		}
+				// 		.right2 {
+				// 			position: absolute;
+				// 			z-index: 10;
+				// 			bottom: 0;
+				// 			right: 5px;
+				// 			height: 109px;
+				// 		}
+				// 	}
+				// }
+			}
+		}
 
 		
 	}
