@@ -62,7 +62,7 @@ body {
 	}
 
 	#external {
-		z-index: 100000;
+		z-index: 1000;
 		position: absolute;
 		left: 0;
 		top: 57px;
@@ -347,12 +347,12 @@ body {
 					.left {
 						left: 0;
 						@include ab_center("top", "mobile/section2/left.png");
-						z-index: 1000;
+						z-index: 200;
 					}
 					.right {
 						right: 0;
 						@include ab_center("top", "mobile/section2/right.png");
-						z-index: 1000;
+						z-index: 200;
 					}
 				}
 				
@@ -497,6 +497,7 @@ body {
 				}
 				
 				.scene2 {
+					display: none;
 					position: absolute;
 					width: 455px;
 					left: 50%;
@@ -526,6 +527,7 @@ body {
 					.texts {
 						width: 100%;
 						height: 660px;
+						display: none;
 						
 						.left2 {
 							position: absolute;
@@ -645,13 +647,16 @@ body {
 				.left {
 					left: 0;
 					@include ab_center("top", "mobile/section6/left.png");
+					z-index: 200;
 				}
 				.right {
 					right: 0;
 					@include ab_center("top", "mobile/section6/right.png");
+					z-index: 200;
 				}
 				
 				.scene2 {
+					display: none;
 					overflow: hidden;
 					position: absolute;
 					height: 845px;
@@ -789,6 +794,7 @@ body {
 				}
 				
 				.scene2 {
+					display: none;
 					position: absolute;
 					height: 411px;
 					top: 50%;
