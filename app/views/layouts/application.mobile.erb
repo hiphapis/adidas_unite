@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+  <meta name="google" value="notranslate" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=640, initial-scale=.5, maximum-scale=.5, minimum-scale=.5" />
+  <title>Adidas</title>
+  <%= stylesheet_link_tag    "mobile" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+	<meta property="og:image" content="http://" />
+	<meta property="og:url" content="https://alladidas.com/unite" />
+	<meta property="og:title" content="unite all originals_phantom" />
+	<meta property="og:description" content="서로 다른 생각, 문화,스타일_ 이들이 만나면 어떤 일이 생길까요? 지금, 확인해 보세요.unite all originals#phantom" />
+
+
+	<script type="text/javascript" charset="utf-8">
+		<% 
+		images = []
+		(1..10).each do |i|
+			Dir.glob("app/assets/images/section#{i}/scene/*").each do |img| 
+				images << image_path(img.split("/")[3..-1].join("/")) if File.file?(img)
+			end
+		end
+		%>
+		var preloadImages = <%= images.compact.to_json.html_safe %>;
+
+		var getLoading = function(loaded, total) {
+		  if (!_.isNumber(loaded) || !_.isNumber(total)) {
+		    return false
+		  }
+
+		  var progress = parseInt(loaded / total * 100);
+			$("#progress div").css("width", progress + "%");
+
+		  if (progress >= 100) {
+				completeLoading();
+		  }
+		}
+
+		var running = false;
+		var timer;
+		var completeLoading = function() {
+			if (running == true) {
+				return;
+			}
+
+			running = true;
+
+			ss.enableWindowScrollEvents(true);
+
+			$(".indicator .progress_wrapper").fadeOut();
+			$(".scroll_guide").fadeIn();
+
+			var timer;
+			var guide_scene = 1;
+			var guide_animate = function() {
+				guide_scene = (guide_scene == 5)? 1 : guide_scene + 1;
+				$(".scroll_guide").attr("data-scene", guide_scene);
+				timer = setTimeout(guide_animate, 200);
+			};
+
+			guide_animate();	
+		}
+
+		$(document).ready(function() {
+			$("a.facebook").click(function(e) {
+				e.preventDefault();
+				window.open('http://www.facebook.com/sharer.php?u=https://alladidas.com/unite','sharer','toolbar=0,status=0,width=580,height=325');
+			});
+			$("a.twitter").click(function(e) {
+				e.preventDefault();
+				window.open('https://twitter.com/intent/tweet?text=%ED%8F%89%EB%B2%94%ED%95%A8%EC%97%90%20%EB%8B%B9%EC%8B%A0%EC%9D%84%20%EA%B0%80%EB%91%90%EC%96%B4%20%EB%86%93%EC%A7%80%20%EB%A7%88%EC%84%B8%EC%9A%94.%EB%8B%B9%EC%8B%A0%EC%9D%B4%20%EC%82%B4%EA%B3%A0%20%EC%9E%88%EB%8A%94%20%EB%8F%84%EC%8B%9C,%20%EA%B7%B8%EB%A6%AC%EA%B3%A0%20%EC%B9%9C%EA%B5%AC%EB%93%A4%EA%B3%BC%20%EA%B1%B7%EB%8A%94%20%EA%B1%B0%EB%A6%AC%EC%97%90%EC%84%9C%20%EC%98%81%EA%B0%90%EC%9D%84%20%EC%96%BB%EC%96%B4%20%EB%B3%B4%EC%84%B8%EC%9A%94.%EA%B7%B8%EB%A6%AC%EA%B3%A0%20%EC%B9%9C%EA%B5%AC%EB%93%A4%EA%B3%BC%20%EC%83%88%EB%A1%9C%EC%9A%B4%20%EA%B8%B8%EB%A1%9C%20%EB%82%98%EC%95%84%EA%B0%80%20%EB%B3%B4%EC%84%B8%EC%9A%94.&url=https://alladidas.com/unite','sharer','toolbar=0,status=0,width=580,height=325');
+			});
+
+
+			
+			var progress = 1;
+			var demo_loading = function() {
+				$("#progress div").css("width", progress + "%");
+			  if (progress >= 100) {
+					completeLoading();
+			  }
+				progress++;
+			
+				setTimeout(function() {
+					demo_loading();
+				}, 10)
+			}
+			demo_loading();
+
+			// setTimeout(function() {
+			// 	imagePreloader(preloadImages, getLoading, true);
+			// }, 500);
+			createScrollAnimation();
+			ss.enableWindowScrollEvents(false);
+		});
+		
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<%= yield %>
+	</div>
+
+
+	<%= javascript_include_tag "scene.mobile" %>
+
+	<!--NSmart Track Tag Script-->
+	<script type='text/javascript'>
+	var nasJsHost = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+	var NSmart_CAMP = '6646';
+	var NSmart_Page = '15962';
+	var NSmart_TURL = nasJsHost + 'n46.nsmartad.com';
+	document.write(unescape("%3Cscript src='" + nasJsHost + "n00.nsmartad.com/etc?id=9' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<!--NSmart Track Tag  Script End..-->
+
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-39290664-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+</body>
+</html>

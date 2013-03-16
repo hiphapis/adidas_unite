@@ -1,0 +1,55 @@
+@import "compass";
+@import "compass/reset";
+@import "compass/css3/user-interface";
+
+@mixin cover_bg($img-name) {
+	background: image-url($img-name) no-repeat center center;
+	background-size: cover;
+
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="#{image-path($img-name)}",sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{image-path($img-name)}',sizingMethod='scale')";
+}
+
+@mixin ab_center($type, $img) {
+	position: absolute;
+	
+	@if $type == "left" {
+		left: 50%;
+		margin-left: (-1 * image_width($img) / 2);
+	}
+	@if $type == "top" {
+		top: 50%;
+		margin-top: (-1 * image_height($img) / 2);
+	}
+	
+}
+
+@mixin animation_viewport {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	@include float(left);
+}
+
+@mixin animation_canvas {
+	position: relative;
+}
+
+@mixin animation_particle {
+	position: absolute;
+}
+
+@mixin sprite_replace_text($sprite, $img-name){
+	display: block;
+	@include hide_text;
+	background: sprite($sprite, $img-name) no-repeat;
+	width: image_width(sprite_file($sprite, $img-name));
+	height: image_height(sprite_file($sprite, $img-name));
+}
+
+@mixin sprite_replace_text_anchor($sprite, $img-name){
+	@include sprite_replace_text($sprite, $img-name);
+	&:hover, &.selected, &[data-selected="true"] {
+		background: sprite($sprite, $img-name + "_h") no-repeat;
+	}
+}

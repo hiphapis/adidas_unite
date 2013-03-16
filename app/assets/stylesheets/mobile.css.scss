@@ -1,104 +1,264 @@
-@import "compass";
-@import "compass/reset";
-@import "compass/css3/user-interface";
+@import "mixin";
 
-html, body {
+html {
+	overflow: hidden;
 	width: 100%;
 	height: 100%;
 }
-
-#container {	
-	// width: 320px;
-
-	background: url(asset-path("mobile/000/bg.jpg", image)) center no-repeat fixed;
-	background-size: cover;
+body {
+	overflow: hidden;
+	width: 100%;
 	height: 100%;
-	min-height: 480px;
-	// background-size: 320px 480px;
+	background-color:#000;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
 
 	#h {
 		position: absolute;
 		top: 0px;
 		left: 0px;
 		width: 100%;
+		z-index: 100;
 
 		.logo {
 			@include hide-text;
 			float: left;
 			display: block;
-			width: 44px;
-			height: 46px;
+			width: 89px;
+			height: 93px;
 			margin-top: 6px;
-			background: url(asset-path("mobile/000/gnb_logo.png", image)) no-repeat;
-			background-size: 44px 46px;
+			background: url(asset-path("mobile/loading/gnb_logo.png", image)) no-repeat;
 		}
 		.shop {
 			@include hide-text;
 			float: right;
 			display: block;
-			width: 44px;
-			height: 46px;
+			width: 89px;
+			height: 93px;
 			margin-top: 6px;
-			background: url(asset-path("mobile/000/gnb_shop.png", image)) no-repeat;
-			background-size: 44px 46px;
+			background: url(asset-path("mobile/loading/gnb_shop.png", image)) no-repeat;
 		}
 		.title {
-			width: 267px;
-			height: 50px;
+			width: 434px;
+			height: 99px;
 			margin: 0 auto;
-			background: url(asset-path("mobile/000/titlebg.png", image)) no-repeat;
-			background-size: 100px 50px;
+			background: url(asset-path("mobile/loading/titlebg.png", image)) no-repeat;
 			background-position: center top;
 			padding-top: 14px;
 			.text {
 				@include hide-text;
 				position: relative;
-				width: 217px;
-				height: 37px;
+				width: 434px;
+				height: 75px;
 				margin: 0 auto;
-				background: url(asset-path("mobile/000/title.png", image)) no-repeat;
-				background-size: 217px 37px;
+		    	background: url(asset-path("mobile/loading/title.png", image)) no-repeat;
 			}
 		}
 	}
 
-	#c {
-		position: relative;
-		top: 130px;
-		.text {
-			@include hide-text;
-			width: image-width("mobile/000/text.png") / 2;
-			height: image-height("mobile/000/text.png") / 2;
-			background: url(asset-path("mobile/000/text.png", image)) no-repeat;
-			background-size: 258px 147px;
-			margin: 0 auto;
-		}
-		
-		.buttons {
-			position: absolute;
-			top: 50%;
-			margin-top: 90px;
-			left: 50%;
-			width: 165px;
-			margin-left: -1 * 165 / 2 + px;
+	#content {
+		@include animation_viewport;
+		@include user-select(none);
+		height: 100%;
 
-			.comming_soon {
-				width: 66px;
-				height: 66px;
-				position: absolute;
-				left: 50%;
-				margin-left: -33px;
+
+		#loading {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 1000;
+
+			.bg {
+				width: 100%;
+				height: 100%;
+				opacity: 0.8;
+				@include opacity(0.8);
+				background-color: #000;
 			}
 
-			a img {
+			#indicator {
 				position: absolute;
-				margin-top: 33px;
-				width: 74px;
-				height: 74px;
-				&.plan {
-					right: 0;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				@include ab_center("left", "mobile/loading/bg.png");
+				@include ab_center("top", "mobile/loading/bg.png");
+				background: image-url("mobile/loading/bg.png") no-repeat;
+				width: image-width("mobile/loading/bg.png");
+				height: image-height("mobile/loading/bg.png");
+				
+				background-size: 132px 133px;
+
+				.progress_wrapper {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+
+					#progress {
+						position: absolute;
+						left: 37px;
+						top: 88px;
+						width: 60px;
+						height: 6px;
+						background-color:#000;
+						@include border-radius(10px);
+
+						div {
+							@include border-radius(10px);
+							background-color:#38e1ff;
+							mix-width: 20px;
+							width: 0;
+							height: 100%;
+						}
+					}
 				}
 			}
-		}		
+			
+			#scroll_guide {
+				display: none;
+				background: image-url("mobile/loading/scroll01.png") no-repeat;
+				width: image-width("mobile/loading/scroll01.png");
+				height: image-height("mobile/loading/scroll01.png");
+
+				&[data-scene="1"] { background: image-url("mobile/loading/scroll01.png"); }
+				&[data-scene="2"] { background: image-url("mobile/loading/scroll02.png"); }
+				&[data-scene="3"] { background: image-url("mobile/loading/scroll03.png"); }
+				&[data-scene="4"] { background: image-url("mobile/loading/scroll04.png"); }
+				&[data-scene="5"] { background: image-url("mobile/oading/scroll05.png"); }
+			}
+		}
+
+		
+		#section1 {
+			@include animation_particle;
+			@include cover_bg("mobile/section1/bg.jpg");
+			z-index: 10;
+			height: 100%;
+			width: 100%;
+
+			.wrapper {
+				@include animation_canvas;
+				
+				top: 50%;
+				margin-top: -260px;
+				left: 50%;
+				margin-left: -287px;
+				.movie {
+					width: 534px;
+					height: 329px;
+					padding: 20px;
+					margin: 0 auto;
+					background: url(asset-path("mobile/section1/moviebg.png", image)) no-repeat;
+				}
+				.sns {
+					width: 310px;
+					margin: 0 auto;
+					margin-top: 30px;
+					img {
+						width: 149px;
+						height: 148px;
+						margin: 2px;
+					}
+				}
+			}
+		}
+
+		#section_global {
+			position: relative;
+			height: 100%;
+			background: url(asset-path("mobile/section10/bg.jpg", image)) no-repeat;
+			background-size: cover;
+			background-position: center;
+			.intro {
+				height: image_height("section10/intro1.png");
+				.intro1 {
+					width: 323px;
+					height: 173px;
+					position: absolute;
+					left: 50%;
+					margin-left: -161px;
+					top: 50%;
+					margin-top: -70px;
+				}
+			}
+			#section2 {
+				.wrapper {
+					// position: absolute;
+					// top: 50%;
+					// margin-top: -260px;
+					// left: 50%;
+					// margin-left: -287px;
+					.scene1 {
+						width: 618px;
+						height: 741px;
+						position: absolute;
+						left: 50%;
+						margin-left: -309px;
+						top: 50%;
+						margin-top: -392px;
+						.top {
+							width: 374px;
+							height: 375px;
+							position: absolute;
+							left: 50%;
+							margin-left: -187px;
+							top: 0;
+							z-index: 2;
+						}
+						.bottom {
+							width: 374px;
+							height: 375px;
+							position: absolute;
+							left: 50%;
+							margin-left: -187px;
+							bottom: 0;
+						}
+						.left {
+							width: 295px;
+							height: 295px;
+							position: absolute;
+							top: 50%;
+							margin-top: -147px;
+							left: 0;
+						}
+						.right {
+							width: 295px;
+							height: 295px;
+							position: absolute;
+							top: 50%;
+							margin-top: -147px;
+							right: 0;
+						}
+					}
+					.mask_left {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						background: url(asset-path("mobile/section2/btn_left_popup.png", image)) no-repeat;
+						background-size: cover;
+						background-position: center;
+						z-index: 999;
+					}
+					.mask_right {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						background: url(asset-path("mobile/section2/btn_right_popup.png", image)) no-repeat;
+						background-size: cover;
+						background-position: center;
+						z-index: 999;
+					}
+
+				}
+			}
+				
+
+		}
+
+
+		
 	}
 }
