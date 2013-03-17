@@ -336,7 +336,7 @@ function createScrollAnimation() {
 			element: '#section_global .scene1',
 			after_no_hide: true,
 			startPoint: "end",
-			duration: 2000,
+			duration: 1800,
 			keyframes: [
 				{
 					position: 0,
@@ -347,8 +347,40 @@ function createScrollAnimation() {
 							return;
 						}
 		
-						var last_scene = 31;
+						var last_scene = 18;
 						var current_scene = parseInt((last_scene * pg) / 100);
+						
+						var image_path = imageTable.section10[current_scene];
+						var $img = element.find("img");
+						if ($img.attr("src") != image_path) {
+							$img.attr("src", image_path);
+							$("#section_global_map").find("area").attr("coords", imageMapPositions["mobile_global"][current_scene]["site"]);
+						}
+					}
+				},
+				{
+					position: 1,
+					properties: { opacity: 1 }
+				}
+			]
+		},
+		{
+			element: '#section_global .scene1',
+			after_no_hide: true,
+			startPoint: "end",
+			duration: 1000,
+			keyframes: [
+				{
+					position: 0,
+					onProgress: function(progress, viewport, element) {
+						var pg = progress * 100;
+		
+						if (pg <= 0) {
+							return;
+						}
+		
+						var last_scene = 13;
+						var current_scene = parseInt((last_scene * pg) / 100) + 18;
 						
 						var image_path = imageTable.section10[current_scene];
 						var $img = element.find("img");
