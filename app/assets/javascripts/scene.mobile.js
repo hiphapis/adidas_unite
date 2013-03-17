@@ -333,7 +333,8 @@ function createScrollAnimation() {
 			]
 		},
 		{
-			element: '#section_global .scene1',
+			element: '#section_global .scene1 .scene',
+			before_no_hide: true,
 			after_no_hide: true,
 			startPoint: "end",
 			duration: 2000,
@@ -342,16 +343,12 @@ function createScrollAnimation() {
 					position: 0,
 					onProgress: function(progress, viewport, element) {
 						var pg = progress * 100;
-		
-						if (pg <= 0) {
-							return;
-						}
-		
+
 						var last_scene = 31;
 						var current_scene = parseInt((last_scene * pg) / 100);
 						
 						var image_path = imageTable.section10[current_scene];
-						var $img = element.find("img");
+						var $img = element;//.find("img");
 						if ($img.attr("src") != image_path) {
 							$img.attr("src", image_path);
 							$("#section_global_map").find("area").attr("coords", imageMapPositions["mobile_global"][current_scene]["site"]);
