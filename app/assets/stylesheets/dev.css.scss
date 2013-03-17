@@ -105,6 +105,13 @@ body {
 				}
 			}
 		}
+		
+		.top {
+			display: block;
+			@include ab_center("left", sprite_file($sprite, "btn_top"));
+			@include sprite_replace_text($sprite, "btn_top");
+			top: 0;
+		}
 	}
 
 	#external {

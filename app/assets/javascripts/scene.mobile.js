@@ -1663,6 +1663,22 @@ function createScrollAnimation() {
 				}
 			]
 		},
+		{
+			element: '#header .top',
+			after_no_hide: true,
+			startPoint: "end",
+			duration: 500,
+			keyframes: [
+				{
+					position: 0,
+					properties: { top: -70 }
+				},
+				{
+					position: 1,
+					properties: { top: 0 }
+				}
+			]
+		}
 	]);
 	
 	ss.start();
