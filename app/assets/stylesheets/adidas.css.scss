@@ -50,27 +50,41 @@ body {
 	}
 
 	#external {
-		z-index: 100000;
+		z-index: 1000;
 		position: absolute;
 		left: 0;
-		top: 57px;
+		top: 0;
 		width: 100%;
 		
 		a {
 			position: absolute;
 			background-color:#000;
 
+
+			&.twitter {
+				top: 6px;
+				right: 0;
+				@include sprite_replace_text($sprite, "btn_tw");
+			}
+			&.facebook {
+				top: 30px;
+				right: 0;
+				@include sprite_replace_text($sprite, "btn_fb");
+			}
 			&.adidas {
+				top: 57px;
 				left: 0;
 				@include sprite_replace_text($sprite, "logo");
 			}
 			&.shop {
+				top: 57px;
 				right: 0;
 				@include sprite_replace_text($sprite, "shop");
 			}
 		}
 		
 		.adidas {
+			top: 57px;
 			position: absolute;
 			background-color:#000;
 			left: 0;
