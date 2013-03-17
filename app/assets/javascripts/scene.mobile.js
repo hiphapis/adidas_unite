@@ -336,7 +336,7 @@ function createScrollAnimation() {
 			element: '#section_global .scene1',
 			after_no_hide: true,
 			startPoint: "end",
-			duration: 3000,
+			duration: 2000,
 			keyframes: [
 				{
 					position: 0,
