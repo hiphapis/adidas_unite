@@ -194,6 +194,7 @@ function createScrollAnimation() {
 		{
 			element: '#section1 .wrapper',
 			after_no_hide: true,
+			offset: -100,
 			startPoint: "end",
 			duration: "viewport_height",
 			keyframes: [
