@@ -2,8 +2,10 @@
 	<%= image_tag("mobile/section3/bg.jpg", class: "fucking_ie_bg", alt: "") if fucking_ie? %>
 
 	<div class="s3p popups" style="display:none">
-		<%= image_tag "mobile/section3/popup.png", class: "photo" %>
-		<a href="http://m.adidas.co.kr/MO/Product/prdDispBas.action?prodCD=Q23423&spst_id=1754" target="_blank"><%= image_tag "mobile/section3/btn_shop.png", class: "shop" %></a>
+		<div class="photo">
+			<%= image_tag "mobile/section3/popup.png", class: "photo" %>
+			<a href="http://m.adidas.co.kr/MO/Product/prdDispBas.action?prodCD=Q23423&spst_id=1754" target="_blank" class="shop">shop</a>
+		</div>
 		<div class="close"></div>
 	</div>
 

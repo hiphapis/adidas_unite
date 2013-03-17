@@ -2,15 +2,43 @@
 
 $sprite:sprite-map('mobile/s/*.png');
 
+@mixin product_popup($img) {
+	.popups {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0px;
+		z-index: 1200;
+		background-color: rgba(0,0,0,0.75);
+		.photo {
+			width: image-width($img);
+			height: image-height($img);
+			@include ab_center("top", $img);
+			@include ab_center("left", $img);
+			
+			position: absolute;
+
+			.shop {
+				@include hide_text;
+				@include sprite_replace_text($sprite, "btn_shop");
+				@include ab_center("left", sprite-file($sprite, "btn_shop"));
+				width: image-width(sprite-file($sprite, "btn_shop"));
+				height: image-height(sprite-file($sprite, "btn_shop"));
+				bottom: 106px;
+			}
+		}
+		@include close_button;
+	}
+}
+
 @mixin close_button {
 	.close {
 		background: sprite($sprite, btn_close) no-repeat;
 		position: absolute;
-		width: 113px;
-		left: 50%;
-		margin-left: -56px;
-		height: 132px;
-		bottom: 10px;
+		width: image-width(sprite-file($sprite, btn_close));
+		left: 0;
+		height: image-height(sprite-file($sprite, btn_close));
+		top: 0;
 	}
 }
 
@@ -415,29 +443,8 @@ body {
 			@include cover_bg("mobile/section3/bg.jpg");
 			width: 100%;
 			height: 100%;
-		
-			.popups {
-				width: 100%;
-				height: 100%;
-				position: fixed;
-				top: 0px;
-				z-index: 1200;
-				background-color: rgba(0,0,0,0.75);
-				img {
-					position: absolute;
-					left: 50%;
-					top: 50%;
-					&.photo {
-						margin-left: -197px;
-						margin-top: -418px;
-					}
-					&.shop {
-						margin-left: -74px;
-						margin-top: -20px;
-					}
-				}
-				@include close_button;
-			}
+
+			@include product_popup("mobile/section3/popup.png");
 
 			.wrapper {
 				@include ab_center("top", "mobile/section3/product.png");
@@ -576,28 +583,7 @@ body {
 			width: 100%;
 			height: 100%;
 			
-			.popups {
-				width: 100%;
-				height: 100%;
-				position: fixed;
-				top: 0px;
-				z-index: 1200;
-				background-color: rgba(0,0,0,0.75);
-				img {
-					position: absolute;
-					left: 50%;
-					top: 50%;
-					&.photo {
-						margin-left: -197px;
-						margin-top: -392px;
-					}
-					&.shop {
-						margin-left: -74px;
-						margin-top: -20px;
-					}
-				}
-				@include close_button;
-			}
+			@include product_popup("mobile/section5/popup.png");
 
 			.wrapper {
 				@include ab_center("top", "mobile/section5/product.png");
@@ -717,28 +703,7 @@ body {
 			width: 100%;
 			height: 100%;
 			
-			.popups {
-				width: 100%;
-				height: 100%;
-				position: fixed;
-				top: 0px;
-				z-index: 1200;
-				background-color: rgba(0,0,0,0.75);
-				img {
-					position: absolute;
-					left: 50%;
-					top: 50%;
-					&.photo {
-						margin-left: -197px;
-						margin-top: -416px;
-					}
-					&.shop {
-						margin-left: -74px;
-						margin-top: -20px;
-					}
-				}
-				@include close_button;
-			}
+			@include product_popup("mobile/section7/popup.png");
 
 			.wrapper {
 				@include ab_center("top", "mobile/section7/product.png");
@@ -875,28 +840,7 @@ body {
 			width: 100%;
 			height: 100%;
 
-			.popups {
-				width: 100%;
-				height: 100%;
-				position: fixed;
-				top: 0px;
-				z-index: 1200;
-				background-color: rgba(0,0,0,0.75);
-				img {
-					position: absolute;
-					left: 50%;
-					top: 50%;
-					&.photo {
-						margin-left: -202px;
-						margin-top: -310px;
-					}
-					&.shop {
-						margin-left: -74px;
-						margin-top: -20px;
-					}
-				}
-				@include close_button;
-			}
+			@include product_popup("mobile/section9/popup.png");
 			
 			.wrapper {
 				@include ab_center("left", "mobile/section9/product.png");

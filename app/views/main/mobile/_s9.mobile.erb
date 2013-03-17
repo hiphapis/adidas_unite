@@ -2,8 +2,11 @@
 	<%= image_tag("mobile/section9/bg.jpg", class: "fucking_ie_bg", alt: "") if fucking_ie? %>
 
 	<div class="s9p popups" style="display:none">
-		<%= image_tag "mobile/section9/popup.png", class: "photo" %>
-		<%= image_tag "mobile/section3/btn_shop.png", class: "shop" %>
+		<div class="photo">
+			<%= image_tag "mobile/section9/popup.png", class: "photo" %>
+			<a href="#" onclick="return false" target="_blank" class="shop">shop</a>
+		</div>
+
 		<div class="close"></div>
 	</div>
 
