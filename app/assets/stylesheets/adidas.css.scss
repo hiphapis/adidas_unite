@@ -733,6 +733,13 @@ body {
 					top: 120px;
 				}
 			}
+			
+			.top {
+				@include sprite_replace_text($sprite, "btn_top");
+				@include ab_center("left", sprite-file($sprite, "btn_top"));
+				bottom: 0;
+				z-index: 120;
+			}
 		}
 	}
 }
