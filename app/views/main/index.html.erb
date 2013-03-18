@@ -315,15 +315,29 @@ $(document).ready(function() {
 		<%= image_tag("section9/bg.jpg", class: "fucking_ie_bg", alt: "") if fucking_ie? %>
 
 		<div class="wrapper">
-			<%= image_tag "section9/product.png", class: "product" %>
+			<div class="scene1">
+				<%= image_tag "section9/product.png", class: "product" %>
+
+				<div class="popup" data-partial="popup">
+					<%= image_tag "section9/scene/0.png", usemap: "#section9_popup" %>
+					<map name="section9_popup" id="section9_popup">
+						<area data-type="shop" shape="rect" coords="0,0,0,0" href="#" onclick="alert('입고 예정입니다.'); return false" target="_blank">
+					</map>
+				</div>
+			</div>
 			
-			<div class="popup" data-partial="popup">
-				<%= image_tag "section9/scene/0.png", usemap: "#section9_popup" %>
-				<map name="section9_popup" id="section9_popup">
-					<area data-type="shop" shape="rect" coords="0,0,0,0" href="#" onclick="alert('입고 예정입니다.'); return false" target="_blank">
+			<div class="scene2">
+				<%= image_tag "section9/product2.png", usemap: "#section9_map" %>
+				<map name="section9_map" id="section9_map">
+					<area shape="rect" coords="298,240,408,360" href="http://shop.adidas.co.kr/PF020401.action?PROD_CD=Q23422&SRCH_NM=%ED%8C%AC%ED%85%80" target="_blank">
+					<area shape="rect" coords="120,418,230,528" href="http://shop.adidas.co.kr/PF020401.action?PROD_CD=Q23423&SRCH_NM=%ED%8C%AC%ED%85%80" target="_blank">
+					<area shape="rect" coords="474,418,584,528" href="http://www.shop.adidas.co.kr/PF020401.action?PROD_CD=Q23425" target="_blank">
+					<area shape="rect" coords="298,594,408,705" href="#" onclick="alert('입고 예정입니다.'); return false" target="_blank">
 				</map>
 			</div>
 		</div>
+
+		
 
 		<a href="http://alladidas.com/unite" data-target="#intro .copy1" data-target-landing-position="start" data-target-offset="10" class="top">top</a>
 

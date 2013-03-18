@@ -727,6 +727,7 @@ body {
 				height: 724px;
 				top: 50%;
 				margin-top: -395px;
+				z-index: 10;
 				div[data-partial="popup"] {
 					position: absolute;
 					left: 2px;
@@ -734,9 +735,19 @@ body {
 				}
 			}
 			
-			.top {
+			.scene2 {
+				position: absolute;
+				z-index: 1000;
+				width: image-width("section9/product2.png");
+				height: image-height("section9/product2.png");
+				@include ab_center("left", "section9/product2.png");
+				@include ab_center("top", "section9/product2.png");
+			}
+			
+			a.top {
 				@include sprite_replace_text($sprite, "btn_top");
 				@include ab_center("left", sprite-file($sprite, "btn_top"));
+				margin-bottom: -1 * image-height(sprite-file($sprite, "btn_top"));
 				bottom: 0;
 				z-index: 120;
 			}

@@ -1766,8 +1766,56 @@ function createScrollAnimation() {
 					position: 1
 				}
 			]
+		},
+		{
+			element: '#section9 .scene1',
+			before_no_hide: true,
+			startPoint: "end",
+			duration: "viewport_height",
+			keyframes: [
+				{
+					position: 0,
+					properties: { opacity: 1 }
+				},
+				{
+					position: 1,
+					properties: { opacity: 0 }
+				}
+			]
+		},
+		{
+			element: '#section9 .scene2',
+			before_no_hide: true,
+			after_no_hide: true,
+			startPoint: "end",
+			duration: "only_element_height",
+			keyframes: [
+				{
+					position: 0,
+					properties: { opacity: 0 }
+				},
+				{
+					position: 1,
+					properties: { opacity: 1 }
+				}
+			]
+		},
+		{
+			element: '#section9 .top',
+			before_no_hide: true,
+			startPoint: "end",
+			duration: "only_element_height",
+			keyframes: [
+				{
+					position: 0,
+					layout: 'bottom_outside'
+				},
+				{
+					position: 1,
+					layout: 'bottom_inside'
+				}
+			]
 		}
-
 
 	]);
 	
