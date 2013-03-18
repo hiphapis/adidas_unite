@@ -2,15 +2,27 @@
 	<%= image_tag("mobile/section9/bg.jpg", class: "fucking_ie_bg", alt: "") if fucking_ie? %>
 
 	<div class="s9p popups" style="display:none">
+		<div class="close"></div>
+		
 		<div class="photo">
 			<%= image_tag "mobile/section9/popup.png", class: "photo" %>
 			<a href="#" onclick="alert('입고 예정입니다.'); return false" target="_blank" class="shop">shop</a>
 		</div>
-
-		<div class="close"></div>
 	</div>
+	
 
 	<div class="wrapper">
-		<%= image_tag "mobile/section9/product.png", class: "product" %>
+		<div class="scene1">
+			<%= image_tag "mobile/section9/product.png", class: "product" %>
+		</div>
+		<div class="scene2">
+			<%= image_tag "mobile/section9/product2.png", usemap: "#section9_map" %>
+			<map name="section9_map" id="section9_map">
+				<area shape="rect" coords="254,197,364,307" href="http://m.adidas.co.kr/MO/Product/prdDispBas.action?prodCD=Q23422&spst_id=1754" target="_blank">
+				<area shape="rect" coords="98,352,208,462" href="http://m.adidas.co.kr/MO/Product/prdDispBas.action?prodCD=Q23423&spst_id=1754" target="_blank">
+				<area shape="rect" coords="403,352,513,462" href="http://m.adidas.co.kr/MO/Product/prdDispBas.action?prodCD=Q23425&spst_id=1754" target="_blank">
+				<area shape="rect" coords="254,502,364,612" href="#" onclick="alert('입고 예정입니다.'); return false" target="_blank">
+			</map>
+		</div>
 	</div>
 </div>

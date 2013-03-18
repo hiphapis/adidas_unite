@@ -163,7 +163,7 @@ body {
 					&[data-target="#intro .copy1"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
 					&[data-target="#section_global"] { @include sprite_replace_text_anchor($sprite, "menu02"); }
 					&[data-target="#section2"] { @include sprite_replace_text_anchor($sprite, "menu03"); }
-					&[data-target="#section3"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
+					&[data-target="#section9 .scene2"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
 				}
 			}
 		}
@@ -855,7 +855,18 @@ body {
 				height: 637px;
 				top: 50%;
 				margin-top: -352px;
+				z-index: 10;
 			}
+			
+			.scene2 {
+				position: absolute;
+				z-index: 1000;
+				width: image-width("mobile/section9/product2.png");
+				height: image-height("mobile/section9/product2.png");
+				@include ab_center("left", "mobile/section9/product2.png");
+				@include ab_center("top", "mobile/section9/product2.png");
+			}
+			
 		}
 	}
 }
