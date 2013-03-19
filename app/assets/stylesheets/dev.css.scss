@@ -163,7 +163,7 @@ body {
 					&[data-target="#intro .copy1"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
 					&[data-target="#section_global"] { @include sprite_replace_text_anchor($sprite, "menu02"); }
 					&[data-target="#section2"] { @include sprite_replace_text_anchor($sprite, "menu03"); }
-					&[data-target="#section9 .scene2"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
+					&[data-target="#header .top"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
 				}
 			}
 		}
