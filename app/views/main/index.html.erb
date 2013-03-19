@@ -405,10 +405,12 @@ $(document).ready(function() {
 		$("#artist_popup .wrapper").css("backgroundImage", "url(" + artistImages[section]["bg"] + ")")
 		$("#artist_popup img.text").attr("src", artistImages[section]["text"]);
 		$("#artist_popup").fadeIn();
+		ss.enableWindowScrollEvents(false);
 	};
 
 	$("#artist_popup a.close").click(function() {
 		$("#artist_popup").fadeOut();
+		ss.enableWindowScrollEvents(true);
 	})
 </script>
 
