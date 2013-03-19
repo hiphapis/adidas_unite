@@ -1695,7 +1695,7 @@ function createScrollAnimation() {
 			]
 		},
 		{
-			element: '#header .top',
+			element: '.header_top',
 			after_no_hide: true,
 			startPoint: "end",
 			duration: 500,

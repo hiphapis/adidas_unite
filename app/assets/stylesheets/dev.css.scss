@@ -105,13 +105,14 @@ body {
 				}
 			}
 		}
-		
-		.top {
-			display: block;
-			@include ab_center("left", sprite_file($sprite, "btn_top"));
-			@include sprite_replace_text($sprite, "btn_top");
-			top: 0;
-		}
+	}
+
+	.header_top {
+		display: block;
+		@include ab_center("left", sprite_file($sprite, "btn_top"));
+		@include sprite_replace_text($sprite, "btn_top");
+		top: 0;
+		z-index: 100000;
 	}
 
 	#external {
@@ -163,7 +164,7 @@ body {
 					&[data-target="#intro .copy1"] { @include sprite_replace_text_anchor($sprite, "menu01"); }
 					&[data-target="#section_global"] { @include sprite_replace_text_anchor($sprite, "menu02"); }
 					&[data-target="#section2"] { @include sprite_replace_text_anchor($sprite, "menu03"); }
-					&[data-target="#header .top"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
+					&[data-target=".header_top"] { @include sprite_replace_text_anchor($sprite, "menu04"); }
 				}
 			}
 		}
