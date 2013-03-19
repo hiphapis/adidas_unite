@@ -392,11 +392,13 @@ body {
 					.top {
 						position: absolute;
 						top: 0;
+						z-index: 1;
 						@include ab_center("left", "mobile/section2/top.png");
 					}
 					.bottom {
 						position: absolute;
 						bottom: 0;
+						z-index: 1;
 						@include ab_center("left", "mobile/section2/bottom.png");
 					}
 					.left {

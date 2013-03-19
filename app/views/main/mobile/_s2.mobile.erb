@@ -5,6 +5,12 @@
 		<%= image_tag "mobile/section2/intro.png" %>
 	</div>
 
+	<div class="s2tp popups" style="display:none">
+		<%= image_tag "mobile/section2/top_popup.png", class: "top" %>
+	</div>
+	<div class="s2bp popups" style="display:none">
+		<%= image_tag "mobile/section2/bottom_popup.png", class: "bottom" %>
+	</div>
 	<div class="s2lp popups" style="display:none">
 		<%= image_tag "mobile/section2/btn_left_popup.png", class: "left" %>
 		<div class="close"></div>
@@ -16,11 +22,12 @@
 
 	<div class="wrapper">
 		<div class="scene1">
-			<%= image_tag "mobile/section2/top.png", class: "top" %>
-			<%= image_tag "mobile/section2/bottom.png", class: "bottom" %>
-			<%= image_tag "mobile/section2/left.png", class: "left s2l" %>
-			<%= image_tag "mobile/section2/right.png", class: "right s2r" %>
-		</div>		
+			<%= image_tag "mobile/section2/top.png", class: "top popup", data: { source: "s2tp" } %>
+			<%= image_tag "mobile/section2/bottom.png", class: "bottom popup", data: { source: "s2bp" } %>
+			<%= image_tag "mobile/section2/left.png", class: "left popup", data: { source: "s2lp" } %>
+			<%= image_tag "mobile/section2/right.png", class: "right popup", data: { source: "s2rp" } %>
+		</div>
+		
 		<div class="scene2">
 			<div data-partial="masking">
 				<%= image_tag "mobile/section2/scene/0.png" %>
@@ -32,14 +39,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-	$(".s2l").click(function(e){
-		ss.enableWindowScrollEvents(false);
-		$(".s2lp").show();
-	})
-	$(".s2r").click(function(e){
-		ss.enableWindowScrollEvents(false);
-		$(".s2rp").show();
-	})
-</script>

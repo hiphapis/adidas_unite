@@ -66,6 +66,12 @@ imageTable = {
 		$(".product").parent().parent().children(".popups").show();
 	})
 	
+	$("img.popup").click(function(e) {
+		var target = $(e).attr("data-source");
+		$(target).fadeIn();
+		ss.enableWindowScrollEvents(false);
+	});
+	
 	$(".popups").click(function(e){
 		$(".popups").hide();
 		ss.enableWindowScrollEvents(true);

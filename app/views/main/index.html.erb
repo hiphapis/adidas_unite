@@ -396,13 +396,12 @@ $(document).ready(function() {
 		"s6_top": { text: "<%= image_path("section6/popup/top_text.png") %>", bg: "<%= image_path("section6/popup/top_bg.png") %>" },
 		"s6_bottom": { text: "<%= image_path("section6/popup/bottom_text.png") %>", bg: "<%= image_path("section6/popup/bottom_bg.png") %>" },
 		"s8_top": { text: "<%= image_path("section8/popup/top_text.png") %>", bg: "<%= image_path("section8/popup/top_bg.png") %>" },
-		"s8_bottom": { text: "<%= image_path("section8/popup/bottom_text.png") %>", bg: "<%= image_path("section8/popup/bottom_bg.png") %>" },
+		"s8_bottom": { text: "<%= image_path("section8/popup/bottom_text.png") %>", bg: "<%= image_path("section8/popup/bottom_bg.png") %>" }
 	}
 	
 	var open_artist_popup = function(e) {
 		var section = $(e).attr("data-source");
-		console.log(section)
-		$("#artist_popup .wrapper").css("backgroundImage", "url(" + artistImages[section]["bg"] + ")")
+		$("#artist_popup .wrapper").css("backgroundImage", "url(" + artistImages[section]["bg"] + ")");
 		$("#artist_popup img.text").attr("src", artistImages[section]["text"]);
 		$("#artist_popup").fadeIn();
 		ss.enableWindowScrollEvents(false);
