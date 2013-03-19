@@ -496,8 +496,8 @@ body {
 					left: 50%;
 					top: 50%;
 					&.top, &.bottom {
-						@include ab_center("left", "mobile/section2/top_popup.png");
-						@include ab_center("top", "mobile/section2/top_popup.png");
+						@include ab_center("left", "mobile/section4/top_popup.png");
+						@include ab_center("top", "mobile/section4/top_popup.png");
 					}
 					&.left {
 						margin-left: -258px;
@@ -639,8 +639,8 @@ body {
 					left: 50%;
 					top: 50%;
 					&.top, &.bottom {
-						@include ab_center("left", "mobile/section2/top_popup.png");
-						@include ab_center("top", "mobile/section2/top_popup.png");
+						@include ab_center("left", "mobile/section6/top_popup.png");
+						@include ab_center("top", "mobile/section6/top_popup.png");
 					}
 					&.left {
 						margin-left: -183px;
@@ -762,6 +762,10 @@ body {
 					position: absolute;
 					left: 50%;
 					top: 50%;
+					&.top, &.bottom {
+						@include ab_center("left", "mobile/section8/top_popup.png");
+						@include ab_center("top", "mobile/section8/top_popup.png");
+					}
 					&.left {
 						margin-left: -238px;
 						margin-top: -132px;
