@@ -355,7 +355,7 @@ body {
 				.scene2 {
 					overflow: hidden;
 					position: absolute;
-					height: 845px;
+					height: 366px;
 					top: 50%;
 					margin-top: -178px;
 					width: 578px;
@@ -755,6 +755,46 @@ body {
 	}
 }
 
+
+
+#artist_popup {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 10000;
+	display: none;
+	
+	.bg {
+		width: 100%;
+		height: 100%;
+		background-color:#000;
+		@include opacity(0.8)
+	}
+	
+	.wrapper {
+		@include ab_center("left", "section2/popup/top_bg.png");
+		@include ab_center("top", "section2/popup/top_bg.png");
+		width: image-width("section2/popup/top_bg.png");
+		height: image-height("section2/popup/top_bg.png");
+		
+		.close {
+			display: block;
+			@include sprite_replace_text($sprite, "btn_close");
+			position: absolute;
+			right: 15px;
+			top: 15px;
+		}
+		
+		.scroll {
+			width: 355px;
+			height: 365px;
+			overflow-y: scroll;
+			right: 10px;
+			top: 75px;
+			position: absolute;
+		}
+	}
+}
 
 
 

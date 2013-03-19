@@ -763,7 +763,7 @@ var Animation = function(options) {
 
 var APPLY_DOM_PROPERTY = function(element, key, value) {
 	// CSS values
-	if (key.match(/top|left|bottom|right|fontSize|letterSpacing|marginTop|marginLeft|marginBottom|marginRight/)) {
+	if (key.match(/top|left|bottom|right|fontSize|letterSpacing|marginTop|marginLeft|marginBottom|marginRight|height/)) {
 	    if (_.isNumber(value)) {
 	  		// element.css(key, Math.round(value)); // rounded value를 사용하면 BG떨림은 사라지나 border가 벌어진다. shit.
 	  		element.css(key, value);

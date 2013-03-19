@@ -586,6 +586,13 @@ function createScrollAnimation() {
 								if ($img.attr("src") != image_path) {
 									$img.attr("src", image_path);
 								}
+								
+								if (current_scene >= 22) {
+									$("#section2 .wrapper .scene2").height(845)
+								}
+								else {
+									$("#section2 .wrapper .scene2").height(366)
+								}
 							}
 						},
 						{
@@ -600,15 +607,15 @@ function createScrollAnimation() {
 			before_no_hide: true,
 			after_no_hide: true,
 			startPoint: "end",
-			duration: "only_element_height",
+			duration: 845,
 			keyframes: [
 				{
 					position: 0,
-					properties: { marginTop: -178 }
+					properties: { marginTop: -178, height: 845 }
 				},
 				{
 					position: 1,
-					properties: { marginTop: (-845 / 2) + 50 }
+					properties: { marginTop: (-845 / 2) + 50, height: 845 }
 				}
 			],
 			particles: [
