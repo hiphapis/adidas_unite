@@ -337,11 +337,13 @@ body {
 					position: absolute;
 					top: 0;
 					@include ab_center("left", "section2/top.png");
+					z-index: 1;
 				}
 				.bottom {
 					position: absolute;
 					bottom: 0;
 					@include ab_center("left", "section2/bottom.png");
+					z-index: 1;
 				}
 				.left {
 					left: 0;

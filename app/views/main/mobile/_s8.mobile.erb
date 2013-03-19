@@ -5,6 +5,12 @@
 		<%= image_tag "mobile/section8/intro.png" %>
 	</div>
 
+	<div class="s8tp popups" style="display:none">
+		<%= image_tag "mobile/section8/top_popup.png", class: "top" %>
+	</div>
+	<div class="s8bp popups" style="display:none">
+		<%= image_tag "mobile/section8/bottom_popup.png", class: "bottom" %>
+	</div>
 	<div class="s8lp popups" style="display:none">
 		<%= image_tag "mobile/section8/btn_left_popup.png", class: "left" %>
 		<div class="close"></div>
@@ -16,10 +22,10 @@
 
 	<div class="wrapper">
 		<div class="scene1">
-			<%= image_tag "mobile/section8/top.png", class: "top" %>
-			<%= image_tag "mobile/section8/bottom.png", class: "bottom" %>
-			<%= image_tag "mobile/section8/left.png", class: "left s8l" %>
-			<%= image_tag "mobile/section8/right.png", class: "right s8r" %>
+			<%= image_tag "mobile/section8/top.png", class: "top popup", data: { source: ".s8tp" } %>
+			<%= image_tag "mobile/section8/bottom.png", class: "bottom popup", data: { source: ".s8bp" } %>
+			<%= image_tag "mobile/section8/left.png", class: "left popup", data: { source: ".s8lp" } %>
+			<%= image_tag "mobile/section8/right.png", class: "right popup", data: { source: ".s8rp" } %>
 		</div>
 		
 		<div class="scene2">

@@ -365,6 +365,10 @@ body {
 					position: absolute;
 					left: 50%;
 					top: 50%;
+					&.top, &.bottom {
+						@include ab_center("left", "mobile/section2/top_popup.png");
+						@include ab_center("top", "mobile/section2/top_popup.png");
+					}
 					&.left {
 						margin-left: -188px;
 						margin-top: -109px;
@@ -491,6 +495,10 @@ body {
 					position: absolute;
 					left: 50%;
 					top: 50%;
+					&.top, &.bottom {
+						@include ab_center("left", "mobile/section2/top_popup.png");
+						@include ab_center("top", "mobile/section2/top_popup.png");
+					}
 					&.left {
 						margin-left: -258px;
 						margin-top: -177px;
@@ -630,6 +638,10 @@ body {
 					position: absolute;
 					left: 50%;
 					top: 50%;
+					&.top, &.bottom {
+						@include ab_center("left", "mobile/section2/top_popup.png");
+						@include ab_center("top", "mobile/section2/top_popup.png");
+					}
 					&.left {
 						margin-left: -183px;
 						margin-top: -177px;

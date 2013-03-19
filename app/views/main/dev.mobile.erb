@@ -67,7 +67,7 @@ imageTable = {
 	})
 	
 	$("img.popup").click(function(e) {
-		var target = $(e).attr("data-source");
+		var target = $(this).attr("data-source");
 		$(target).fadeIn();
 		ss.enableWindowScrollEvents(false);
 	});
