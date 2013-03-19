@@ -611,6 +611,10 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
+					properties: { marginTop: -178, height: 366 }
+				},
+				{
+					position: 0.01,
 					properties: { marginTop: -178, height: 845 }
 				},
 				{
@@ -842,7 +846,17 @@ function createScrollAnimation() {
 			duration: "only_element_height",
 			keyframes: [
 				{
-					position: 0
+					position: 0,
+					onProgress: function(progress, viewport, element) {
+						var pg = progress * 100;
+						
+						if (pg > 95) {
+							$("#section4 .scene2").show();
+						}
+						else {
+							$("#section4 .scene2").hide();
+						}
+					}
 				},
 				{
 					position: 1
@@ -1311,11 +1325,15 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					properties: { marginTop: -178 }
+					properties: { marginTop: -178, height: 366 }
+				},
+				{
+					position: 0.01,
+					properties: { marginTop: -178, height: 845 }
 				},
 				{
 					position: 1,
-					properties: { marginTop: (-845 / 2) + 50 }
+					properties: { marginTop: (-845 / 2) + 50, height: 845 }
 				}
 			],
 			particles: [
@@ -1526,7 +1544,17 @@ function createScrollAnimation() {
 			duration: "only_element_height",
 			keyframes: [
 				{
-					position: 0
+					position: 0,
+					onProgress: function(progress, viewport, element) {
+						var pg = progress * 100;
+						
+						if (pg > 95) {
+							$("#section8 .scene2").show();
+						}
+						else {
+							$("#section8 .scene2").hide();
+						}
+					}
 				},
 				{
 					position: 1

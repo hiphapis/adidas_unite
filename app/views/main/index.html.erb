@@ -160,16 +160,16 @@ $(document).ready(function() {
 		<div class="wrapper">
 			<div class="scene1">
 				<%= image_tag "section2/top.png", class: "top", usemap: "#s2_top" %>
-				<map name="s2_top" id="s2_top">
-					<area shape="rect" coords="0,140,70,210" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s2_top">
-				</map>
 				<%= image_tag "section2/bottom.png", class: "bottom", usemap: "#s2_bottom" %>
-				<map name="s2_bottom" id="s2_bottom">
-					<area shape="rect" coords="280,140,350,210" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s2_bottom">
-				</map>
-				
 				<%= image_tag "section2/left.png", class: "left" %>
 				<%= image_tag "section2/right.png", class: "right" %>
+				
+				<map name="s2_top" id="s2_top">
+					<area shape="rect" coords="0,124,100,218" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s2_top">
+				</map>
+				<map name="s2_bottom" id="s2_bottom">
+					<area shape="rect" coords="276,158,376,252" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s2_bottom">
+				</map>
 			</div>
 			
 			<div class="scene2">
@@ -208,10 +208,18 @@ $(document).ready(function() {
 
 		<div class="wrapper">
 			<div class="scene1">
-				<%= image_tag "section4/top.png", class: "top" %>
-				<%= image_tag "section4/bottom.png", class: "bottom" %>
+				<%= image_tag "section4/top.png", class: "top", usemap: "#s4_top" %>
+				<%= image_tag "section4/bottom.png", class: "bottom", usemap: "#s4_bottom" %>
 				<%= image_tag "section4/left.png", class: "left" %>
 				<%= image_tag "section4/right.png", class: "right" %>
+				
+				<map name="s4_top" id="s4_top">
+					<area shape="rect" coords="0,140,70,210" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s4_top">
+				</map>
+				<map name="s4_bottom" id="s4_bottom">
+					<area shape="rect" coords="280,140,350,210" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s4_bottom">
+				</map>
+				
 			</div>
 			
 			<div class="scene2">
@@ -254,10 +262,17 @@ $(document).ready(function() {
 
 		<div class="wrapper">
 			<div class="scene1">
-				<%= image_tag "section6/top.png", class: "top" %>
-				<%= image_tag "section6/bottom.png", class: "bottom" %>
+				<%= image_tag "section6/top.png", class: "top", usemap: "#s6_top" %>
+				<%= image_tag "section6/bottom.png", class: "bottom", usemap: "#s6_bottom" %>
 				<%= image_tag "section6/left.png", class: "left" %>
 				<%= image_tag "section6/right.png", class: "right" %>
+				
+				<map name="s6_top" id="s6_top">
+					<area shape="rect" coords="0,124,100,218" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s6_top">
+				</map>
+				<map name="s6_bottom" id="s6_bottom">
+					<area shape="rect" coords="276,158,376,252" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s6_bottom">
+				</map>
 			</div>
 			
 			<div class="scene2">
@@ -296,10 +311,18 @@ $(document).ready(function() {
 
 		<div class="wrapper">
 			<div class="scene1">
-				<%= image_tag "section8/top.png", class: "top" %>
-				<%= image_tag "section8/bottom.png", class: "bottom" %>
+				<%= image_tag "section8/top.png", class: "top", usemap: "#s8_top" %>
+				<%= image_tag "section8/bottom.png", class: "bottom", usemap: "#s8_bottom" %>
 				<%= image_tag "section8/left.png", class: "left" %>
 				<%= image_tag "section8/right.png", class: "right" %>
+				
+				<map name="s8_top" id="s8_top">
+					<area shape="rect" coords="0,140,70,210" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s8_top">
+				</map>
+				<map name="s8_bottom" id="s8_bottom">
+					<area shape="rect" coords="280,140,350,210" href="#" onclick="open_artist_popup(this); return false" class="artist_popup" data-source="s8_bottom">
+				</map>
+
 			</div>
 			
 			<div class="scene2">
@@ -370,7 +393,10 @@ $(document).ready(function() {
 		"s2_bottom": { text: "<%= image_path("section2/popup/bottom_text.png") %>", bg: "<%= image_path("section2/popup/bottom_bg.png") %>" },
 		"s4_top": { text: "<%= image_path("section4/popup/top_text.png") %>", bg: "<%= image_path("section4/popup/top_bg.png") %>" },
 		"s4_bottom": { text: "<%= image_path("section4/popup/bottom_text.png") %>", bg: "<%= image_path("section4/popup/bottom_bg.png") %>" },
-
+		"s6_top": { text: "<%= image_path("section6/popup/top_text.png") %>", bg: "<%= image_path("section6/popup/top_bg.png") %>" },
+		"s6_bottom": { text: "<%= image_path("section6/popup/bottom_text.png") %>", bg: "<%= image_path("section6/popup/bottom_bg.png") %>" },
+		"s8_top": { text: "<%= image_path("section8/popup/top_text.png") %>", bg: "<%= image_path("section8/popup/top_bg.png") %>" },
+		"s8_bottom": { text: "<%= image_path("section8/popup/bottom_text.png") %>", bg: "<%= image_path("section8/popup/bottom_bg.png") %>" },
 	}
 	
 	var open_artist_popup = function(e) {

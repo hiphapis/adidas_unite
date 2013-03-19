@@ -434,11 +434,13 @@ body {
 				.top {
 					position: absolute;
 					top: 0;
+					z-index: 1;
 					@include ab_center("left", "section4/top.png");
 				}
 				.bottom {
 					position: absolute;
 					bottom: 0;
+					z-index: 1;
 					@include ab_center("left", "section4/bottom.png");
 				}
 				.left {
@@ -569,7 +571,7 @@ body {
 				.scene2 {
 					overflow: hidden;
 					position: absolute;
-					height: 845px;
+					height: 366px;
 					top: 50%;
 					margin-top: -178px;
 					width: 578px;
@@ -648,11 +650,13 @@ body {
 				.top {
 					position: absolute;
 					top: 0;
+					z-index: 1;
 					@include ab_center("left", "section8/top.png");
 				}
 				.bottom {
 					position: absolute;
 					bottom: 0;
+					z-index: 1;
 					@include ab_center("left", "section8/bottom.png");
 				}
 				.left {
