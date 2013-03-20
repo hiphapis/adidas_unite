@@ -1679,7 +1679,6 @@ function createScrollAnimation() {
 		},
 		{
 			element: '#section9 .scene2',
-			before_no_hide: true,
 			after_no_hide: true,
 			startPoint: "end",
 			duration: "only_element_height",
