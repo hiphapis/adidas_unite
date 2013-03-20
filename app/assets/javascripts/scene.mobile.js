@@ -663,16 +663,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'top_inside',
-					onProgress: function(progress, viewport, element) {
-						if (progress == 0) {}
-						else if (progress <= 0.5) {
-							selectPage("#section2");
-						}
-						else {
-							deselectPage("#section2");
-						}
-					}
+					layout: 'top_inside'
 				},
 				{
 					position: 1,
@@ -711,15 +702,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'bottom_outside',
-					onProgress: function(progress, viewport, element) {
-						if (progress <= 0.5) {
-							deselectPage("#section3");
-						}
-						else {
-							selectPage("#section3");
-						}
-					}
+					layout: 'bottom_outside'
 				},
 				{
 					position: 1,
@@ -1632,7 +1615,16 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'top_inside'
+					layout: 'top_inside',
+					onProgress: function(progress, viewport, element) {
+						if (progress == 0) {}
+						else if (progress <= 0.5) {
+							selectPage("#section2");
+						}
+						else {
+							deselectPage("#section2");
+						}
+					}
 				},
 				{
 					position: 1,
@@ -1653,7 +1645,16 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'bottom_outside'
+					layout: 'bottom_outside',
+					onProgress: function(progress, viewport, element) {
+						if (progress == 0) {}
+						else if (progress <= 0.5) {
+							deselectPage(".header_top");
+						}
+						else {
+							selectPage(".header_top");
+						}
+					}
 				},
 				{
 					position: 1,
