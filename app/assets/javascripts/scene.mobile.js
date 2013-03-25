@@ -1615,7 +1615,16 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'top_inside'
+					layout: 'top_inside',
+					onProgress: function(progress, viewport, element) {
+						if (progress == 0) {}
+						else if (progress <= 0.5) {
+							selectPage("#section2");
+						}
+						else {
+							deselectPage("#section2");
+						}
+					}
 				},
 				{
 					position: 1,
@@ -1636,15 +1645,23 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'bottom_outside'
+					layout: 'bottom_outside',
+					onProgress: function(progress, viewport, element) {
+						if (progress == 0) {}
+						else if (progress <= 0.5) {
+							deselectPage("#section9 .scene2");
+						}
+						else {
+							selectPage("#section9 .scene2");
+						}
+					}
 				},
 				{
 					position: 1,
 					layout: 'top_inside'
 				}
 			]
-		},
-		{
+		},		{
 			element: '#section9 .scene1',
 			before_no_hide: true,
 			startPoint: "end",
@@ -1685,16 +1702,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'top_inside',
-					onProgress: function(progress, viewport, element) {
-						if (progress == 0) {}
-						else if (progress <= 0.5) {
-							selectPage("#section2");
-						}
-						else {
-							deselectPage("#section2");
-						}
-					}
+					layout: 'top_inside'
 				},
 				{
 					position: 1,
@@ -1715,16 +1723,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'bottom_outside',
-					onProgress: function(progress, viewport, element) {
-						if (progress == 0) {}
-						else if (progress <= 0.5) {
-							deselectPage("#section11");
-						}
-						else {
-							selectPage("#section11");
-						}
-					}
+					layout: 'bottom_outside'
 				},
 				{
 					position: 1,
