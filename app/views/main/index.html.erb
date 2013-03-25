@@ -1,6 +1,6 @@
 <% 
 images = []
-(1..10).each do |i|
+(1..11).each do |i|
 	Dir.glob("app/assets/images/section#{i}/scene/*").each do |img| 
 		images << image_path(img.split("/")[3..-1].join("/")) if File.file?(img)
 	end
@@ -366,11 +366,24 @@ $(document).ready(function() {
 				</map>
 			</div>
 		</div>
+	</div>
 
+
+	<div id="section11" class="product">
+		<%= image_tag("section11/bg.jpg", class: "fucking_ie_bg", alt: "") if fucking_ie? %>
 		
+		<div class="wrapper">
+			<%= image_tag "section11/product.png", class: "product", usemap: "#section11_map" %>
+			<map name="section11_map" id="section11_map">
+				<area shape="rect" coords="332,166,406,240" href="http://www.abcmart.co.kr/abc/product/detail?prdtCode=0032345&ctgrId=000100" target="_blank">
+				<area shape="rect" coords="207,290,282,364" href="http://www.abcmart.co.kr/abc/product/detail?prdtCode=0032355" target="_blank">
+				<area shape="rect" coords="456,290,530,364" href="http://www.abcmart.co.kr/abc/product/detail?prdtCode=0032356" target="_blank">
+				<area shape="rect" coords="84,412,158,486" href="http://www.abcmart.co.kr/abc/product/detail?prdtCode=0032343&ctgrId=000100" target="_blank">
+				<area shape="rect" coords="580,412,654,486" href="http://www.abcmart.co.kr/abc/product/detail?prdtCode=0032344" target="_blank">
+			</map>
+		</div>
 
 		<a href="http://alladidas.com/unite" data-target="#intro .copy1" data-target-landing-position="start" data-target-offset="10" class="top">top</a>
-
 	</div>
 
 </div>

@@ -1615,16 +1615,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'top_inside',
-					onProgress: function(progress, viewport, element) {
-						if (progress == 0) {}
-						else if (progress <= 0.5) {
-							selectPage("#section2");
-						}
-						else {
-							deselectPage("#section2");
-						}
-					}
+					layout: 'top_inside'
 				},
 				{
 					position: 1,
@@ -1645,16 +1636,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'bottom_outside',
-					onProgress: function(progress, viewport, element) {
-						if (progress == 0) {}
-						else if (progress <= 0.5) {
-							deselectPage(".header_top");
-						}
-						else {
-							selectPage(".header_top");
-						}
-					}
+					layout: 'bottom_outside'
 				},
 				{
 					position: 1,
@@ -1695,6 +1677,65 @@ function createScrollAnimation() {
 			]
 		},
 		{
+			element: '#section9',
+			before_no_hide: true,
+			startPoint: "end",
+			offset: 400,
+			duration: "viewport_height",
+			keyframes: [
+				{
+					position: 0,
+					layout: 'top_inside',
+					onProgress: function(progress, viewport, element) {
+						if (progress == 0) {}
+						else if (progress <= 0.5) {
+							selectPage("#section2");
+						}
+						else {
+							deselectPage("#section2");
+						}
+					}
+				},
+				{
+					position: 1,
+					layout: 'top_outside'
+				}
+			]
+		},
+
+
+		/////////////////////////////////////////
+		// SECTION 11: all products
+		{
+			element: '#section11',
+			after_no_hide: true,
+			startPoint: "end",
+			offset: "viewport_height",
+			duration: "viewport_height",
+			keyframes: [
+				{
+					position: 0,
+					layout: 'bottom_outside',
+					onProgress: function(progress, viewport, element) {
+						if (progress == 0) {}
+						else if (progress <= 0.5) {
+							deselectPage("#section11");
+						}
+						else {
+							selectPage("#section11");
+						}
+					}
+				},
+				{
+					position: 1,
+					layout: 'top_inside'
+				}
+			]
+		},
+		
+		/////////////////////////////////////////
+		// Ending
+		{
 			element: '.header_top',
 			after_no_hide: true,
 			startPoint: "end",
@@ -1710,6 +1751,7 @@ function createScrollAnimation() {
 				}
 			]
 		}
+		
 	]);
 	
 	ss.start();

@@ -1730,16 +1730,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'top_inside',
-					onProgress: function(progress, viewport, element) {
-						if (progress == 0) {}
-						else if (progress <= 0.5) {
-							selectPage("#section2");
-						}
-						else {
-							deselectPage("#section2");
-						}
-					}
+					layout: 'top_inside'
 				},
 				{
 					position: 1,
@@ -1760,16 +1751,7 @@ function createScrollAnimation() {
 			keyframes: [
 				{
 					position: 0,
-					layout: 'bottom_outside',
-					onProgress: function(progress, viewport, element) {
-						if (progress == 0) {}
-						else if (progress <= 0.5) {
-							deselectPage("#section9 .scene2");
-						}
-						else {
-							selectPage("#section9 .scene2");
-						}
-					}
+					layout: 'bottom_outside'
 				},
 				{
 					position: 1,
@@ -1845,7 +1827,61 @@ function createScrollAnimation() {
 			]
 		},
 		{
-			element: '#section9 .top',
+			element: '#section9',
+			before_no_hide: true,
+			startPoint: "end",
+			offset: 400,
+			duration: "viewport_height",
+			keyframes: [
+				{
+					position: 0,
+					layout: 'top_inside',
+					onProgress: function(progress, viewport, element) {
+						if (progress == 0) {}
+						else if (progress <= 0.5) {
+							selectPage("#section2");
+						}
+						else {
+							deselectPage("#section2");
+						}
+					}
+				},
+				{
+					position: 1,
+					layout: 'top_outside'
+				}
+			]
+		},
+
+		/////////////////////////////////////////
+		// SECTION 11: all products
+		{
+			element: '#section11',
+			after_no_hide: true,
+			startPoint: "end",
+			offset: "viewport_height",
+			duration: "viewport_height",
+			keyframes: [
+				{
+					position: 0,
+					layout: 'bottom_outside',
+					onProgress: function(progress, viewport, element) {
+						if (progress <= 0.5) {
+							deselectPage("#section11");
+						}
+						else {
+							selectPage("#section11");
+						}
+					}
+				},
+				{
+					position: 1,
+					layout: 'top_inside'
+				}
+			]
+		},
+		{
+			element: '#section11 .top',
 			before_no_hide: true,
 			startPoint: "end",
 			duration: "only_element_height",
