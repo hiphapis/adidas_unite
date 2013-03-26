@@ -71,11 +71,12 @@ body {
 				right: 0;
 				@include sprite_replace_text($sprite, "btn_fb");
 			}
-			&.adidas {
-				top: 57px;
+			&.snoop {
+				top: 57 + 106 + 16 + px;
 				left: 0;
-				@include sprite_replace_text($sprite, "logo");
+				@include sprite_replace_text($sprite, "snoop");
 			}
+			
 			&.shop {
 				top: 57px;
 				right: 0;
