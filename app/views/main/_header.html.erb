@@ -11,6 +11,19 @@
 
 	<div class="adidas">adidas</div>
 	<a href="http://shop.adidas.co.kr/PF070202.action?EVENT_ID=1265&_OC_=snoop_brand" target="_blank" class="snoop">스눕독</a>
+	<a href="http://alladidas.com/unite/event" target="_blank" class="event">
+		<%= image_tag "event.png", class: "event" %>
+		<%= image_tag "event_h.gif", class: "event_h", style: "display: none" %>
+	</a>
+	<script type="text/javascript" charset="utf-8">
+		$("a.event").hover(function() {
+			$("img.event").hide();
+			$("img.event_h").show();
+		}, function() {
+			$("img.event").show();
+			$("img.event_h").hide();
+		});
+	</script>
 	
 	<a href="http://shop.adidas.co.kr/PF070102.action?mainId=874&subId=1754" class="shop" target="_blank">shop</a>
 

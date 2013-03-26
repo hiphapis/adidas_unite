@@ -76,7 +76,11 @@ body {
 				left: 0;
 				@include sprite_replace_text($sprite, "snoop");
 			}
-			
+			&.event {
+				top: 57 + 106 + 16 + 218 + 16 + px;
+				left: 0;
+				height: 106px;
+			}
 			&.shop {
 				top: 57px;
 				right: 0;
