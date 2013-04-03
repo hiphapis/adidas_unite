@@ -49,7 +49,55 @@
 	<%= render partial: 'main/mobile/s9' %>
 
 	<%= render partial: 'main/mobile/s11' %>
-</div>	
+</div>
+
+
+<div id="collaboration_popup">
+	<div class="bg"></div>
+
+	<div class="wrapper">
+		<a href="#" class="close">close</a>
+		
+		<div class="content">
+			<div class="s2_colla_content" data-length="4" data-current-position="1">
+				<%= image_tag "mobile/section2/colla_1.png", class: "partial", data: { position: 1 } %>
+				<%= image_tag "mobile/section2/colla_2.png", class: "partial", data: { position: 2 }, style: "display:none" %>
+				<%= image_tag "mobile/section2/colla_3.png", class: "partial", data: { position: 3 }, style: "display:none" %>
+				<div class="partial" data-position="4" style="display:none;background-image: url('<%= image_path("mobile/section2/colla_4.png") %>')">
+					<iframe width="494" height="300" src="http://www.youtube.com/embed/Yk0gjUGt5_k" frameborder="0" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+			<div class="s4_colla_content" data-length="4" data-current-position="1">
+				<%= image_tag "mobile/section4/colla_1.png", class: "partial", data: { position: 1 } %>
+				<%= image_tag "mobile/section4/colla_2.png", class: "partial", data: { position: 2 }, style: "display:none" %>
+				<%= image_tag "mobile/section4/colla_3.png", class: "partial", data: { position: 3 }, style: "display:none" %>
+				<%= image_tag "mobile/section4/colla_4.png", class: "partial", data: { position: 4 }, style: "display:none" %>
+			</div>
+			<div class="s6_colla_content" data-length="4" data-current-position="1">
+				<%= image_tag "mobile/section6/colla_1.png", class: "partial", data: { position: 1 } %>
+				<%= image_tag "mobile/section6/colla_2.png", class: "partial", data: { position: 2 }, style: "display:none" %>
+				<%= image_tag "mobile/section6/colla_3.png", class: "partial", data: { position: 3 }, style: "display:none" %>
+				<%= image_tag "mobile/section6/colla_4.png", class: "partial", data: { position: 4 }, style: "display:none" %>
+			</div>
+			<div class="s8_colla_content" data-length="3" data-current-position="1">
+				<%= image_tag "mobile/section8/colla_1.png", class: "partial", data: { position: 1 } %>
+				<%= image_tag "mobile/section8/colla_2.png", class: "partial", data: { position: 2 }, style: "display:none" %>
+				<div class="partial" data-position="3" style="display:none;background-image: url('<%= image_path("mobile/section8/colla_3.png") %>')">
+					<iframe width="494" height="300" src="http://www.youtube.com/embed/Yk0gjUGt5_k" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		
+		<a href="#" class="prev">prev</a>
+		<a href="#" class="next">next</a>
+		
+		<div class="pagination">
+		</div>
+	</div>
+</div>
+
+
 <%
 imageTable = {
 	section2: {},
@@ -80,4 +128,91 @@ imageTable = {
 		$(".popups").hide();
 		ss.enableWindowScrollEvents(true);
 	})
+	
+	
+	
+
+
+
+	$("a[data-type='colla']").click(function(e) {
+		e.preventDefault();
+		open_colla_popup($(this));
+	});
+
+	var open_colla_popup = function(e) {
+		$("#collaboration_popup .pagination").html("");
+		
+		var section = $(e).attr("data-source");
+		$("#collaboration_popup").removeClass().addClass(section)
+		$("#collaboration_popup .content div").hide();
+		var container = $("#collaboration_popup .content div." + section + "_colla_content");
+		container.find(".partial").hide();
+		container.find(".partial[data-position=1]").show();
+		container.attr("data-current-position", 1);
+		container.show();
+		var length = container.attr("data-length");
+		
+		for (var i=1; i <= length; i++) {
+			var link = $("<a href='#' data-target='" + i + "'>" + i + "</a>");
+			if (i == 1) {
+				link.addClass("selected");
+			}
+			
+			link.click(function(e) {
+				e.preventDefault();
+				moveToContentOnColla($(this));
+			});
+			$("#collaboration_popup .pagination").append(link);
+		}
+		
+		$("#collaboration_popup").fadeIn();
+
+		ss.enableWindowScrollEvents(false);
+	};
+
+	var moveToContentOnColla = function(e) {
+		$("#collaboration_popup .pagination a").removeClass("selected");
+		e.addClass("selected");
+		
+		var section = $("#collaboration_popup").attr("class");
+		var container = $("#collaboration_popup .content div." + section + "_colla_content");
+		var target = e.attr("data-target");
+		
+		container.find(".partial").fadeOut();
+		container.find(".partial[data-position=" + target + "]").fadeIn();
+		container.attr("data-current-position", target);
+	}
+
+	$("#collaboration_popup .bg, #collaboration_popup a.close").click(function(e) {
+		e.preventDefault();
+		$("#collaboration_popup").fadeOut();
+		ss.enableWindowScrollEvents(true);
+	});
+
+	$("#collaboration_popup a.prev, #collaboration_popup a.next").click(function(e) {
+		e.preventDefault();
+
+		var section = $("#collaboration_popup").attr("class");
+		var container = $("#collaboration_popup .content div." + section + "_colla_content");
+		
+		var current = parseInt(container.attr("data-current-position"));
+		var first = 1;
+		var last = container.attr("data-length");
+
+		var target;
+		if ($(this).hasClass("prev")) {
+			target = (current - 1 < first)? last : current - 1;
+		}
+		else {
+			target = (current + 1 > last)? first : current + 1;
+		}
+		container.attr("data-current-position", target);
+
+		container.find(".partial").fadeOut();
+		container.find(".partial[data-position=" + target + "]").fadeIn();
+
+		$("#collaboration_popup .pagination a").removeClass("selected");
+		$("#collaboration_popup .pagination a[data-target='" + target + "']").addClass("selected");
+	});
+	
 </script>

@@ -590,6 +590,15 @@ function createScrollAnimation() {
 									$img.attr("src", image_path);
 								}
 								
+								
+								if (current_scene <= 10) {
+									$("#section2 .wrapper .scene1").show();
+								}
+								else {
+									$("#section2 .wrapper .scene1").hide();
+								}
+								
+								
 								if (current_scene >= 22) {
 									$("#section2 .wrapper .scene2").height(845)
 								}
@@ -1232,6 +1241,13 @@ function createScrollAnimation() {
 								var $img = particle.find("img");
 								if ($img.attr("src") != image_path) {
 									$img.attr("src", image_path);
+								}
+								
+								if (current_scene <= 10) {
+									$("#section6 .wrapper .scene1").show();
+								}
+								else {
+									$("#section6 .wrapper .scene1").hide();
 								}
 							}
 						},
