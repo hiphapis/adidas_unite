@@ -857,15 +857,17 @@ body {
 		
 		.prev {
 			display: block;
+			position: absolute;
 			@include sprite_replace_text_anchor($sprite, "colla_btn_prev");
-			left: 22px;
-			@include ab_center("top", sprite_file($sprite, "colla_btn_prev"));
+			top: 199px;
+			left: 0;
 		}
 		.next {
 			display: block;
+			position: absolute;
 			@include sprite_replace_text_anchor($sprite, "colla_btn_next");
-			left: 580px;
-			@include ab_center("top", sprite_file($sprite, "colla_btn_next"));
+			top: 199px;
+			left: 576px;
 		}
 		
 		.content {
