@@ -950,7 +950,7 @@ body {
 		position: absolute;
 		
 		@include close_button;
-		.close { text-indent: -10000em; }
+		.close { text-indent: -10000em; z-index:10; }
 		
 		.prev {
 			display: block;
@@ -980,15 +980,15 @@ body {
 				position: absolute;
 			}
 			iframe {
-				top: 66px;
-				left: 80px;
+				top: 192px;
+				left: 52px;
 			}
 		}
 		.pagination {
 			position: absolute;
 			left: 50%;
 			margin-left: -44px;
-			bottom: 20px;
+			bottom: 66px;
 			a {
 				display: block;
 				@include sprite_replace_text_anchor($sprite, "colla_pagination");
