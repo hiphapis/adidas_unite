@@ -768,6 +768,21 @@ body {
 				width: image-width("section11/product.png");
 				height: image-height("section11/product.png");
 			}
+		}
+
+		#section12 {
+			display: none;
+			@include animation_particle;
+			@include cover_bg("section12/bg.jpg");
+			width: 100%;
+			height: 100%;
+			
+			.wrapper {
+				@include ab_center("top", "section12/product.png");
+				@include ab_center("left", "section12/product.png");
+				width: image-width("section12/product.png");
+				height: image-height("section12/product.png");
+			}
 			
 			a.top {
 				@include sprite_replace_text($sprite, "btn_top");
@@ -777,6 +792,7 @@ body {
 				z-index: 120;
 			}
 		}
+
 	}
 }
 

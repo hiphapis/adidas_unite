@@ -1747,6 +1747,44 @@ function createScrollAnimation() {
 				}
 			]
 		},
+		{
+			element: '#section11',
+			before_no_hide: true,
+			startPoint: "end",
+			offset: 800,
+			duration: "viewport_height",
+			keyframes: [
+				{
+					position: 0,
+					layout: 'top_inside'
+				},
+				{
+					position: 1,
+					layout: 'top_outside'
+				}
+			]
+		},
+
+		
+		/////////////////////////////////////////
+		// SECTION 12: zx products
+		{
+			element: '#section12',
+			after_no_hide: true,
+			startPoint: "end",
+			offset: "viewport_height",
+			duration: "viewport_height",
+			keyframes: [
+				{
+					position: 0,
+					layout: 'bottom_outside'
+				},
+				{
+					position: 1,
+					layout: 'top_inside'
+				}
+			]
+		},
 		
 		/////////////////////////////////////////
 		// Ending
